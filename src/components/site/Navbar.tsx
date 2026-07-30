@@ -5,9 +5,8 @@ import Logo from "./Logo";
 
 const links = [
   { label: "About Us", href: "/about" },
-  { label: "Packages", href: "/#packages" },
+  { label: "Packages", href: "/packages" },
   { label: "Reviews", href: "/#testimonials" },
-  // { label: "Contact Us", href: "/contact" },
 ];
 
 const Navbar = () => {

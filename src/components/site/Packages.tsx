@@ -5,24 +5,49 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-const Packages = () => {
-  return (
-    <section id="packages" aria-label="Popular packages" className="bg-background section-pad">
-      <div className="container-px">
-        {/* Popular Packages Preview Section */}
-        <Reveal className="mx-auto max-w-2xl text-center mb-12">
-          <h2 className="text-4xl font-semibold leading-[1.05] text-foreground md:text-5xl lg:text-[56px]">
-            Popular <span className="italic-display text-primary">packages</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-md text-[15px] font-light leading-relaxed text-muted-foreground">
-            Handpicked travel experiences designed to give you the best of every destination—at the best value.
-          </p>
-        </Reveal>
+interface PackagesProps {
+  bgImage?: string;
+}
 
-          <Tabs defaultValue="uttarakhand" className="w-full">
+const Packages = ({ bgImage }: PackagesProps = {}) => {
+  return (
+    <>
+      {bgImage && (
+        <section 
+          className="relative w-full pt-32 pb-20 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
+          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="container-px relative z-10">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <h2 className="text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-[56px] text-white">
+                Popular <span className="italic-display text-primary">packages</span>
+              </h2>
+              <p className="mx-auto mt-5 max-w-md text-[15px] font-light leading-relaxed text-white/80">
+                Handpicked travel experiences designed to give you the best of every destination—at the best value.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      <section id="packages" aria-label="Popular packages" className={`bg-background ${bgImage ? 'pt-16 pb-24' : 'section-pad'}`}>
+        <div className="container-px">
+          {!bgImage && (
+            <Reveal className="mx-auto max-w-2xl text-center mb-12">
+              <h2 className="text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-[56px] text-foreground">
+                Popular <span className="italic-display text-primary">packages</span>
+              </h2>
+              <p className="mx-auto mt-5 max-w-md text-[15px] font-light leading-relaxed text-muted-foreground">
+                Handpicked travel experiences designed to give you the best of every destination—at the best value.
+              </p>
+            </Reveal>
+          )}
+
+          <Tabs defaultValue="kerala" className="w-full">
           <Reveal delay={0.2} className="flex justify-center mb-10">
             <TabsList className="bg-brand-cream/50 p-1 h-auto flex-wrap justify-center border border-border/50">
-              {categories.filter(cat => cat.id !== "kerala").map((cat) => (
+              {categories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
@@ -34,7 +59,7 @@ const Packages = () => {
             </TabsList>
           </Reveal>
 
-          {categories.filter(cat => cat.id !== "kerala").map((cat) => (
+          {categories.map((cat) => (
             <TabsContent key={cat.id} value={cat.id} className="mt-0 outline-none">
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {packages
@@ -59,6 +84,7 @@ const Packages = () => {
         </Tabs>
       </div>
     </section>
+    </>
   );
 };
 
