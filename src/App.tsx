@@ -18,6 +18,10 @@ const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
 const ContactUs = lazy(() => import("./pages/ContactUs.tsx"));
 const AboutUs = lazy(() => import("./pages/AboutUs.tsx"));
 
+const CharDham = lazy(() => import("./pages/CharDham.tsx"));
+const Nepal = lazy(() => import("./pages/Nepal.tsx"));
+const PackagesMain = lazy(() => import("./pages/PackagesMain.tsx"));
+
 // Loading fallback component
 const PageLoading = () => (
   <div className="flex h-screen w-full items-center justify-center bg-background">
@@ -41,6 +45,9 @@ const App = () => (
               <Route path="/uttarakhand" element={<Uttarakhand />} />
               <Route path="/north-india" element={<NorthIndia />} />
               <Route path="/kerala" element={<Kerala />} />
+              <Route path="/chardham" element={<CharDham />} />
+              <Route path="/nepal" element={<Nepal />} />
+              <Route path="/packages" element={<PackagesMain />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="/thank-you" element={<ThankYou />} />
