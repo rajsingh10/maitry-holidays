@@ -22,11 +22,11 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" aria-label="What our clients say" className="bg-brand-cream section-pad overflow-hidden">
+    <section id="testimonials" aria-label="What our clients say" className="bg-white section-pad overflow-hidden">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-
-          <h2 className="mt-6 text-4xl font-semibold leading-[1.05] text-foreground md:text-5xl lg:text-[56px]">
+          <p className="text-[13px] font-light uppercase tracking-widest text-primary mb-3">Testimonials</p>
+          <h2 className="text-4xl font-semibold leading-[1.05] text-foreground md:text-5xl lg:text-[56px]">
             What our <span className="italic-display text-primary">clients say</span>
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-[16px] font-light leading-relaxed text-muted-foreground">
@@ -34,47 +34,53 @@ const Testimonials = () => {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8 max-w-7xl mx-auto">
+        <div className="mt-24 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-6 lg:gap-8 max-w-7xl mx-auto pb-16">
           {reviews.map((r, i) => (
             <Reveal
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="h-full"
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className={`h-full ${i === 1 ? "md:translate-y-12" : ""}`}
             >
-              <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-white p-8 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-md border border-border/40">
-                {/* Background decorative quote */}
-                <Quote className="absolute -right-4 -top-4 h-32 w-32 -rotate-12 text-primary/5 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110" aria-hidden="true" />
+              <div className="group relative flex h-full flex-col rounded-[2rem] bg-white px-8 pb-10 pt-10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] border border-brand-darker/5">
+                
+                {/* Header: Avatar + Name + Location */}
+                <div className="relative z-10 flex items-center gap-5 mb-8">
+                  <div className="relative shrink-0 -mt-16">
+                    <div className="absolute inset-0 rounded-full bg-primary/20 blur-md transition-all duration-300 group-hover:bg-primary/40 group-hover:scale-110"></div>
+                    <img
+                      src={r.avatar}
+                      alt={r.name}
+                      loading="lazy"
+                      width={80}
+                      height={80}
+                      className="relative h-20 w-20 rounded-full object-cover ring-4 ring-white shadow-lg"
+                    />
+                    {/* Tiny quote badge */}
+                    <div className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shadow-md">
+                      <Quote className="h-4 w-4 fill-white" />
+                    </div>
+                  </div>
+                  <div className="pt-2">
+                    <div className="text-[17px] font-semibold text-foreground tracking-tight">{r.name}</div>
+                    <div className="text-[14px] text-primary font-medium mt-0.5">{r.location}</div>
+                  </div>
+                </div>
 
-                <div className="relative z-10">
+                {/* Quote Content */}
+                <div className="relative z-10 flex-grow">
                   <div className="mb-6 flex gap-1">
                     {[0, 1, 2, 3, 4].map((star) => (
                       <Star key={star} className="h-4 w-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <blockquote className="text-[16px] font-light leading-relaxed text-foreground md:text-[17px]">
-                    "{r.quote}"
+                  <blockquote className="text-[17px] font-light leading-relaxed text-foreground md:text-[18px] italic relative">
+                    <span className="text-4xl text-primary/20 absolute -top-4 -left-3 font-serif">"</span>
+                    {r.quote}
+                    <span className="text-4xl text-primary/20 absolute -bottom-6 -right-2 font-serif">"</span>
                   </blockquote>
-                </div>
-
-                <div className="relative z-10 mt-8 flex items-center gap-4 border-t border-border/50 pt-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-full bg-primary/20 blur-[6px] transition-all duration-300 group-hover:bg-primary/40"></div>
-                    <img
-                      src={r.avatar}
-                      alt={r.name}
-                      loading="lazy"
-                      width={48}
-                      height={48}
-                      className="relative h-12 w-12 rounded-full object-cover ring-2 ring-white"
-                    />
-                  </div>
-                  <div>
-                    <div className="text-[15px] font-semibold text-foreground">{r.name}</div>
-                    <div className="text-[13px] text-muted-foreground">{r.location}</div>
-                  </div>
                 </div>
               </div>
             </Reveal>

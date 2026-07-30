@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Instagram, Facebook, Twitter, Youtube, Send, ArrowRight } from "lucide-react";
+import { Instagram, Facebook, Twitter, Youtube, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/lib/motion";
@@ -17,7 +17,7 @@ const Footer = () => {
 
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_BASE_URL || "https://indiatripholiday.com/services/api";
+      const apiUrl = import.meta.env.VITE_API_BASE_URL || "https://maitryholidays.com/services/api";
       const response = await axios.post(`${apiUrl}/subscribe`, { email });
 
       if (response.status === 200 || response.status === 201) {
@@ -34,11 +34,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1c0600] text-white">
-      {/* Newsletter / CTA Section */}
+    <footer className="bg-brand-darker text-white">
+      {/* Newsletter Section */}
       <section
         aria-label="Newsletter"
-        className="relative isolate overflow-hidden border-b border-white/5"
+        className="relative isolate overflow-hidden border-b border-white/10"
       >
         <img
           src={bgImg}
@@ -46,115 +46,132 @@ const Footer = () => {
           aria-hidden
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 -z-20 h-full w-full object-cover grayscale-[0.3]"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1c0600]/95 via-[#1c0600]/80 to-transparent" />
-        <div className="absolute inset-0 -z-10 bg-[#1c0600]/40" />
+        {/* Dark overlay to make text readable while keeping image visible */}
+        <div className="absolute inset-0 -z-10 bg-black/30 bg-gradient-to-t from-brand-darker to-transparent" />
 
-        <div className="container-px py-16 md:py-20">
-          <Reveal className="grid items-center gap-8 lg:grid-cols-2">
-            <div className="max-w-2xl text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-1 text-primary mb-6">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <span key={i} className="text-lg">★</span>
-                ))}
-                <span className="ml-2 text-[13px] font-light text-white/70">4.6 Rate by 1,24,000+ Reviews</span>
-              </div>
-              <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-[45px]">
-                Travel smarter with
-                <br />
-                Maitry Holidays.
-              </h2>
-              <p className="mt-8 text-[16px] font-light leading-relaxed text-white/70 max-w-md mx-auto lg:mx-0">
-                Join our community of travelers and receive handpicked packages, discounts, and inspiration every week.
-              </p>
-            </div>
+        <div className="container-px py-16 md:py-24">
+          <Reveal className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            <h2 className="text-3xl font-bold leading-tight text-white md:text-5xl lg:text-[54px] mb-6">
+              Travel smarter with <span className="text-primary italic-display font-normal">Maitry</span>
+            </h2>
+            <p className="text-[16px] md:text-[18px] font-light leading-relaxed text-white/70 max-w-2xl mb-10">
+              Join our community of travelers and receive handpicked packages, discounts, and inspiration delivered straight to your inbox.
+            </p>
 
-            <div className="w-full max-w-lg mx-auto lg:ml-auto text-center lg:text-left">
-              <h3 className="mb-6 text-2xl font-medium text-white">Stay up to date</h3>
-              <form onSubmit={subscribe} className="flex w-full flex-col gap-4 sm:flex-row">
+            <div className="w-full max-w-xl">
+              <form onSubmit={subscribe} className="relative flex w-full items-center">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email ID"
-                  className="w-full rounded-full border border-white/10 bg-white px-7 py-4 text-[15px] text-brand-darker placeholder:text-brand-darker/40 focus:outline-none"
+                  placeholder="Enter your email address"
+                  className="w-full rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-6 py-4 pr-36 text-[16px] text-white placeholder:text-white/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-primary whitespace-nowrap px-8 py-4 text-[15px] shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="absolute right-1 top-1 bottom-1 flex items-center justify-center rounded-full bg-primary px-6 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100"
                 >
-                  {loading ? "Subscribing..." : "Subscribe Free"}
-                  {!loading && <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />}
+                  {loading ? "Wait..." : "Subscribe"}
+                  {!loading && <ArrowRight className="ml-2 h-4 w-4" />}
                 </button>
               </form>
-              <div className="mt-6 flex items-center justify-center lg:justify-start gap-3 text-[14px] font-light text-white/80">
-                <span className="h-5 w-5 flex items-center justify-center rounded-full border border-white/30 text-[10px]">○</span>
-                <span>By subscribing you agree to our <Link to="/privacy-policy" className="underline hover:text-primary transition-colors">Privacy Policy</Link></span>
+              <div className="mt-4 flex items-center justify-center gap-2 text-[13px] font-light text-white/60">
+                <span>By subscribing, you agree to our</span>
+                <Link to="/privacy-policy" className="text-white underline hover:text-primary transition-colors">Privacy Policy</Link>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/5 bg-[#0b0200] py-8 pb-2">
+      {/* Main Footer Links */}
+      <div className="bg-brand-darker py-16">
         <div className="container-px">
-          <div className="flex flex-col gap-8">
-            {/* Logo, Links, Brand & Office Info */}
-            <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-4 border-b border-white/5 pb-10 items-start text-center md:text-left">
-              {/* Column 1: Logo */}
-              <div className="flex justify-center md:justify-start">
-                <Logo className="h-28 md:h-32 w-auto opacity-100 transition-opacity hover:opacity-90" variant="light" />
-              </div>
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
 
-              {/* Column 2: Brand & Links */}
-              <div>
-                <div className="flex flex-col gap-3 items-center md:items-start mb-2">
-                  <a className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                    Contact Us
-                  </a>
-                </div>
-                <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.2em] text-white">
-                  Maitry Holidays
-                  <span className="block mt-1 text-[10px] font-light normal-case text-white tracking-normal">(A Unit of Shrishti Trip)</span>
-                </p>
-
-
-
-                <p className="text-[13px] font-light leading-relaxed text-white">
-                  Ground Floor, JJ Camp 01, Veer Singh Marg, Shiv Mandir, New Delhi - 110001
-                </p>
-              </div>
-
-              {/* Column 3: Disclaimer & Legal */}
-              <div className="lg:col-span-2">
-                <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                  Disclaimer
-                </p>
-                <p className="text-[12px] font-light leading-relaxed text-white mb-6">
-                  Maitry Holidays is committed to providing the best travel experiences. Tour prices, itineraries, and package details may change based on availability and seasonal factors.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
-                  <Link to="/privacy-policy" className="text-[13px] font-light text-white hover:text-primary transition-colors whitespace-nowrap">
-                    Privacy Policy
-                  </Link>
-                  <Link to="/terms-conditions" className="text-[13px] font-light text-white hover:text-primary transition-colors whitespace-nowrap">
-                    Terms & Conditions
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Part: Copyright */}
-            <div className="text-center mb-4">
-              <p className="text-[13px] font-light tracking-wide text-white">
-                © 2026 <span className=" font-medium text-primary uppercase tracking-widest">Maitry Holidays</span>. All Rights Reserved.
+            {/* Column 1: Brand & Social (Spans 4 cols) */}
+            <div className="lg:col-span-4 flex flex-col items-start">
+              <Logo className="h-24 md:h-32 w-auto -mt-6 opacity-100" variant="light" />
+              <p className="text-[14px] font-light leading-relaxed text-white/70 mb-8 max-w-sm">
+                Maitry Holidays (A Unit of Shrishti Trip) is committed to providing the best travel experiences. We curate unforgettable journeys across India and beyond.
               </p>
+
+              {/* <div className="flex items-center gap-4">
+                <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:border-primary transition-all group">
+                  <Instagram className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:border-primary transition-all group">
+                  <Facebook className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:border-primary transition-all group">
+                  <Twitter className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+                <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-primary hover:border-primary transition-all group">
+                  <Youtube className="h-4 w-4 transition-transform group-hover:scale-110" />
+                </a>
+              </div> */}
             </div>
+
+            {/* Column 2: Quick Links (Spans 2 cols) */}
+            <div className="lg:col-span-2">
+              <h3 className="mb-6 text-[13px] font-semibold uppercase tracking-widest text-primary">
+                Quick Links
+              </h3>
+              <ul className="flex flex-col gap-4">
+                <li><Link to="/" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">Home</Link></li>
+                <li><Link to="/packages" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">Popular Packages</Link></li>
+                <li><Link to="/about" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">About Us</Link></li>
+                <li><Link to="/contact" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Legal & Support (Spans 2 cols) */}
+            <div className="lg:col-span-2">
+              <h3 className="mb-6 text-[13px] font-semibold uppercase tracking-widest text-primary">
+                Legal
+              </h3>
+              <ul className="flex flex-col gap-4">
+                <li><Link to="/privacy-policy" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms-conditions" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">Terms & Conditions</Link></li>
+                <li><Link to="/contact" className="text-[14px] font-light text-white/80 hover:text-white transition-colors">Help & Support</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Contact Info (Spans 4 cols) */}
+            <div className="lg:col-span-4">
+              <h3 className="mb-6 text-[13px] font-semibold uppercase tracking-widest text-primary">
+                Get In Touch
+              </h3>
+              <ul className="flex flex-col gap-5">
+                <li className="flex items-start gap-3 text-[14px] font-light text-white/80 leading-relaxed">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-white/50" />
+                  <span>Ground Floor, JJ Camp 01, Veer Singh Marg, Shiv Mandir, New Delhi - 110001</span>
+                </li>
+                <li className="flex items-center gap-3 text-[14px] font-light text-white/80">
+                  <Phone className="h-4 w-4 shrink-0 text-white/50" />
+                  <a href="tel:+917041260720" className="hover:text-white transition-colors">+91-7041260720</a>
+                </li>
+                <li className="flex items-center gap-3 text-[14px] font-light text-white/80">
+                  <Mail className="h-4 w-4 shrink-0 text-white/50" />
+                  <a href="mailto:maitry.holidays13@gmail.com" className="hover:text-white transition-colors">maitry.holidays13@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+
           </div>
+        </div>
+      </div>
+
+      {/* Copyright Bar */}
+      <div className="border-t border-white/10 bg-brand-darker py-6">
+        <div className="container-px text-center">
+          <p className="text-[13px] font-light text-white/50">
+            © {new Date().getFullYear()} <span className="font-medium text-white">Maitry Holidays</span>. All Rights Reserved.
+          </p>
         </div>
       </div>
 

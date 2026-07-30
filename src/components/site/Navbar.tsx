@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Packages", href: "/packages" },
   { label: "Reviews", href: "/#testimonials" },
@@ -80,7 +81,7 @@ const Navbar = () => {
               <li key={l.href}>
                 <span
                   onClick={() => handleNavigate(l.href)}
-                  className="relative text-[16px] font-medium text-white/90 cursor-pointer transition-colors hover:text-white group"
+                  className="relative text-[18px] font-medium text-white/90 cursor-pointer transition-colors hover:text-white group"
                 >
                   {l.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -90,7 +91,7 @@ const Navbar = () => {
           </ul>
 
           <div className="hidden lg:block">
-            <GetQuoteButton className="rounded-full bg-primary px-7 py-2.5 text-[15px] font-semibold text-primary-foreground transition-all duration-300 hover:bg-orange-500 hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5" />
+            <GetQuoteButton className="rounded-full bg-primary px-7 py-2.5 text-[16px] font-semibold text-primary-foreground transition-all duration-300 hover:bg-orange-500 hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5" />
           </div>
 
           <button

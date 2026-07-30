@@ -4,7 +4,7 @@ import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
 import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
-import heroBg from "@/assets/images/banner5.jpg";
+import heroBg from "@/assets/images/nepal_banner_bg.png";
 import aboutImg1 from "@/assets/images/about_img1.jpg";
 import aboutImg2 from "@/assets/images/about_img2.jpg";
 import {

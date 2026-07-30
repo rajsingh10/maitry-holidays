@@ -3,6 +3,8 @@ import aboutImg1 from "@/assets/images/photo-1735050080783-7b3a661fb7cf.avif";
 import aboutImg2 from "@/assets/images/premium_photo-1697730303782-6679b6bec202.avif";
 import aboutImg3 from "@/assets/images/68d58498ee57cd6f993e94c3_about-image3.webp";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
+import { useEffect, useRef } from "react";
+import { useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const stats = [
   { value: "12k+", label: "Happy travelers" },
@@ -10,6 +12,30 @@ const stats = [
   { value: "5k+", label: "Tours organized" },
   { value: "8k+", label: "Hotel stays" },
 ];
+
+function Counter({ value }: { value: string }) {
+  const numMatch = value.match(/\d+/);
+  const num = numMatch ? parseInt(numMatch[0]) : 0;
+  const suffix = value.replace(/[0-9]/g, '');
+  
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 60,
+  });
+  const display = useTransform(springValue, (current) => Math.round(current) + suffix);
+  
+  useEffect(() => {
+    if (inView) {
+      motionValue.set(num);
+    }
+  }, [inView, motionValue, num]);
+
+  return <motion.span ref={ref}>{display}</motion.span>;
+}
 
 const About = () => (
   <section aria-label="Discover the world with us" className="bg-background pt-20 md:pt-28 overflow-hidden" id="about">
@@ -120,8 +146,8 @@ const About = () => (
               className="text-center flex flex-col items-center justify-center"
             >
               <div className="group">
-                <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {s.value}
+                <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                  <Counter value={s.value} />
                 </h3>
                 <p className="text-foreground font-semibold uppercase tracking-wider text-sm md:text-base">
                   {s.label}

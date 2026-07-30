@@ -1,9 +1,12 @@
-import { Check, ArrowRight, Hotel, Utensils, Car, Camera, User, Phone } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Check, ArrowRight, Hotel, Utensils, Car, Camera, User, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface PackageProps {
   pkg: {
     img: string;
+    images?: string[];
     title: string;
     duration: string;
     price: string;
@@ -19,6 +22,29 @@ interface PackageProps {
 }
 
 const PackageCard = ({ pkg, idx }: PackageProps) => {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const images = pkg.images && pkg.images.length > 0 ? pkg.images : [pkg.img];
+
+  useEffect(() => {
+    if (images.length > 1) {
+      const timer = setInterval(() => {
+        setCurrentIdx((prev) => (prev + 1) % images.length);
+      }, 3000); // Auto slide every 3 seconds
+      return () => clearInterval(timer);
+    }
+  }, [images.length]);
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentIdx((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentIdx((prev) => (prev - 1 + images.length) % images.length);
+  };
   return (
     <motion.article
       key={pkg.title}
@@ -29,17 +55,24 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
       className="group flex flex-col h-full overflow-hidden rounded-[32px] border border-border bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
     >
       {/* Image Container with Badges */}
-      <div className="relative aspect-[16/11] overflow-hidden">
-        <img 
-          src={pkg.img} 
-          alt={`${pkg.title} package`} 
-          loading="lazy" 
-          width={600} 
-          height={412} 
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
-        />
-        
+      <div className="relative aspect-[16/11] overflow-hidden group/slider">
+        <AnimatePresence initial={false}>
+          <motion.img 
+            key={currentIdx}
+            src={images[currentIdx]} 
+            alt={`${pkg.title} package`} 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            loading="lazy" 
+            width={600} 
+            height={412} 
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+          />
+        </AnimatePresence>
+
         {/* Bottom Gradient for Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
@@ -116,10 +149,10 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="#contact" className="btn-primary group flex-1 rounded-2xl py-3.5 text-[15px] font-semibold text-center shadow-[var(--shadow-orange)] transition-transform hover:-translate-y-0.5">
+            <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-2xl py-3.5 text-[15px] font-semibold text-center shadow-[var(--shadow-orange)] transition-transform hover:-translate-y-0.5">
               Get Free Quote
               <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Link>
             <a href="tel:+917041260720" className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-2xl bg-brand-cream/80 text-primary transition-colors hover:bg-primary hover:text-white border border-border" aria-label="Call Us">
               <Phone className="h-5 w-5" strokeWidth={2.5} />
             </a>

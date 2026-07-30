@@ -14,7 +14,7 @@ const Packages = ({ bgImage }: PackagesProps = {}) => {
     <>
       {bgImage && (
         <section 
-          className="relative w-full pt-32 pb-20 bg-cover bg-center bg-fixed"
+          className="relative w-full flex flex-col items-center justify-center overflow-hidden py-24 md:py-32 min-h-[400px] md:min-h-[500px] bg-cover bg-center bg-fixed"
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="absolute inset-0 bg-black/60"></div>

@@ -8,7 +8,7 @@ import { Reveal } from "@/lib/motion";
 
 const Packages = lazy(() => import("@/components/site/Packages"));
 const Contact = lazy(() => import("@/components/site/Contact"));
-import heroImg from "@/assets/images/INDIA.jpg";
+import heroImg from "@/assets/images/kerala_banner_bg.png";
 
 const PackagesMain = () => {
   useEffect(() => {

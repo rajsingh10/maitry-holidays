@@ -4,7 +4,7 @@ import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
 import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
-import heroBg from "@/assets/images/banner6.jpg";
+import heroBg from "@/assets/images/chardham_banner_bg.png";
 import {
     MapPin,
     Mail,
@@ -29,7 +29,7 @@ const ContactUs = () => {
 
             <main>
                 {/* Hero Section */}
-                <section className="relative isolate flex flex-col items-center justify-center overflow-hidden pt-32 pb-20">
+                <section className="relative isolate flex flex-col items-center justify-center overflow-hidden py-24 md:py-32 min-h-[400px] md:min-h-[500px]">
                     <div className="absolute inset-0 -z-20 h-full w-full bg-brand-darker">
                         <img
                             src={heroBg}

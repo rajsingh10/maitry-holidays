@@ -1,47 +1,23 @@
-import { useState, type FormEvent } from "react";
-import { toast } from "sonner";
-import { Mail, Phone, MapPin, Clock, Instagram, Facebook, ArrowRight, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Reveal } from "@/lib/motion";
-import api from "@/lib/api";
-import { Link } from "react-router-dom";
 import FAQ from "./FAQ";
+import mapBg from "@/assets/images/contact-map-bg.png";
 
 const Contact = () => {
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string[]>>({});
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      setErrors({});
-      // The user will add the specific endpoint path here later
-      await api.post("/store-enquiries", data);
-
-      toast.success("Thanks — we've received your request!", {
-        description: "A travel expert will contact you within 24 hours.",
-      });
-      (e.target as HTMLFormElement).reset();
-    } catch (error: any) {
-      console.error("Form submission error:", error);
-      if (error.response?.data?.errors) {
-        setErrors(error.response.data.errors);
-      }
-      toast.error(error.response?.data?.message || "Something went wrong", {
-        description: "Please try again later or call us directly.",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <section id="contact-section" aria-label="Contact" className="bg-brand-cream ">
-      <div className="container-px ">
+    <section id="contact-section" aria-label="Contact" className="bg-slate-50 section-pad relative overflow-hidden">
+      {/* Full UI Background Image */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30 mix-blend-multiply" 
+        style={{ 
+          backgroundImage: `url(${mapBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+
+      <div className="container-px relative z-10">
         {/* Header */}
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-[13px] font-light uppercase tracking-widest text-primary">Get in Touch</p>
@@ -57,7 +33,8 @@ const Contact = () => {
 
         <div className="mt-10 md:mt-16 grid items-start gap-12 lg:grid-cols-2 lg:gap-20 pb-20">
           {/* Left Side: Contact Info */}
-          <Reveal delay={0.1} className="hidden lg:block">
+          {/* Fixed the bug here: removed 'hidden lg:block' so it shows on mobile */}
+          <Reveal delay={0.1} className="w-full">
             <div className="space-y-8 md:space-y-10 ">
               <div>
                 <h3 className="text-2xl font-semibold text-foreground">Contact Information</h3>
@@ -66,11 +43,10 @@ const Contact = () => {
 
               <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-1">
                 {[
-                  { icon: Mail, label: "Email us", value: "maitry.holidays13@gamil .Com", sub: "Response within 24h" },
-                  { icon: Phone, label: "Call us", value: "+91-7041260720 ", sub: "Mon-Fri 9am - 6pm" },
+                  { icon: Mail, label: "Email us", value: "maitry.holidays13@gmail.com", sub: "Response within 24h" },
+                  { icon: Phone, label: "Call us", value: "+91-7041260720", sub: "Mon-Fri 9am - 6pm" },
                   {
-                    icon: MapPin, label: "Visit us", value: `F-39, signet mall, kamrej char rasta,  surat ,Gujarat 
-Zip code: 394185`, sub: "By appointment only"
+                    icon: MapPin, label: "Visit us", value: "F-39, signet mall, kamrej char rasta, surat, Gujarat \nZip code: 394185", sub: "By appointment only"
                   },
                   { icon: Clock, label: "Business Hours", value: "24/7 Concierge", sub: "For active travelers" },
                 ].map((item, i) => (
@@ -85,34 +61,13 @@ Zip code: 394185`, sub: "By appointment only"
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-[15px] font-semibold text-foreground">{item.value}</p>
+                        <p className="text-[15px] font-semibold text-foreground whitespace-pre-line">{item.value}</p>
                       )}
                       <p className="text-[13px] text-muted-foreground/80">{item.sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* <div className="pt-4">
-                <p className="text-[13px] font-medium text-muted-foreground uppercase tracking-tight">Follow our journey</p>
-                <div className="mt-3 flex gap-4">
-                  {[
-                    { Icon: Instagram, href: "https://www.instagram.com/shrishti_trip/" },
-                    { Icon: Facebook, href: "https://www.facebook.com/shrishtitrip.in/" },
-                    { Icon: MessageCircle, href: "https://wa.me/917041260720" }
-                  ].map(({ Icon, href }, i) => (
-                    <a
-                      key={i}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground/10 bg-primary transition-all hover:bg-primary hover:text-white"
-                    >
-                      <Icon className="h-4 w-4 text-white" />
-                    </a>
-                  ))}
-                </div>
-              </div> */}
             </div>
           </Reveal>
 
