@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Escapora Design System — pixel match to Webflow template
+   Brand: Orange #F97316, dark navy backgrounds, Poppins sans-serif.
+   All colors in HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 26% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 26% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 26% 14%;
+
+    /* Brand orange #F97316 */
+    --primary: 21 94% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 40% 96%;
+    --secondary-foreground: 220 26% 14%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 21 94% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 21 94% 53%;
+
+    --radius: 1rem;
+
+    /* Brand specific */
+    --brand-orange: 21 94% 53%;
+    --brand-orange-soft: 21 94% 60%;
+    --brand-cream: 30 38% 96%;
+    /* #faf3ee — section soft bg */
+    --brand-dark: 230 35% 14%;
+    --brand-darker: 230 28% 11%;
+    /* #14152a-ish dark navy */
+    --brand-brown: 13 100% 6%;
+    /* #1c0600 — deep brown requested by user */
+    --brand-text: 220 26% 14%;
+    --brand-muted: 220 9% 46%;
+
+    /* Gradients & shadows */
+    --gradient-card: linear-gradient(180deg, transparent 30%, hsl(var(--brand-darker) / 0.85) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(21 94% 53%), hsl(15 90% 55%));
+    --shadow-card: 0 24px 60px -24px hsl(220 30% 20% / 0.18);
+    --shadow-soft: 0 4px 20px -6px hsl(220 30% 20% / 0.10);
+    --shadow-orange: 0 14px 36px -14px hsl(var(--brand-orange) / 0.55);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 230 28% 11%;
+    --foreground: 0 0% 98%;
+    --card: 230 28% 13%;
+    --card-foreground: 0 0% 98%;
+    --popover: 230 28% 13%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 21 94% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 230 20% 18%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 21 94% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 230 20% 22%;
+    --input: 230 20% 22%;
+    --ring: 21 94% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    @apply tracking-[-0.02em];
+    font-weight: 600;
+  }
+
+  /* Italic display weight for accented words */
+  .italic-display {
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-[15px] font-medium text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-orange)] hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-white/70 bg-transparent px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-300 hover:bg-white hover:text-foreground;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-[15px] font-medium text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-full bg-white text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .container-px {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-14 md:py-16;
+  }
+
+  /* Field underline style used in contact form */
+  .field-underline {
+    @apply w-full border-0 border-b border-border bg-transparent px-0 py-3 text-[15px] text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-0;
+  }
+}
+
+/* Custom keyframes for the marquee/slow zoom on hero */
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 18s ease-out forwards;
+}
+
+/* Dotted divider used between dark sections */
+.divider-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+}
