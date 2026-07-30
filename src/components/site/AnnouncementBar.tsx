@@ -4,11 +4,11 @@ const AnnouncementBar = () => (
     <div className="container-px flex h-10 items-center justify-between gap-2 text-[12px] font-medium tracking-wide sm:text-[13px]">
       <div className="flex items-center gap-2">
         <PhoneCall className="h-4 w-4" />
-        <span>+91-7042426335, +91-8920909501</span>
+        <span>+91-7041260720</span>
       </div>
       <div className="flex items-center gap-2">
         <Mail className="h-4 w-4" />
-        <span>info@shrishtitrip.com</span>
+        <span>maitry.holidays13@gamil .Com</span>
       </div>
     </div>
 

@@ -9,15 +9,15 @@ import { PhoneCall } from "lucide-react";
 
 const faqs = [
   {
-    question: "What destinations does Shrishti Trip (India Trip Holiday) offer? ",
+    question: "What destinations does Maitry Holidays offer? ",
     answer: "We offer a wide range of destinations across India and internationally. In India, we cover popular spots like Himachal, Uttarakhand, North India, and offbeat locations across the Northeast and other hidden gems. Internationally, we offer exciting destinations like: Himachal, Uttarakhand, North India Tour Package etc."
   },
   {
-    question: "Can I customize my tour package with Shrishti Trip (India Trip Holiday)?",
+    question: "Can I customize my tour package with Maitry Holidays?",
     answer: "Yes, we offer customizable tour packages for both domestic and international destinations. You can select your preferred destinations, activities, and the duration that best suits your travel preferences. Our team will assist you in creating a tailored travel experience."
   },
   {
-    question: "How can I book a tour with Shrishti Trip (India Trip Holiday)?",
+    question: "How can I book a tour with Maitry Holidays?",
     answer: "You can easily book a tour through our website by filling out the booking form, or you can contact our customer service team via email or phone. We will guide you through the booking process."
   },
   {
@@ -42,7 +42,7 @@ const FAQ = () => {
             <span className="italic-display text-primary">questions</span>
           </h2>
           <p className="mt-3 md:mt-5 text-[15px] font-light leading-relaxed text-muted-foreground">
-            Everything you need to know about booking your dream journey with Shrishti Trip (India Trip Holiday).
+            Everything you need to know about booking your dream journey with Maitry Holidays.
           </p>
           <div className="mt-8 flex items-center justify-center lg:justify-start gap-2 text-[14px] font-medium text-foreground">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">?</span>
@@ -50,7 +50,7 @@ const FAQ = () => {
             <span><PhoneCall className="h-4 w-4 text-primary" /></span>
           </div>
           <div>
-            <p className="text-primary mt-5">+91-8920909501 , +91-7042426335</p>
+            <p className="text-primary mt-5">+91-8920909501 , +91-7041260720</p>
           </div>
         </Reveal> */}
 

@@ -24,13 +24,13 @@ const Uttarakhand = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Uttarakhand Tour Packages | Shrishti Trip (India Trip Holiday)" 
-        description="Explore the Land of Gods with our spiritual and adventure tours to Rishikesh, Haridwar, Auli, and the Char Dham." 
+      <SEO
+        title="Uttarakhand Tour Packages | Maitry Holidays"
+        description="Explore the Land of Gods with our spiritual and adventure tours to Rishikesh, Haridwar, Auli, and the Char Dham."
       />
       <AnnouncementBar />
       <Navbar />
-      <Hero 
+      <Hero
         bgImage={uttarakhandHero}
         title="Divine Uttarakhand"
         subtitle="Explore the Land of Gods. From the spiritual banks of Rishikesh to the snow-capped peaks of Auli."

@@ -4,8 +4,8 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
-  { label: "About Us", href: "/about" },
-  { label: "Holiday Packages", href: "/#packages" },
+  { label: "About Us", href: "/#about" },
+  { label: "Packages", href: "/#packages" },
   { label: "Reviews", href: "/#testimonials" },
   // { label: "Contact Us", href: "/contact" },
 ];
@@ -45,9 +45,9 @@ const Navbar = () => {
         : "absolute bg-transparent"
         }`}
     >
-      <nav className="container-px flex h-24 items-center justify-between lg:h-[72px]" aria-label="Main">
-        <Link to="/" className="flex items-center" aria-label="Shrishti Trip (India Trip Holiday) home">
-          <Logo className="h-28 w-auto lg:h-32" variant="light" />
+      <nav className="container-px flex h-16 lg:h-20 items-center justify-between" aria-label="Main">
+        <Link to="/" className="flex items-center" aria-label="Maitry Holidays home">
+          <Logo className="h-16 lg:h-28 w-auto object-contain" variant="light" />
         </Link>
 
         <ul className="hidden items-center gap-5 lg:gap-10 lg:flex">

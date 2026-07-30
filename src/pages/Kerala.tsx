@@ -24,13 +24,13 @@ const Kerala = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Kerala Tour Packages | Shrishti Trip (India Trip Holiday)" 
-        description="Experience the tranquil backwaters, lush tea gardens, and pristine beaches of Kerala with our top-rated tour packages." 
+      <SEO
+        title="Kerala Tour Packages | Maitry Holidays"
+        description="Experience the tranquil backwaters, lush tea gardens, and pristine beaches of Kerala with our top-rated tour packages."
       />
       <AnnouncementBar />
       <Navbar />
-      <Hero 
+      <Hero
         bgImage={keralaHero}
         title="God's Own Country"
         subtitle="Experience the tranquil backwaters, lush tea gardens, and pristine beaches of Kerala."

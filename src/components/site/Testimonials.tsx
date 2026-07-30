@@ -65,7 +65,7 @@ const Testimonials = () => {
             What our <span className="italic-display text-primary">clients say</span>
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-[15px] font-light leading-relaxed text-muted-foreground">
-            We take pride in serving our travelers with unforgettable journeys around the world. Here's what they shared about their experiences with Shrishti Trip (India Trip Holiday):
+            We take pride in serving our travelers with unforgettable journeys around the world. Here's what they shared about their experiences with Maitry Holidays:
           </p>
         </Reveal>
 

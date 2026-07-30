@@ -66,19 +66,19 @@ const ThankYou = () => {
             <p className="text-[13px] text-muted-foreground uppercase tracking-widest font-medium">Need immediate help?</p>
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
               <a
-                href="tel:+917042426335"
+                href="tel:+917041260720"
                 className="text-lg font-semibold text-foreground hover:text-primary transition-colors flex items-center gap-2"
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                +91-7042426335
+                +91-7041260720
               </a>
               <div className="hidden sm:block w-px h-4 bg-border" />
-              <a 
-                href="mailto:info@shrishtitrip.com" 
+              <a
+                href="mailto:maitry.holidays13@gamil .Com"
                 className="text-lg font-semibold text-foreground hover:text-primary transition-colors flex items-center gap-2"
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                info@shrishtitrip.com
+                maitry.holidays13@gamil .Com
               </a>
             </div>
           </div>

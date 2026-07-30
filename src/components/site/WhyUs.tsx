@@ -27,7 +27,7 @@ const features = [
 
 const WhyUs = () => (
   <section
-    aria-label="Why choose Shrishti Trip (India Trip Holiday)"
+    aria-label="Why choose Maitry Holidays"
     className="relative isolate overflow-hidden  text-white section-pad"
   >
     <img

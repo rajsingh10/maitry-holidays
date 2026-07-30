@@ -66,28 +66,30 @@ const Contact = () => {
 
               <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-1">
                 {[
-                  { icon: Mail, label: "Email us", value: "info@shrishtitrip.com", sub: "Response within 24h" },
-                  { icon: Phone, label: "Call us", value: "+91-7042426335, 8920909501 ", sub: "Mon-Fri 9am - 6pm" },
-                  { icon: MapPin, label: "Visit us", value: "JJ Camp-01, Shiv Mandir Bhai Veer Singh Marg, New Delhi-110001", sub: "By appointment only" },
+                  { icon: Mail, label: "Email us", value: "maitry.holidays13@gamil .Com", sub: "Response within 24h" },
+                  { icon: Phone, label: "Call us", value: "+91-7041260720 ", sub: "Mon-Fri 9am - 6pm" },
+                  {
+                    icon: MapPin, label: "Visit us", value: `F-39, signet mall, kamrej char rasta,  surat ,Gujarat 
+Zip code: 394185`, sub: "By appointment only" },
                   { icon: Clock, label: "Business Hours", value: "24/7 Concierge", sub: "For active travelers" },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary shadow-soft">
-                      <item.icon className="h-5 w-5 text-white" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <p className="text-[13px] font-medium text-muted-foreground uppercase tracking-tight">{item.label}</p>
-                      {item.label === "Call us" ? (
-                        <a href={`tel:+917042426335`} className="text-[15px] font-semibold text-foreground hover:text-primary transition-colors">
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-[15px] font-semibold text-foreground">{item.value}</p>
-                      )}
-                      <p className="text-[13px] text-muted-foreground/80">{item.sub}</p>
-                    </div>
-                  </div>
-                ))}
+                      <div key={i} className="flex gap-4">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary shadow-soft">
+                          <item.icon className="h-5 w-5 text-white" strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <p className="text-[13px] font-medium text-muted-foreground uppercase tracking-tight">{item.label}</p>
+                          {item.label === "Call us" ? (
+                            <a href={`tel:+917041260720`} className="text-[15px] font-semibold text-foreground hover:text-primary transition-colors">
+                              {item.value}
+                            </a>
+                          ) : (
+                            <p className="text-[15px] font-semibold text-foreground">{item.value}</p>
+                          )}
+                          <p className="text-[13px] text-muted-foreground/80">{item.sub}</p>
+                        </div>
+                      </div>
+                    ))}
               </div>
 
               <div className="pt-4">
@@ -96,7 +98,7 @@ const Contact = () => {
                   {[
                     { Icon: Instagram, href: "https://www.instagram.com/shrishti_trip/" },
                     { Icon: Facebook, href: "https://www.facebook.com/shrishtitrip.in/" },
-                    { Icon: MessageCircle, href: "https://wa.me/917042426335"}
+                    { Icon: MessageCircle, href: "https://wa.me/917041260720" }
                   ].map(({ Icon, href }, i) => (
                     <a
                       key={i}

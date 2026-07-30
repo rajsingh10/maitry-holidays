@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
                             Privacy <span className="italic-display text-primary">Policy</span>
                         </h1>
                         <p className="text-xl  font-semibold text-foreground font-light max-w-3xl leading-relaxed">
-                            At Shrishti Trip(India Trip Holiday), we are committed to protecting your personal information and being transparent about how we handle your data.
+                            At Shrishti Trip(Maitry Holidays), we are committed to protecting your personal information and being transparent about how we handle your data.
                         </p>
                     </Reveal>
                 </div>
@@ -164,11 +164,11 @@ const PrivacyPolicy = () => {
                                     If you have any additional questions or concerns regarding our disclaimer, please email us and we'll respond as soon as Possible.
                                 </p>
                                 <a
-                                    href="mailto:info@shrishtitrip.com"
+                                    href="mailto:maitry.holidays13@gamil .Com"
                                     className="inline-flex items-center gap-3 bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-brand-cream transition-colors shadow-xl"
                                 >
                                     <Mail className="w-5 h-5" />
-                                    info@shrishtitrip.com
+                                    maitry.holidays13@gamil .Com
                                 </a>
                             </div>
                         </Reveal>

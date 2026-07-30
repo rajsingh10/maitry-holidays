@@ -24,13 +24,13 @@ const NorthIndia = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="North India Tour Packages | Shrishti Trip (India Trip Holiday)" 
-        description="Discover the spiritual heart of India with our tours to Mathura, Vrindavan, Ayodhya, Varanasi, and Amritsar." 
+      <SEO
+        title="North India Tour Packages | Maitry Holidays"
+        description="Discover the spiritual heart of India with our tours to Mathura, Vrindavan, Ayodhya, Varanasi, and Amritsar."
       />
       <AnnouncementBar />
       <Navbar />
-      <Hero 
+      <Hero
         bgImage={northHero}
         title="Spiritual North India"
         subtitle="Journey through India's spiritual soul. Explore the divine essence of Mathura, Ayodhya, and the holy Ganges."

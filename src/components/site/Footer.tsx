@@ -61,9 +61,9 @@ const Footer = () => {
                 <span className="ml-2 text-[13px] font-light text-white/70">4.6 Rate by 1,24,000+ Reviews</span>
               </div>
               <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-[45px]">
-                Travel smarter with 
+                Travel smarter with
                 <br />
-               Shrishti Trip (India Trip Holiday).
+                Maitry Holidays.
               </h2>
               <p className="mt-8 text-[16px] font-light leading-relaxed text-white/70 max-w-md mx-auto lg:mx-0">
                 Join our community of travelers and receive handpicked packages, discounts, and inspiration every week.
@@ -81,8 +81,8 @@ const Footer = () => {
                   placeholder="Enter your email ID"
                   className="w-full rounded-full border border-white/10 bg-white px-7 py-4 text-[15px] text-brand-darker placeholder:text-brand-darker/40 focus:outline-none"
                 />
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={loading}
                   className="btn-primary whitespace-nowrap px-8 py-4 text-[15px] shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
                 >
@@ -112,18 +112,18 @@ const Footer = () => {
 
               {/* Column 2: Brand & Links */}
               <div>
-                  <div className="flex flex-col gap-3 items-center md:items-start mb-2">
+                <div className="flex flex-col gap-3 items-center md:items-start mb-2">
                   <a className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
                     Contact Us
                   </a>
                 </div>
                 <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.2em] text-white">
-                  India Trip Holiday
+                  Maitry Holidays
                   <span className="block mt-1 text-[10px] font-light normal-case text-white tracking-normal">(A Unit of Shrishti Trip)</span>
                 </p>
-              
-                
-                
+
+
+
                 <p className="text-[13px] font-light leading-relaxed text-white">
                   Ground Floor, JJ Camp 01, Veer Singh Marg, Shiv Mandir, New Delhi - 110001
                 </p>
@@ -135,7 +135,7 @@ const Footer = () => {
                   Disclaimer
                 </p>
                 <p className="text-[12px] font-light leading-relaxed text-white mb-6">
-                  India Trip Holiday is a travel brand operated by Shrishti Trip. While we strive for accuracy, all tour prices and itineraries are subject to change based on availability and seasonal factors.
+                  Maitry Holidays is committed to providing the best travel experiences. Tour prices, itineraries, and package details may change based on availability and seasonal factors.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
                   <Link to="/privacy-policy" className="text-[13px] font-light text-white hover:text-primary transition-colors whitespace-nowrap">
@@ -151,7 +151,7 @@ const Footer = () => {
             {/* Bottom Part: Copyright */}
             <div className="text-center mb-4">
               <p className="text-[13px] font-light tracking-wide text-white">
-                © 2026 <span className=" font-medium text-primary uppercase tracking-widest">Shrishti Trip (India Trip Holiday)</span>. All Rights Reserved.
+                © 2026 <span className=" font-medium text-primary uppercase tracking-widest">Maitry Holidays</span>. All Rights Reserved.
               </p>
             </div>
           </div>

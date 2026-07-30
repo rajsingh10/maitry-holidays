@@ -146,13 +146,13 @@ const Hero = ({
                 {buttonText}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="tel:+917042426335" className="flex items-center gap-2 md:gap-3 text-white cursor-pointer group/call">
+              <a href="tel:+917041260720" className="flex items-center gap-2 md:gap-3 text-white cursor-pointer group/call">
                 <span className="flex h-10 w-10 md:h-11 md:w-11 items-center justify-center rounded-full border border-white p-2 md:p-2.5 transition-colors hover:bg-white/10 shrink-0">
                   <img src={callIcon} alt="" className="h-full w-full invert" width={20} height={20} decoding="async" />
                 </span>
                 <span className="text-left">
                   <span className="block text-[11px] md:text-[12px]  text-white text-bold">Call us</span>
-                  <span className="block text-[13px] md:text-[15px] font-medium text-nowrap">+91-7042426335</span>
+                  <span className="block text-[13px] md:text-[15px] font-medium text-nowrap">+91-7041260720</span>
                 </span>
               </a>
             </motion.div>

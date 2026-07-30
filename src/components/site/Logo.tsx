@@ -1,4 +1,4 @@
-import logoImg from "@/assets/images/logo-transparent2.png";
+import logoImg from "@/assets/images/newLogo.png";
 import logoDark from "@/assets/images/68d58496c83d6c462e129093_logo-dark.svg";
 
 interface LogoProps {
@@ -10,7 +10,7 @@ const Logo = ({ className = "h-8 w-auto", variant = "light" }: LogoProps) => {
   return (
     <img
       src={variant === "light" ? logoImg : logoDark}
-      alt="Shrishti Trip (India Trip Holiday)"
+      alt="Maitry Holidays"
       width={400}
       height={200}
       {...({ fetchPriority: "high" } as any)}

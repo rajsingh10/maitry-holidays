@@ -69,7 +69,7 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
             </div>
             <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Sightseeing</span>
           </div>
-          
+
         </div>
 
         <ul className="mt-5 space-y-3">
@@ -95,13 +95,13 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
             Get an enquiry
             <ArrowRight className="ml-1 h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform group-hover:translate-x-1" />
           </a>
-          <a href="tel:+917042426335" className="flex items-center gap-2 text-[12px] text-foreground cursor-pointer group/contact shrink-0">
+          <a href="tel:+917041260720" className="flex items-center gap-2 text-[12px] text-foreground cursor-pointer group/contact shrink-0">
             <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
               <img src={callIcon} alt="" className="h-3.5 w-3.5 sm:h-4 sm:w-4" width={16} height={16} decoding="async" />
             </span>
             <span>
               <span className="block text-[10px] sm:text-[11px] font-light text-muted-foreground">Contact anytime</span>
-              <span className="block text-[12px] sm:text-[13px] font-medium text-nowrap">+91-7042426335</span>
+              <span className="block text-[12px] sm:text-[13px] font-medium text-nowrap">+91-7041260720</span>
             </span>
           </a>
         </div>

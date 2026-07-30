@@ -53,7 +53,7 @@ const TermsConditions = () => {
                             Terms & <span className="italic-display text-primary">Conditions</span>
                         </h1>
                         <p className="text-xl text-muted-foreground font-light text-white max-w-3xl leading-relaxed">
-                            Please review our booking, cancellation, and operational policies carefully to ensure a smooth and transparent travel experience with Shrishti Trip(India Trip Holiday).
+                            Please review our booking, cancellation, and operational policies carefully to ensure a smooth and transparent travel experience with Shrishti Trip(Maitry Holidays).
                         </p>
                     </Reveal>
                 </div>

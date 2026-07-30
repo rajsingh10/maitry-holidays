@@ -2,9 +2,9 @@ import { Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 const FloatingActions = () => {
-  const phoneNumber = "+917042426335";
-  const whatsappNumber = "917042426335"; // Format: countrycode + number
-  const message = "Hi, I'm interested in booking a trip with Shrishti Trip!";
+  const phoneNumber = "+917041260720";
+  const whatsappNumber = "917041260720"; // Format: countrycode + number
+  const message = "Hi, I'm interested in booking a trip with Maitry Holidays!";
 
   return (
     <div className="fixed bottom-6 right-6 z-[60] flex flex-col gap-4">

@@ -24,13 +24,13 @@ const Himachal = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Himachal Tour Packages | Shrishti Trip (India Trip Holiday)" 
-        description="Experience the majestic Himalayas with our handpicked tours across Manali, Shimla, Dharamshala, and more." 
+      <SEO
+        title="Himachal Tour Packages | Maitry Holidays"
+        description="Experience the majestic Himalayas with our handpicked tours across Manali, Shimla, Dharamshala, and more."
       />
       <AnnouncementBar />
       <Navbar />
-      <Hero 
+      <Hero
         bgImage={himachalHero}
         title="Experience Majestic Himachal"
         subtitle="From snowy peaks to lush valleys, discover the magic of the Himalayas with our curated Himachal tours."
@@ -55,7 +55,7 @@ const Himachal = () => {
           </div>
         </div>
       </main>
-      <WhyUs/>
+      <WhyUs />
       <Suspense fallback={<div className="h-[1000px] bg-background" />}>
         <About />
         <Testimonials />
