@@ -24,11 +24,11 @@ const Navbar = () => {
 
   const GetQuoteButton = ({ className }: { className?: string }) => {
     const hasHeroForm = ["/", "/himachal", "/uttarakhand", "/north-india"].includes(pathname);
-    const href = hasHeroForm ? "#contact" : "/contact";
+    // const href = hasHeroForm ? "#contact" : "/contact";
 
     return (
       <a
-        href={href}
+        href={"/contact"}
         className={`${className} group inline-flex items-center justify-center gap-2`}
         onClick={() => setOpen(false)}
       >
