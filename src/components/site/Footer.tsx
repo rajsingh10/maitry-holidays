@@ -68,12 +68,12 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="w-full rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-6 py-4 pr-36 text-[16px] text-white placeholder:text-white/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+                  className="w-full rounded-sm border border-white/20 bg-white/10 backdrop-blur-md px-6 py-4 pr-36 text-[16px] text-white placeholder:text-white/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="absolute right-1 top-1 bottom-1 flex items-center justify-center rounded-full bg-primary px-6 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100"
+                  className="absolute right-1 top-1 bottom-1 flex items-center justify-center rounded-sm bg-primary px-6 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100"
                 >
                   {loading ? "Wait..." : "Subscribe"}
                   {!loading && <ArrowRight className="ml-2 h-4 w-4" />}

@@ -44,7 +44,7 @@ const Testimonials = () => {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className={`h-full ${i === 1 ? "md:translate-y-12" : ""}`}
             >
-              <div className="group relative flex h-full flex-col rounded-[2rem] bg-white px-8 pb-10 pt-10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] border border-brand-darker/5">
+              <div className="group relative flex h-full flex-col rounded-sm bg-white px-8 pb-10 pt-10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] border border-brand-darker/5">
 
                 {/* Header: Avatar + Name + Location */}
                 <div className="relative z-10 flex items-center gap-5 mb-8">

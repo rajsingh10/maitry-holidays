@@ -46,12 +46,12 @@ const Packages = ({ bgImage }: PackagesProps = {}) => {
 
           <Tabs defaultValue="kerala" className="w-full">
           <Reveal delay={0.2} className="flex justify-center mb-10">
-            <TabsList className="bg-brand-cream/50 p-1 h-auto flex-wrap justify-center border border-border/50">
+            <TabsList className="bg-brand-cream/50 p-1 h-auto flex-wrap justify-center border border-border/50 rounded-sm">
               {categories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
-                  className="px-6 py-2.5 text-[14px] font-medium data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-lg transition-all rounded-lg"
+                  className="px-6 py-2.5 text-[14px] font-medium data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-lg transition-all rounded-sm"
                 >
                   {cat.label}
                 </TabsTrigger>
@@ -73,7 +73,7 @@ const Packages = ({ bgImage }: PackagesProps = {}) => {
               <Reveal className="mt-12 text-center">
                 <Link 
                   to={cat.path}
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-8 py-3 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-sm border-2 border-primary px-8 py-3 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white"
                 >
                   Explore all {cat.label} packages
                   <ArrowRight className="h-4 w-4" />

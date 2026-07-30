@@ -23,7 +23,7 @@ const ThankYou = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative z-10 w-full max-w-xl mx-4"
       >
-        <div className="bg-white/95 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 text-center shadow-2xl border border-white/20">
+        <div className="bg-white/95 backdrop-blur-md rounded-sm p-8 md:p-12 text-center shadow-2xl border border-white/20">
           {/* Animated Checkmark */}
           {/* <motion.div
             initial={{ scale: 0 }}
@@ -98,7 +98,7 @@ const ThankYou = () => {
         }}
         className="absolute bottom-20 left-10 md:left-40 z-10 hidden sm:block"
       >
-        <div className="w-16 h-16 bg-primary/20 rounded-2xl backdrop-blur-lg border border-white/20" />
+        <div className="w-16 h-16 bg-primary/20 rounded-sm backdrop-blur-lg border border-white/20" />
       </motion.div> */}
       {/* <motion.div
         animate={{

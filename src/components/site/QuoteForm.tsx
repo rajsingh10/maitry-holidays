@@ -50,7 +50,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
   };
 
   return (
-    <div className={`${horizontal ? 'bg-transparent p-2 md:p-3' : 'rounded-2xl md:rounded-3xl bg-white p-5 md:p-7'} ${className || ''}`}>
+    <div className={`${horizontal ? 'bg-transparent p-2 md:p-3' : 'rounded-sm md:rounded-sm bg-white p-5 md:p-7'} ${className || ''}`}>
       {!horizontal && (
         <div className="mb-5 md:mb-7">
           <h2 className="text-xl md:text-2xl font-bold text-foreground">{title}</h2>
@@ -67,7 +67,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 id="quote-name"
                 name="full_name"
                 required
-                className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.full_name ? 'border-red-500' : 'border-border'}`}
+                className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.full_name ? 'border-red-500' : 'border-border'}`}
                 placeholder="John Doe"
               />
               {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
@@ -79,7 +79,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 name="email"
                 type="email"
                 required
-                className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
+                className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
                 placeholder="john@example.com"
               />
               {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
@@ -93,7 +93,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               <input
                 name="full_name"
                 required
-                className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.full_name ? 'ring-2 ring-red-500' : ''}`}
+                className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.full_name ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="Full Name"
               />
             </div>
@@ -102,7 +102,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 name="email"
                 type="email"
                 required
-                className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? 'ring-2 ring-red-500' : ''}`}
+                className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="Email Address"
               />
             </div>
@@ -124,7 +124,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                     e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
                   }}
                   required
-                  className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
+                  className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
                   placeholder="9876543210"
                 />
                 {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
@@ -137,7 +137,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                   type="date"
                   min={minDate}
                   required
-                  className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.arrival_date ? 'border-red-500' : 'border-border'}`}
+                  className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.arrival_date ? 'border-red-500' : 'border-border'}`}
                 />
                 {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
               </div>
@@ -152,7 +152,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
               }}
               required
-              className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.phone ? 'ring-2 ring-red-500' : ''}`}
+              className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.phone ? 'ring-2 ring-red-500' : ''}`}
               placeholder="Mobile Number"
             />
           )}
@@ -165,7 +165,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               type="date"
               min={minDate}
               required
-              className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.arrival_date ? 'ring-2 ring-red-500' : ''}`}
+              className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.arrival_date ? 'ring-2 ring-red-500' : ''}`}
             />
           </div>
         )}
@@ -177,7 +177,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               id="quote-msg"
               name="message"
               required
-              className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.message ? 'border-red-500' : 'border-border'}`}
+              className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.message ? 'border-red-500' : 'border-border'}`}
               placeholder="e.g. Dietary needs, accessible room..."
             />
             {errors.message && <p className="text-[10px] text-red-500 mt-1">{errors.message[0]}</p>}
@@ -185,7 +185,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
         )}
 
         <div className={horizontal ? "w-full" : "mt-2"}>
-          <button type="submit" disabled={loading} className={`btn-primary w-full ${horizontal ? 'rounded-xl h-full shadow-lg' : 'py-2.5 md:py-3.5 shadow-lg'} disabled:opacity-70 transition-all`}>
+          <button type="submit" disabled={loading} className={`btn-primary w-full ${horizontal ? 'rounded-sm h-full shadow-lg' : 'py-2.5 md:py-3.5 shadow-lg'} disabled:opacity-70 transition-all`}>
             {loading ? (
               <span className="flex items-center justify-center gap-2">
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />

@@ -51,7 +51,7 @@ const Contact = () => {
                   { icon: Clock, label: "Business Hours", value: "24/7 Concierge", sub: "For active travelers" },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary shadow-soft">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-primary shadow-soft">
                       <item.icon className="h-5 w-5 text-white" strokeWidth={1.5} />
                     </div>
                     <div>

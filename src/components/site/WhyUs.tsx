@@ -42,7 +42,7 @@ const WhyUs = () => (
 
     <div className="container-px flex flex-col lg:flex-row gap-16 lg:items-center">
       <Reveal className="lg:w-1/2">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
           <Plane className="w-4 h-4 text-primary" />
           <p className="text-white text-sm font-bold tracking-widest uppercase">Why Choose Us</p>
         </div>
@@ -75,12 +75,12 @@ const WhyUs = () => (
           <motion.div
             key={title}
             variants={{ hidden: { opacity: 0, scale: 0.9, y: 20 }, show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } } }}
-            className={`group relative overflow-hidden rounded-[2rem] bg-white/10 backdrop-blur-md border border-white/10 p-8 hover:bg-white/20 hover:border-white/30 transition-all duration-300 ${index % 2 === 1 ? 'sm:mt-12 sm:-mb-12' : ''}`}
+            className={`group relative overflow-hidden rounded-sm bg-white/10 backdrop-blur-md border border-white/10 p-8 hover:bg-white/20 hover:border-white/30 transition-all duration-300 ${index % 2 === 1 ? 'sm:mt-12 sm:-mb-12' : ''}`}
           >
             {/* Hover gradient effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             
-            <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-primary shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-sm bg-white text-primary shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
               <Icon className="h-7 w-7" strokeWidth={1.8} />
             </div>
             <h3 className="relative z-10 text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{title}</h3>

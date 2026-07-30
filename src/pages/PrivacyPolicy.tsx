@@ -53,11 +53,11 @@ const PrivacyPolicy = () => {
 
                 {/* Content Section */}
                 <div className="container-px pb-32">
-                    <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-12 shadow-card border border-primary/20">
+                    <div className="relative overflow-hidden rounded-sm bg-white p-8 md:p-12 shadow-card border border-primary/20">
                         <div className="flex flex-col gap-12">
                             {/* Section 1: Data Collection */}
                             <div className="flex flex-col md:flex-row gap-8 items-start">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white transition-colors duration-500">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary text-white transition-colors duration-500">
                                     <Info className="w-7 h-7 text-white" />
                                 </div>
                                 <div>
@@ -72,7 +72,7 @@ const PrivacyPolicy = () => {
 
                             {/* Section 2: Assurance */}
                             <div className="flex flex-col md:flex-row gap-8 items-start">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white transition-colors duration-500">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary text-white transition-colors duration-500">
                                     <ShieldCheck className="w-7 h-7" />
                                 </div>
                                 <div>
@@ -87,7 +87,7 @@ const PrivacyPolicy = () => {
 
                             {/* Section 3: Disclosure */}
                             <div className="flex flex-col md:flex-row gap-8 items-start">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white transition-colors duration-500">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary text-white transition-colors duration-500">
                                     <Users className="w-7 h-7" />
                                 </div>
                                 <div>
@@ -95,7 +95,7 @@ const PrivacyPolicy = () => {
                                     <p className="text-[16px] md:text-[18px] text-muted-foreground leading-relaxed font-light mb-4">
                                         Any personally identifiable information that the users submit while using Maitry Holidays will ONLY be disclosed to our travel suppliers who are linked directly/indirectly to the bookings of the users.
                                     </p>
-                                    <div className="p-4 rounded-xl bg-brand-cream border-l-4 border-primary">
+                                    <div className="p-4 rounded-sm bg-brand-cream border-l-4 border-primary">
                                         <p className="text-[15px] font-medium text-foreground italic">
                                             "We will not disclose, sell, share or in any way reveal user information to any other third party."
                                         </p>
@@ -107,7 +107,7 @@ const PrivacyPolicy = () => {
 
                             {/* Section 4: Security */}
                             <div className="flex flex-col md:flex-row gap-8 items-start">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary text-white">
                                     <Lock className="w-7 h-7" />
                                 </div>
                                 <div>
@@ -155,7 +155,7 @@ const PrivacyPolicy = () => {
                                 </p>
                                 <a
                                     href="mailto:maitry.holidays13@gamil .Com"
-                                    className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors shadow-lg"
+                                    className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-sm font-semibold hover:bg-primary/90 transition-colors shadow-lg"
                                 >
                                     <Mail className="w-5 h-5" />
                                     maitry.holidays13@gamil .Com

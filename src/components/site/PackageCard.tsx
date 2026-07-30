@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { Check, ArrowRight, Hotel, Utensils, Car, Camera, User, Phone, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Check, ArrowRight, Hotel, Utensils, Car, Camera, User, Phone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 interface PackageProps {
@@ -22,29 +21,6 @@ interface PackageProps {
 }
 
 const PackageCard = ({ pkg, idx }: PackageProps) => {
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const images = pkg.images && pkg.images.length > 0 ? pkg.images : [pkg.img];
-
-  useEffect(() => {
-    if (images.length > 1) {
-      const timer = setInterval(() => {
-        setCurrentIdx((prev) => (prev + 1) % images.length);
-      }, 3000); // Auto slide every 3 seconds
-      return () => clearInterval(timer);
-    }
-  }, [images.length]);
-
-  const nextImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentIdx((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentIdx((prev) => (prev - 1 + images.length) % images.length);
-  };
   return (
     <motion.article
       key={pkg.title}
@@ -52,83 +28,67 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className="group flex flex-col h-full overflow-hidden rounded-[32px] border border-border bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+      className="group flex flex-col h-full bg-white rounded-sm border border-border/60 shadow-soft hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
     >
-      {/* Image Container with Badges */}
-      <div className="relative aspect-[16/11] overflow-hidden group/slider">
-        <AnimatePresence initial={false}>
-          <motion.img 
-            key={currentIdx}
-            src={images[currentIdx]} 
-            alt={`${pkg.title} package`} 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            loading="lazy" 
-            width={600} 
-            height={412} 
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
-          />
-        </AnimatePresence>
+      {/* Decorative Top Accent */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent z-20"></div>
 
-        {/* Bottom Gradient for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+      {/* Slanted Image Container */}
+      <div 
+        className="relative aspect-[4/3] overflow-hidden group/slider bg-brand-darker"
+        style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
+      >
+        <img 
+          src={pkg.img} 
+          alt={`${pkg.title} package`} 
+          loading="lazy" 
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
+        />
 
-        {/* Floating Duration Badge */}
-        <div className="absolute bottom-4 left-4 z-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 border border-white/30 shadow-lg">
-          <span className="text-[12px] font-semibold tracking-wide text-white drop-shadow-md">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none" />
+
+        {/* Floating Duration Badge on Image */}
+        <div className="absolute top-4 right-4 z-10 flex items-center justify-center rounded-sm bg-black/40 backdrop-blur-md px-3 py-1.5 border border-white/20">
+          <span className="text-[11px] font-bold tracking-widest text-white uppercase shadow-sm">
             {pkg.duration}
           </span>
         </div>
+        
+        {/* Title overlayed on image */}
+        <div className="absolute bottom-6 left-5 right-5 z-10">
+          <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md">
+            {pkg.title}
+          </h3>
+        </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6 md:p-7">
-        <h3 className="text-[22px] sm:text-[24px] font-bold leading-tight text-foreground transition-colors group-hover:text-primary">
-          {pkg.title}
-        </h3>
-
-        {/* Inclusions Row */}
-        <div className="mt-4 flex items-center justify-center gap-3 sm:gap-5 border-y border-border/50 py-3">
-          <div className="flex flex-col items-center gap-1.5 opacity-100 transition-opacity">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-              <Hotel className="h-4 w-4" />
-            </div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Stay</span>
+      <div className="flex flex-1 flex-col p-5 sm:p-6 pt-2">
+        {/* Modern Inclusions Tags */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          <div className="flex items-center gap-1.5 rounded-sm bg-primary/10 px-2.5 py-1 text-primary border border-primary/20">
+            <Hotel className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Stay</span>
           </div>
-          <div className="flex flex-col items-center gap-1.5 opacity-100 transition-opacity">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-              <Utensils className="h-4 w-4" />
-            </div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Meals</span>
+          <div className="flex items-center gap-1.5 rounded-sm bg-accent/10 px-2.5 py-1 text-accent border border-accent/20">
+            <Utensils className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Meals</span>
           </div>
-          <div className="flex flex-col items-center gap-1.5 opacity-100 transition-opacity">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-              <Car className="h-4 w-4" />
-            </div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Transit</span>
+          <div className="flex items-center gap-1.5 rounded-sm bg-primary/10 px-2.5 py-1 text-primary border border-primary/20">
+            <Car className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Transit</span>
           </div>
-          <div className="flex flex-col items-center gap-1.5 opacity-100 transition-opacity">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-              <User className="h-4 w-4" />
-            </div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Guide</span>
+          <div className="flex items-center gap-1.5 rounded-sm bg-accent/10 px-2.5 py-1 text-accent border border-accent/20">
+            <User className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Guide</span>
           </div>
-          <div className="flex flex-col items-center gap-1.5 opacity-100 transition-opacity">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-              <Camera className="h-4 w-4" />
-            </div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Sightseeing</span>
+          <div className="flex items-center gap-1.5 rounded-sm bg-primary/10 px-2.5 py-1 text-primary border border-primary/20">
+            <Camera className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Sightseeing</span>
           </div>
         </div>
 
         {/* Highlight Bullets */}
-        <ul className="mt-6 space-y-3">
+        <ul className="space-y-3 mb-6">
           {pkg.bullets.map((b) => (
             <li key={b} className="flex items-start gap-3 text-[14px] leading-relaxed text-muted-foreground font-medium">
-              <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-                <Check className="h-3 w-3" strokeWidth={3.5} />
+              <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-primary text-white shadow-sm">
+                <Check className="h-3 w-3" strokeWidth={3} />
               </span>
               <span className="line-clamp-2">{b}</span>
             </li>
@@ -136,29 +96,25 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
         </ul>
 
         {/* Divider */}
-        <div className="my-6 h-px w-full bg-border" />
-
-        {/* Pricing and Actions (Bottom) */}
-        <div className="mt-auto flex flex-col gap-5">
+        <div className="mt-auto pt-5 border-t border-dashed border-border/80 flex flex-col gap-4">
           <div className="flex items-end justify-between">
             <div className="flex flex-col">
-              <span className="text-[12px] font-medium uppercase tracking-widest text-muted-foreground mb-0.5">Starting at</span>
-              <span className="text-[28px] sm:text-[32px] font-bold text-foreground leading-none">{pkg.price}</span>
+              <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Starting Price</span>
+              <span className="text-3xl font-extrabold text-foreground leading-none">{pkg.price}</span>
             </div>
             <span className="text-[12px] font-medium text-muted-foreground mb-1">per person</span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-2xl py-3.5 text-[15px] font-semibold text-center shadow-[var(--shadow-orange)] transition-transform hover:-translate-y-0.5">
-              Get Free Quote
+          <div className="flex items-center gap-2">
+            <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
+              Book Now
               <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <a href="tel:+917041260720" className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-2xl bg-brand-cream/80 text-primary transition-colors hover:bg-primary hover:text-white border border-border" aria-label="Call Us">
+            <a href="tel:+917041260720" className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-sm bg-accent/10 text-accent transition-colors hover:bg-accent hover:text-white border border-accent/20" aria-label="Call Us">
               <Phone className="h-5 w-5" strokeWidth={2.5} />
             </a>
           </div>
         </div>
-
       </div>
     </motion.article>
   );

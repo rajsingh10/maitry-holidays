@@ -57,7 +57,7 @@ const FAQ = () => {
         <Reveal delay={0.2} className="lg:col-span-1">
           <Accordion type="single" collapsible className="w-full space-y-3 md:space-y-4">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="rounded-2xl border border-foreground/5 bg-white px-4 md:px-6 transition-all hover:border-primary/20">
+              <AccordionItem key={i} value={`item-${i}`} className="rounded-sm border border-foreground/5 bg-white px-4 md:px-6 transition-all hover:border-primary/20">
                 <AccordionTrigger className="text-[15px] md:text-[16px] font-semibold text-foreground hover:no-underline hover:text-primary py-4 md:py-6 text-left">
                   {faq.question}
                 </AccordionTrigger>
