@@ -29,27 +29,23 @@ const ContactUs = () => {
 
             <main>
                 {/* Hero Section */}
-                <section className="relative isolate flex items-center overflow-hidden py-24 md:py-32 min-h-[400px] md:min-h-[500px]">
+                <section className="relative isolate flex flex-col items-center justify-center overflow-hidden pt-32 pb-20">
                     <div className="absolute inset-0 -z-20 h-full w-full bg-brand-darker">
                         <img
                             src={heroBg}
                             alt="Contact Us Background"
-                            className="absolute inset-0 h-full w-full object-cover"
+                            className="absolute inset-0 h-full w-full object-cover bg-center bg-fixed"
                         />
                     </div>
                     {/* Dark Overlay to match home page hero */}
-                    <div className="absolute inset-0 -z-10 bg-black/30 bg-gradient-to-r from-brand-darker/80 via-brand-darker/40 to-transparent lg:from-brand-darker/90 lg:via-brand-darker/40 lg:to-transparent" />
+                    <div className="absolute inset-0 -z-10 bg-black/60" />
 
-                    <div className="container-px w-full text-center mt-12 md:mt-20">
+                    <div className="container-px w-full text-center relative z-10">
                         <Reveal>
-                            <div className="flex items-center justify-center gap-2 text-white/90 font-medium tracking-wider uppercase text-[14px] mb-4">
-                                <PhoneCall className="w-4 h-4" />
-                                <span>Get in Touch</span>
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
+                            <h1 className="text-4xl md:text-5xl lg:text-[56px] font-semibold text-white leading-[1.05] mb-5">
                                 Contact <span className="italic-display text-primary font-normal">Us</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed">
+                            <p className="text-[15px] text-white/80 font-light max-w-md mx-auto leading-relaxed">
                                 We'd love to hear from you. Reach out to us for any queries, bookings, or customized holiday packages.
                             </p>
                         </Reveal>
@@ -57,7 +53,7 @@ const ContactUs = () => {
                 </section>
 
                 {/* Main Content: Info & Form */}
-                <div className="container-px pt-20 md:pt-28 pb-4 md:pb-8 relative z-10 -mt-10 md:-mt-20">
+                <div className="container-px pt-16 md:pt-20 pb-4 md:pb-8 relative z-10">
                     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2">
                         {/* Contact Information */}
                         <Reveal delay={0.1}>

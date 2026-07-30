@@ -1,6 +1,5 @@
-import { Check, ArrowRight, Hotel, Utensils, Car, Camera, User } from "lucide-react";
+import { Check, ArrowRight, Hotel, Utensils, Car, Camera, User, Phone } from "lucide-react";
 import { motion } from "framer-motion";
-import callIcon from "@/assets/images/68d58496260c7e2b997749bc_call-dark.svg";
 
 interface PackageProps {
   pkg: {
@@ -27,15 +26,35 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-white shadow-[var(--shadow-soft)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] h-full"
+      className="group flex flex-col h-full overflow-hidden rounded-[32px] border border-border bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img src={pkg.img} alt={`${pkg.title} package`} loading="lazy" width={600} height={375} decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      {/* Image Container with Badges */}
+      <div className="relative aspect-[16/11] overflow-hidden">
+        <img 
+          src={pkg.img} 
+          alt={`${pkg.title} package`} 
+          loading="lazy" 
+          width={600} 
+          height={412} 
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+        />
+        
+        {/* Bottom Gradient for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+
+        {/* Floating Duration Badge */}
+        <div className="absolute bottom-4 left-4 z-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 border border-white/30 shadow-lg">
+          <span className="text-[12px] font-semibold tracking-wide text-white drop-shadow-md">
+            {pkg.duration}
+          </span>
+        </div>
       </div>
-      <div className="flex flex-1 flex-col p-4 sm:p-6 md:p-7">
-        <p className="text-[12px] font-light text-muted-foreground">{pkg.duration}</p>
-        <h3 className="mt-1 text-[22px] font-semibold leading-tight text-foreground">{pkg.title}</h3>
+
+      <div className="flex flex-1 flex-col p-5 sm:p-6 md:p-7">
+        <h3 className="text-[22px] sm:text-[24px] font-bold leading-tight text-foreground transition-colors group-hover:text-primary">
+          {pkg.title}
+        </h3>
 
         {/* Inclusions Row */}
         <div className="mt-4 flex items-center justify-center gap-3 sm:gap-5 border-y border-border/50 py-3">
@@ -69,42 +88,44 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
             </div>
             <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Sightseeing</span>
           </div>
-
         </div>
 
-        <ul className="mt-5 space-y-3">
+        {/* Highlight Bullets */}
+        <ul className="mt-6 space-y-3">
           {pkg.bullets.map((b) => (
-            <li key={b} className="flex items-start gap-2.5 text-[13.5px] text-foreground/80">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Check className="h-3 w-3" strokeWidth={3} />
+            <li key={b} className="flex items-start gap-3 text-[14px] leading-relaxed text-muted-foreground font-medium">
+              <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
+                <Check className="h-3 w-3" strokeWidth={3.5} />
               </span>
               <span className="line-clamp-2">{b}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-auto flex items-center gap-3 border-t border-border pt-5">
 
-          <div className="flex flex-col leading-tight">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Starting at</span>
-            <span className="text-[11px] font-light text-muted-foreground">per person</span>
+        {/* Divider */}
+        <div className="my-6 h-px w-full bg-border" />
+
+        {/* Pricing and Actions (Bottom) */}
+        <div className="mt-auto flex flex-col gap-5">
+          <div className="flex items-end justify-between">
+            <div className="flex flex-col">
+              <span className="text-[12px] font-medium uppercase tracking-widest text-muted-foreground mb-0.5">Starting at</span>
+              <span className="text-[28px] sm:text-[32px] font-bold text-foreground leading-none">{pkg.price}</span>
+            </div>
+            <span className="text-[12px] font-medium text-muted-foreground mb-1">per person</span>
           </div>
-          <span className="text-3xl font-semibold text-foreground">{pkg.price}</span>
+
+          <div className="flex items-center gap-3">
+            <a href="#contact" className="btn-primary group flex-1 rounded-2xl py-3.5 text-[15px] font-semibold text-center shadow-[var(--shadow-orange)] transition-transform hover:-translate-y-0.5">
+              Get Free Quote
+              <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a href="tel:+917041260720" className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-2xl bg-brand-cream/80 text-primary transition-colors hover:bg-primary hover:text-white border border-border" aria-label="Call Us">
+              <Phone className="h-5 w-5" strokeWidth={2.5} />
+            </a>
+          </div>
         </div>
-        <div className="mt-5 flex items-center justify-between sm:justify-start gap-2 sm:gap-6">
-          <a href="#contact" className="btn-primary group !px-1.5 !py-2 text-[12.5px] sm:text-[14px] sm:flex-none flex-1 text-center">
-            Get an enquiry
-            <ArrowRight className="ml-1 h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a href="tel:+917041260720" className="flex items-center gap-2 text-[12px] text-foreground cursor-pointer group/contact shrink-0">
-            <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <img src={callIcon} alt="" className="h-3.5 w-3.5 sm:h-4 sm:w-4" width={16} height={16} decoding="async" />
-            </span>
-            <span>
-              <span className="block text-[10px] sm:text-[11px] font-light text-muted-foreground">Contact anytime</span>
-              <span className="block text-[12px] sm:text-[13px] font-medium text-nowrap">+91-7041260720</span>
-            </span>
-          </a>
-        </div>
+
       </div>
     </motion.article>
   );
