@@ -9,9 +9,10 @@ interface QuoteFormProps {
   className?: string;
   title?: string;
   subtitle?: string;
+  horizontal?: boolean;
 }
 
-const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitle = "Fill the form and we'll contact you in 24h." }: QuoteFormProps) => {
+const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitle = "Fill the form and we'll contact you in 24h.", horizontal = false }: QuoteFormProps) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
@@ -49,85 +50,142 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
   };
 
   return (
-    <div className={`rounded-2xl md:rounded-3xl bg-white p-5 md:p-7 ${className}`}>
-      <div className="mb-5 md:mb-7">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground">{title}</h2>
-        <p className="mt-1.5 text-[14px] md:text-[15px] font-normal text-muted-foreground">{subtitle}</p>
-      </div>
-
-      <form onSubmit={onSubmit} className="grid gap-3 md:gap-4">
-        <div className="grid gap-3 md:gap-4 grid-cols-2">
-          <div className="space-y-1 md:space-y-1.5">
-            <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-name">Full Name</label>
-            <input
-              id="quote-name"
-              name="full_name"
-              required
-              className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.full_name ? 'border-red-500' : 'border-border'}`}
-              placeholder="John Doe"
-            />
-            {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
-          </div>
-          <div className="space-y-1 md:space-y-1.5">
-            <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-email">Email Address</label>
-            <input
-              id="quote-email"
-              name="email"
-              type="email"
-              required
-              className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
-              placeholder="john@example.com"
-            />
-            {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
-          </div>
+    <div className={`${horizontal ? 'bg-transparent p-2 md:p-3' : 'rounded-2xl md:rounded-3xl bg-white p-5 md:p-7'} ${className || ''}`}>
+      {!horizontal && (
+        <div className="mb-5 md:mb-7">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground">{title}</h2>
+          <p className="mt-1.5 text-[14px] md:text-[15px] font-normal text-muted-foreground">{subtitle}</p>
         </div>
+      )}
 
-        <div className="grid gap-3 md:gap-4 grid-cols-2">
-          <div className="space-y-1 md:space-y-1.5">
-            <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-mobile">Mobile Number</label>
+      <form onSubmit={onSubmit} className={horizontal ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3" : "grid gap-3 md:gap-4"}>
+        {!horizontal && (
+          <div className="grid gap-3 md:gap-4 grid-cols-2">
+            <div className="space-y-1 md:space-y-1.5">
+              <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-name">Full Name</label>
+              <input
+                id="quote-name"
+                name="full_name"
+                required
+                className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.full_name ? 'border-red-500' : 'border-border'}`}
+                placeholder="John Doe"
+              />
+              {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
+            </div>
+            <div className="space-y-1 md:space-y-1.5">
+              <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-email">Email Address</label>
+              <input
+                id="quote-email"
+                name="email"
+                type="email"
+                required
+                className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
+                placeholder="john@example.com"
+              />
+              {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
+            </div>
+          </div>
+        )}
+
+        {horizontal && (
+          <>
+            <div className="space-y-1 w-full">
+              <input
+                name="full_name"
+                required
+                className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.full_name ? 'ring-2 ring-red-500' : ''}`}
+                placeholder="Full Name"
+              />
+            </div>
+            <div className="space-y-1 w-full">
+              <input
+                name="email"
+                type="email"
+                required
+                className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? 'ring-2 ring-red-500' : ''}`}
+                placeholder="Email Address"
+              />
+            </div>
+          </>
+        )}
+
+        <div className={horizontal ? "space-y-1 w-full" : "grid gap-3 md:gap-4 grid-cols-2"}>
+          {!horizontal ? (
+            <>
+              <div className="space-y-1 md:space-y-1.5">
+                <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-mobile">Mobile Number</label>
+                <input
+                  id="quote-mobile"
+                  name="phone"
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                  }}
+                  required
+                  className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
+                  placeholder="9876543210"
+                />
+                {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
+              </div>
+              <div className="space-y-1 md:space-y-1.5">
+                <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-date">Travel Date</label>
+                <input
+                  id="quote-date"
+                  name="arrival_date"
+                  type="date"
+                  min={minDate}
+                  required
+                  className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.arrival_date ? 'border-red-500' : 'border-border'}`}
+                />
+                {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
+              </div>
+            </>
+          ) : (
             <input
-              id="quote-mobile"
               name="phone"
-              type="tel"
+              type="text"
               inputMode="numeric"
               pattern="[0-9]*"
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
               }}
               required
-              className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
-              placeholder="9876543210"
+              className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.phone ? 'ring-2 ring-red-500' : ''}`}
+              placeholder="Mobile Number"
             />
-            {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
-          </div>
-          <div className="space-y-1 md:space-y-1.5">
-            <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-date">Travel Date</label>
+          )}
+        </div>
+
+        {horizontal && (
+          <div className="space-y-1 w-full">
             <input
-              id="quote-date"
               name="arrival_date"
               type="date"
               min={minDate}
               required
-              className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.arrival_date ? 'border-red-500' : 'border-border'}`}
+              className={`w-full rounded-xl border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.arrival_date ? 'ring-2 ring-red-500' : ''}`}
             />
-            {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
           </div>
-        </div>
+        )}
 
-        <div className="space-y-1 md:space-y-1.5">
-          <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-msg">Special Requirements</label>
-          <input
-            id="quote-msg"
-            name="message"
-            required
-            className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.message ? 'border-red-500' : 'border-border'}`}
-            placeholder="e.g. Dietary needs, accessible room..."
-          />
-          {errors.message && <p className="text-[10px] text-red-500 mt-1">{errors.message[0]}</p>}
-        </div>
+        {!horizontal && (
+          <div className="space-y-1 md:space-y-1.5">
+            <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-msg">Special Requirements</label>
+            <input
+              id="quote-msg"
+              name="message"
+              required
+              className={`w-full rounded-lg border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.message ? 'border-red-500' : 'border-border'}`}
+              placeholder="e.g. Dietary needs, accessible room..."
+            />
+            {errors.message && <p className="text-[10px] text-red-500 mt-1">{errors.message[0]}</p>}
+          </div>
+        )}
 
-        <div className="mt-2">
-          <button type="submit" disabled={loading} className="btn-primary w-full py-2.5 md:py-3.5 shadow-lg disabled:opacity-70 transition-all">
+        <div className={horizontal ? "w-full" : "mt-2"}>
+          <button type="submit" disabled={loading} className={`btn-primary w-full ${horizontal ? 'rounded-xl h-full shadow-lg' : 'py-2.5 md:py-3.5 shadow-lg'} disabled:opacity-70 transition-all`}>
             {loading ? (
               <span className="flex items-center justify-center gap-2">
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -135,7 +193,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               </span>
             ) : (
               <>
-                Send the Request
+                {horizontal ? 'Get Quote' : 'Send the Request'}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </>
             )}
