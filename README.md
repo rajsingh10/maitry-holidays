@@ -1,3 +1,3 @@
-# Welcome to Shrishti Trip landingpage
+# Welcome to Maitry Holiday landingpage
 
 

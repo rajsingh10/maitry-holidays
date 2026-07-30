@@ -7,7 +7,7 @@ import u3 from "@/assets/images/68d706666da03ec43b49d714_user-image3.png";
 
 const reviews = [
   {
-    quote: "I booked Shimla and Manali holidays including hotel, cab through this travel agency, named shrishti Trip. Overall Experience is totally flawless and convenient.",
+    quote: "I booked Shimla and Manali holidays including hotel, cab through this travel agency, named Maitry Holiday. Overall Experience is totally flawless and convenient.",
     name: "Anand Maurya", location: "Mumbai", avatar: u1
   },
   {
@@ -15,7 +15,7 @@ const reviews = [
     name: "Priya Sinha", location: "Delhi", avatar: u2
   },
   {
-    quote: "We had recently a Jim Corbett trip by Shrishti Trip. We had booking in resort Pumpkin tusk and woods that is awesome place. Foods and services are fantastic.",
+    quote: "We had recently a Jim Corbett trip by Maitry Holiday. We had booking in resort Pumpkin tusk and woods that is awesome place. Foods and services are fantastic.",
     name: "Shraddha Singh", location: "Bengaluru", avatar: u3
   }
 ];
@@ -45,7 +45,7 @@ const Testimonials = () => {
               className={`h-full ${i === 1 ? "md:translate-y-12" : ""}`}
             >
               <div className="group relative flex h-full flex-col rounded-[2rem] bg-white px-8 pb-10 pt-10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] border border-brand-darker/5">
-                
+
                 {/* Header: Avatar + Name + Location */}
                 <div className="relative z-10 flex items-center gap-5 mb-8">
                   <div className="relative shrink-0 -mt-16">

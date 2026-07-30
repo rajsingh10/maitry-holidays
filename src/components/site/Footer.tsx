@@ -97,7 +97,7 @@ const Footer = () => {
             <div className="lg:col-span-4 flex flex-col items-start">
               <Logo className="h-24 md:h-32 w-auto -mt-6 opacity-100" variant="light" />
               <p className="text-[14px] font-light leading-relaxed text-white/70 mb-8 max-w-sm">
-                Maitry Holidays (A Unit of Shrishti Trip) is committed to providing the best travel experiences. We curate unforgettable journeys across India and beyond.
+                Maitry Holidays is committed to providing the best travel experiences. We curate unforgettable journeys across India and beyond.
               </p>
 
               {/* <div className="flex items-center gap-4">

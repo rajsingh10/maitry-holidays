@@ -3,7 +3,7 @@ import { defineConfig } from "file:///D:/Shrishti%20Trip/escapora-your-journey-a
 import react from "file:///D:/Shrishti%20Trip/escapora-your-journey-awaits/node_modules/@vitejs/plugin-react-swc/index.js";
 import path from "path";
 import { componentTagger } from "file:///D:/Shrishti%20Trip/escapora-your-journey-awaits/node_modules/lovable-tagger/dist/index.js";
-var __vite_injected_original_dirname = "D:\\Shrishti Trip\\escapora-your-journey-awaits";
+var __vite_injected_original_dirname = "D:\\Maitry Holiday\\escapora-your-journey-awaits";
 var vite_config_default = defineConfig(({ mode }) => ({
   server: {
     host: "::",
