@@ -108,10 +108,7 @@ const ContactUs = () => {
                                         <div className="pt-1">
                                             <h3 className="text-[17px] font-semibold text-foreground mb-1">Business Address</h3>
                                             <p className="text-muted-foreground text-[15px] leading-relaxed">
-                                                F-39, Signet Mall,<br />
-                                                Kamrej Char Rasta,<br />
-                                                Surat, Gujarat<br />
-                                                Zip code: 394185
+                                                F-39, Signet Mall, Kamrej Char Rasta,Surat, Gujarat Zip code: 394185
                                             </p>
                                         </div>
                                     </div>
@@ -146,16 +143,16 @@ const ContactUs = () => {
                                         <label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number</label>
                                         <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
                                     </div>
-                                    
+
                                     <div className="space-y-2">
                                         <label htmlFor="message" className="text-sm font-medium text-foreground">Your Message</label>
-                                        <Textarea 
-                                            id="message" 
-                                            placeholder="Tell us about your travel plans..." 
-                                            className="min-h-[120px] rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20 resize-none py-3" 
+                                        <Textarea
+                                            id="message"
+                                            placeholder="Tell us about your travel plans..."
+                                            className="min-h-[120px] rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20 resize-none py-3"
                                         />
                                     </div>
-                                    
+
                                     <Button className="w-full h-12 rounded-xl text-base gap-2 group transition-all duration-300 hover:shadow-[var(--shadow-orange)]">
                                         Send Message
                                         <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -170,13 +167,13 @@ const ContactUs = () => {
                 <div className="container-px pb-24">
                     <Reveal delay={0.3}>
                         <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-card border border-primary/10 relative group">
-                            <iframe 
-                                src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=F-39,%20Signet%20Mall,%20Kamrej%20Char%20Rasta,%20Surat,%20Gujarat%20394185+(Shrishti%20Trip)&t=&z=15&ie=UTF8&iwloc=B&output=embed" 
-                                width="100%" 
-                                height="100%" 
-                                style={{ border: 0 }} 
-                                allowFullScreen 
-                                loading="lazy" 
+                            <iframe
+                                src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Signet%20Mall,%20Kamrej%20Char%20Rasta,%20Surat,%20Gujarat%20394185+(Maitry%20Holidays)&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 className="absolute inset-0 grayscale-[0.2] transition-all duration-500 group-hover:grayscale-0"
                             ></iframe>
