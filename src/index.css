@@ -19,7 +19,10 @@
     --popover-foreground: 220 26% 14%;
 
     /* Brand orange #F97316 */
-    --primary: 21 94% 53%;
+    /* --primary: 21 94% 53%;
+    --primary-foreground: 0 0% 100%; */
+
+    --primary: 209 70% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 40% 96%;
