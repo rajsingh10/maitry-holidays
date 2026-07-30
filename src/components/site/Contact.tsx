@@ -70,29 +70,30 @@ const Contact = () => {
                   { icon: Phone, label: "Call us", value: "+91-7041260720 ", sub: "Mon-Fri 9am - 6pm" },
                   {
                     icon: MapPin, label: "Visit us", value: `F-39, signet mall, kamrej char rasta,  surat ,Gujarat 
-Zip code: 394185`, sub: "By appointment only" },
+Zip code: 394185`, sub: "By appointment only"
+                  },
                   { icon: Clock, label: "Business Hours", value: "24/7 Concierge", sub: "For active travelers" },
                 ].map((item, i) => (
-                      <div key={i} className="flex gap-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary shadow-soft">
-                          <item.icon className="h-5 w-5 text-white" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <p className="text-[13px] font-medium text-muted-foreground uppercase tracking-tight">{item.label}</p>
-                          {item.label === "Call us" ? (
-                            <a href={`tel:+917041260720`} className="text-[15px] font-semibold text-foreground hover:text-primary transition-colors">
-                              {item.value}
-                            </a>
-                          ) : (
-                            <p className="text-[15px] font-semibold text-foreground">{item.value}</p>
-                          )}
-                          <p className="text-[13px] text-muted-foreground/80">{item.sub}</p>
-                        </div>
-                      </div>
-                    ))}
+                  <div key={i} className="flex gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary shadow-soft">
+                      <item.icon className="h-5 w-5 text-white" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-[13px] font-medium text-muted-foreground uppercase tracking-tight">{item.label}</p>
+                      {item.label === "Call us" ? (
+                        <a href={`tel:+917041260720`} className="text-[15px] font-semibold text-foreground hover:text-primary transition-colors">
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-[15px] font-semibold text-foreground">{item.value}</p>
+                      )}
+                      <p className="text-[13px] text-muted-foreground/80">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              <div className="pt-4">
+              {/* <div className="pt-4">
                 <p className="text-[13px] font-medium text-muted-foreground uppercase tracking-tight">Follow our journey</p>
                 <div className="mt-3 flex gap-4">
                   {[
@@ -111,7 +112,7 @@ Zip code: 394185`, sub: "By appointment only" },
                     </a>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </Reveal>
 
