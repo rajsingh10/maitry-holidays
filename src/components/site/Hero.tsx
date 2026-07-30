@@ -2,10 +2,10 @@ import { useState, useEffect, memo, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Star, ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
-import heroBg from "@/assets/images/INDIA.jpg";
-import slider1 from "@/assets/images/banner6.jpg";
-import slider2 from "@/assets/images/banner5.jpg";
-import slider3 from "@/assets/images/kerala (1).webp";
+import heroBg from "@/assets/images/hero_india.png";
+import slider1 from "@/assets/images/hero_kerala.png";
+import slider2 from "@/assets/images/hero_chardham.png";
+import slider3 from "@/assets/images/hero_nepal.png";
 
 import callIcon from "@/assets/images/68d58496260c7e2b997749bc_call-dark.svg";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
@@ -41,9 +41,9 @@ const Hero = ({
   const isHomePage = pathname === "/";
   const slides = useMemo(() => isHomePage ? [
     { image: bgImage, title: title, subtitle: subtitle },
-    { image: slider1, title: "Discover Incredible India", subtitle: "From the majestic Himalayas to the serene backwaters of Kerala, explore the beauty of India." },
-    { image: slider2, title: "Spiritual Journeys", subtitle: "Find peace and divine blessings with our specially curated Char Dham and temple tours." },
-    { image: slider3, title: "Exotic Escapes", subtitle: "Unwind on pristine beaches or explore lush green valleys with our luxury holiday packages." }
+    { image: slider1, title: "God's Own Country: Kerala", subtitle: "Experience the serene backwaters, lush green tea gardens, and pristine beaches of Kerala." },
+    { image: slider2, title: "Divine Char Dham Yatra", subtitle: "Seek spiritual peace and divine blessings at the majestic snow-capped peaks of the Himalayas." },
+    { image: slider3, title: "Mystical Nepal Explorer", subtitle: "Discover ancient Buddhist stupas, vibrant culture, and the awe-inspiring beauty of Nepal." }
   ] : [
     { image: bgImage, title: title, subtitle: subtitle }
   ], [isHomePage, bgImage, title, subtitle]);
