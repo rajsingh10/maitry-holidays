@@ -7,7 +7,7 @@ const links = [
   { label: "About Us", href: "/#about" },
   { label: "Holiday Packages", href: "/#packages" },
   { label: "Reviews", href: "/#testimonials" },
-  { label: "Contact Us", href: "/contact" },
+  // { label: "Contact Us", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const GetQuoteButton = ({ className }: { className?: string }) => {
     const hasHeroForm = ["/", "/himachal", "/uttarakhand", "/north-india"].includes(pathname);
-    const href = hasHeroForm ? "#contact" : "/#contact";
+    const href = hasHeroForm ? "#contact" : "/contact";
 
     return (
       <a
@@ -32,7 +32,7 @@ const Navbar = () => {
         className={`${className} group inline-flex items-center justify-center gap-2`}
         onClick={() => setOpen(false)}
       >
-        Get a quote
+        Contact Us
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </a>
     );
