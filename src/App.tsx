@@ -15,6 +15,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.tsx"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
+const ContactUs = lazy(() => import("./pages/ContactUs.tsx"));
 
 // Loading fallback component
 const PageLoading = () => (
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="/thank-you" element={<ThankYou />} />
+              <Route path="/contact" element={<ContactUs />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

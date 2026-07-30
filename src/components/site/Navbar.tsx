@@ -7,6 +7,7 @@ const links = [
   { label: "About Us", href: "/#about" },
   { label: "Holiday Packages", href: "/#packages" },
   { label: "Reviews", href: "/#testimonials" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const Navbar = () => {
