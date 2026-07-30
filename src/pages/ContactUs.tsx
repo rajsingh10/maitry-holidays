@@ -126,22 +126,22 @@ const ContactUs = () => {
                                     <div className="grid gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
                                             <label htmlFor="name" className="text-sm font-medium text-foreground">First Name</label>
-                                            <Input id="name" placeholder="John" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
+                                            <Input id="name" placeholder="John" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                         </div>
                                         <div className="space-y-2">
                                             <label htmlFor="lastName" className="text-sm font-medium text-foreground">Last Name</label>
-                                            <Input id="lastName" placeholder="Doe" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
+                                            <Input id="lastName" placeholder="Doe" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
                                         <label htmlFor="email" className="text-sm font-medium text-foreground">Email Address</label>
-                                        <Input id="email" type="email" placeholder="john@example.com" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
+                                        <Input id="email" type="email" placeholder="john@example.com" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                     </div>
 
                                     <div className="space-y-2">
                                         <label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number</label>
-                                        <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
+                                        <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                     </div>
 
                                     <div className="space-y-2">
@@ -149,7 +149,7 @@ const ContactUs = () => {
                                         <Textarea
                                             id="message"
                                             placeholder="Tell us about your travel plans..."
-                                            className="min-h-[120px] rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20 resize-none py-3"
+                                            className="min-h-[120px] rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 resize-none py-3"
                                         />
                                     </div>
 
