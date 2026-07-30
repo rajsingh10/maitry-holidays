@@ -6,7 +6,8 @@ import Logo from "./Logo";
 const links = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Packages", href: "/packages" },
+  // { label: "Packages", href: "/packages" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/#testimonials" },
 ];
 
@@ -67,7 +68,7 @@ const Navbar = () => {
       <header
         className={`z-50 w-full transition-all duration-500 border-b border-transparent ${scrolled || open
           ? "fixed top-0 bg-brand-darker/70 backdrop-blur-xl shadow-lg border-white/10 py-1"
-          : "absolute bg-transparent py-1 lg:py-2"
+          : "absolute top-0 md:top-10 bg-transparent py-1 lg:py-2"
           }`}
       >
         <nav className="container px-4 lg:px-20 flex h-14 lg:h-16 items-center justify-between" aria-label="Main">
@@ -90,8 +91,15 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="hidden lg:block">
-            <GetQuoteButton className="rounded-full bg-primary px-7 py-2.5 text-[16px] font-semibold text-primary-foreground transition-all duration-300 hover:bg-orange-500 hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5" />
+          <div className="hidden lg:flex items-center gap-4">
+            <button
+              onClick={() => navigate("/packages")}
+              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-white/10 border border-white/20 backdrop-blur-sm px-7 py-2.5 text-[16px] font-semibold text-white transition-all duration-300 hover:bg-white hover:text-brand-darker hover:-translate-y-0.5"
+            >
+              Packages
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <GetQuoteButton className="rounded-sm bg-primary px-7 py-2.5 text-[16px] font-semibold text-primary-foreground transition-all duration-300 hover:bg-brand-orange hover:shadow-[var(--shadow-orange)] hover:-translate-y-0.5" />
           </div>
 
           <button
@@ -131,7 +139,7 @@ const Navbar = () => {
             <li key={l.href} style={{ animationDelay: `${idx * 100}ms` }} className={`transition-all duration-500 ${open ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}>
               <span
                 onClick={() => handleNavigate(l.href)}
-                className="block cursor-pointer rounded-xl px-4 py-4 text-lg font-medium text-white/90 hover:bg-white/5 hover:text-primary transition-colors"
+                className="block cursor-pointer rounded-sm px-4 py-4 text-lg font-medium text-white/90 hover:bg-white/5 hover:text-primary transition-colors"
               >
                 {l.label}
               </span>
@@ -139,9 +147,18 @@ const Navbar = () => {
           ))}
 
           <li className={`pt-6 mt-auto transition-all duration-500 ${open ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <GetQuoteButton
-              className="w-full rounded-xl bg-primary px-5 py-4 text-center text-[16px] font-bold text-primary-foreground shadow-lg shadow-primary/25"
-            />
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={() => { setOpen(false); navigate("/packages"); }}
+                className="group flex w-full items-center justify-center gap-2 rounded-sm bg-white/10 border border-white/20 px-5 py-4 text-center text-[16px] font-bold text-white transition-colors hover:bg-white hover:text-brand-darker"
+              >
+                Packages
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              <GetQuoteButton
+                className="w-full rounded-sm bg-primary px-5 py-4 text-center text-[16px] font-bold text-primary-foreground shadow-lg shadow-primary/25"
+              />
+            </div>
           </li>
         </ul>
       </div>

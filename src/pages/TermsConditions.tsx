@@ -63,12 +63,12 @@ const TermsConditions = () => {
 
                 {/* Content Section */}
                 <div className="container-px pb-32">
-                    <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-12 shadow-card border border-primary/20">
+                    <div className="relative overflow-hidden rounded-sm bg-white p-8 md:p-12 shadow-card border border-primary/20">
                         <div className="flex flex-col gap-12">
                             {/* 1. Booking Process */}
                             <div>
                                 <div className="flex items-center gap-4 mb-10">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-primary/10 text-primary transition-all duration-500">
                                         <CreditCard className="w-7 h-7" />
                                     </div>
                                     <div>
@@ -79,7 +79,7 @@ const TermsConditions = () => {
 
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div className="space-y-6">
-                                        <div className="p-6 rounded-2xl bg-brand-cream/100 border border-brand-cream">
+                                        <div className="p-6 rounded-sm bg-brand-cream/100 border border-brand-cream">
                                             <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                                                 <IndianRupee className="w-4 h-4 text-primary" /> Payment Schedule
                                             </h3>
@@ -89,7 +89,7 @@ const TermsConditions = () => {
                                                 <li className="flex gap-3"><span className="text-primary font-bold">•</span> Final 40% during the tour before the trip starts.</li>
                                             </ul>
                                         </div>
-                                        <div className="p-6 rounded-2xl bg-brand-cream/100 border border-brand-cream">
+                                        <div className="p-6 rounded-sm bg-brand-cream/100 border border-brand-cream">
                                             <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                                                 <CheckCircle2 className="w-4 h-4 text-primary" /> Payment Methods
                                             </h3>
@@ -99,7 +99,7 @@ const TermsConditions = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="space-y-4 bg-brand-cream/100 border border-brand-cream rounded-2xl text-foreground/90 text-[15px] p-4">
+                                    <div className="space-y-4 bg-brand-cream/100 border border-brand-cream rounded-sm text-foreground/90 text-[15px] p-4">
                                         <p className="flex gap-4"><CheckCircle2 className="w-5 h-5 shrink-0 text-primary" /> Full payment is required on confirmation of all services and before departure.</p>
                                         <p className="flex gap-4"><CheckCircle2 className="w-5 h-5 shrink-0 text-primary" /> Package cannot be combined with any other offers.</p>
                                         <p className="flex gap-4"><CheckCircle2 className="w-5 h-5 shrink-0 text-primary" /> Not valid during national holidays, festivals & long weekends.</p>
@@ -115,7 +115,7 @@ const TermsConditions = () => {
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div>
                                     <div className="flex items-center gap-4 mb-8">
-                                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                        <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-primary/10 text-primary transition-all duration-500">
                                             <XCircle className="w-7 h-7" />
                                         </div>
                                         <h2 className="text-2xl font-semibold text-foreground">Cancellation Policy</h2>
@@ -145,7 +145,7 @@ const TermsConditions = () => {
 
                                 <div>
                                     <div className="flex items-center gap-4 mb-8">
-                                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                        <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-primary/10 text-primary transition-all duration-500">
                                             <RefreshCcw className="w-7 h-7" />
                                         </div>
                                         <h2 className="text-2xl font-semibold text-foreground">Prepone & Postpone</h2>
@@ -165,7 +165,7 @@ const TermsConditions = () => {
                             {/* 3. Important Notes & Local Conditions */}
                             <div>
                                 <div className="flex items-center gap-4 mb-10">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-primary/10 text-primary transition-all duration-500">
                                         <AlertTriangle className="w-7 h-7" />
                                     </div>
                                     <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Important Note</h2>
@@ -203,7 +203,7 @@ const TermsConditions = () => {
                             {/* 4. General Terms & ID Requirements */}
                             <div>
                                 <div className="flex items-center gap-4 mb-10">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-primary/10 text-primary transition-all duration-500">
                                         <Info className="w-7 h-7" />
                                     </div>
                                     <h2 className="text-2xl md:text-3xl font-semibold text-foreground">General Terms</h2>
@@ -224,14 +224,14 @@ const TermsConditions = () => {
 
                             {/* Seasonal Note & Acceptance */}
                             <div className="text-center">
-                                <div className="flex items-center justify-center gap-2 mb-4 w-fit mx-auto px-4 py-1 rounded-full text-[12px] font-bold uppercase tracking-widest text-primary bg-primary/10">
+                                <div className="flex items-center justify-center gap-2 mb-4 w-fit mx-auto px-4 py-1 rounded-sm text-[12px] font-bold uppercase tracking-widest text-primary bg-primary/10">
                                     <Calendar className="w-4 h-4" />
                                     <span>Peak Season Alert</span>
                                 </div>
                                 <p className="text-lg md:text-xl font-medium leading-relaxed text-foreground/90 max-w-4xl mx-auto mb-6">
                                     During Exam, New Year (Dec 15th - Jan 15th), long weekends, and festivals, high-season supplements apply to all hotel rates. Confirmation depends on real-time airfare and hotel availability.
                                 </p>
-                                <div className="bg-brand-cream border-l-4 border-primary p-6 rounded-r-xl max-w-3xl mx-auto text-left">
+                                <div className="bg-brand-cream border-l-4 border-primary p-6 rounded-r-sm max-w-3xl mx-auto text-left">
                                     <p className="text-[15px] font-medium text-foreground italic mb-2">
                                         "By accepting our quotation, you acknowledge that you have read and agree to all booking terms, payment, and cancellation policies."
                                     </p>

@@ -50,7 +50,7 @@ const About = () => (
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="absolute top-0 right-[5%] w-[75%] h-[80%] rounded-[2.5rem] overflow-hidden shadow-2xl z-10"
+            className="absolute top-0 right-[5%] w-[75%] h-[80%] rounded-sm overflow-hidden shadow-2xl z-10"
           >
             <img src={aboutImg1} alt="Travel Destination" className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" loading="lazy" />
           </motion.div>
@@ -61,7 +61,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="absolute bottom-0 left-0 w-[55%] h-[60%] rounded-[2.5rem] border-[8px] border-background overflow-hidden shadow-2xl z-20"
+            className="absolute bottom-0 left-0 w-[55%] h-[60%] rounded-sm border-[8px] border-background overflow-hidden shadow-2xl z-20"
           >
             <img src={aboutImg3} alt="Cultural Experience" className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" loading="lazy" />
           </motion.div>
@@ -83,7 +83,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="absolute bottom-[15%] -right-4 md:right-0 bg-background/90 backdrop-blur-md p-4 md:p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-30 border border-border flex items-center gap-4"
+            className="absolute bottom-[15%] -right-4 md:right-0 bg-background/90 backdrop-blur-md p-4 md:p-5 rounded-sm shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-30 border border-border flex items-center gap-4"
           >
             <div className="bg-primary/10 text-primary p-3 rounded-full">
               <Star className="w-6 h-6 fill-primary" />
@@ -97,7 +97,7 @@ const About = () => (
 
         {/* Right: Modern Copy */}
         <Reveal className="flex flex-col justify-center text-left mt-8 lg:mt-0">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary w-fit mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-primary/10 text-primary w-fit mb-6">
             <Compass className="w-4 h-4" />
             <span className="text-sm font-semibold tracking-wide uppercase">About Maitry Holidays</span>
           </div>
@@ -114,7 +114,7 @@ const About = () => (
 
           <div className="space-y-6">
             <div className="flex gap-4">
-              <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 text-primary">
+              <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-sm bg-primary/10 text-primary">
                 <Globe2 className="w-6 h-6" />
               </div>
               <div>
@@ -124,7 +124,7 @@ const About = () => (
             </div>
 
             <div className="flex gap-4">
-              <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 text-primary">
+              <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-sm bg-primary/10 text-primary">
                 <Shield className="w-6 h-6" />
               </div>
               <div>
@@ -137,7 +137,7 @@ const About = () => (
       </div>
 
       {/* Stats row inside a nice glass/colored container */}
-      <div className="mt-20 mb-8 bg-primary/5 rounded-[2.5rem] p-8 md:p-12 border border-primary/10">
+      <div className="mt-20 mb-8 bg-primary/5 rounded-sm p-8 md:p-12 border border-primary/10">
         <RevealGroup className="grid grid-cols-2 lg:grid-cols-4 gap-8 gap-y-12 lg:gap-y-8 lg:divide-x lg:divide-primary/20">
           {stats.map((s, idx) => (
             <motion.div

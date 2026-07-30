@@ -60,15 +60,15 @@ const AboutUs = () => {
                     <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
                         {/* Image Collage */}
                         <Reveal delay={0.1}>
-                            <div className="relative h-full min-h-[450px] md:min-h-[600px] rounded-3xl w-full">
-                                <div className="absolute top-0 left-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-10">
+                            <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-sm w-full">
+                                <div className="absolute top-0 left-0 w-[70%] h-[70%] rounded-sm overflow-hidden shadow-2xl border-4 border-white z-10">
                                     <img
                                         src={aboutImg1}
                                         alt="Maitry Holidays Experience"
                                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
-                                <div className="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20">
+                                <div className="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-sm overflow-hidden shadow-2xl border-4 border-white z-20">
                                     <img
                                         src={aboutImg2}
                                         alt="Maitry Holidays Tour"
@@ -90,13 +90,13 @@ const AboutUs = () => {
                                     <div className="w-12 h-[2px] bg-primary"></div>
                                     <span className="text-[13px] font-semibold tracking-widest uppercase text-primary">Who We Are</span>
                                 </div>
-                                
+
                                 {/* Heading */}
                                 <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
-                                    Your Trusted Partner in <br className="hidden xl:block"/>
+                                    Your Trusted Partner in <br className="hidden xl:block" />
                                     <span className="text-primary italic-display">Exploration</span>
                                 </h2>
-                                
+
                                 <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                                     At Maitry Holidays, we believe that traveling is more than just visiting a destination; it's about experiencing the world, discovering new cultures, and creating memories that last a lifetime. Our dedicated team is passionate about curating personalized holiday packages that cater to your unique preferences and dreams.
                                 </p>
@@ -123,7 +123,7 @@ const AboutUs = () => {
 
                                 <div className="border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] bg-white/50 backdrop-blur-sm rounded-[2rem] p-6 md:p-8">
                                     <h3 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h3>
-                                    
+
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         {/* WhatsApp */}
                                         <div className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-card transition-all duration-300 border border-gray-100 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer">

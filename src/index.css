@@ -18,11 +18,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 26% 14%;
 
-    /* Brand orange #F97316 */
-    /* --primary: 21 94% 53%;
-    --primary-foreground: 0 0% 100%; */
-
-    --primary: 209 70% 35%;
+    /* Brand orange #FF7A00 */
+    --primary: 216 90% 44%; /* Blue #0B5ED7 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 40% 96%;
@@ -31,7 +28,7 @@
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 21 94% 53%;
+    --accent: 29 100% 50%; /* Orange #FF7A00 */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -39,29 +36,27 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 21 94% 53%;
+    --ring: 216 90% 44%;
 
     --radius: 1rem;
 
     /* Brand specific */
-    --brand-orange: 21 94% 53%;
-    --brand-orange-soft: 21 94% 60%;
+    --brand-orange: 29 100% 50%;
+    --brand-orange-soft: 29 100% 60%;
     --brand-cream: 30 38% 96%;
-    /* #faf3ee — section soft bg */
     --brand-dark: 230 35% 14%;
     --brand-darker: 230 28% 11%;
-    /* #14152a-ish dark navy */
     --brand-brown: 13 100% 6%;
-    /* #1c0600 — deep brown requested by user */
     --brand-text: 220 26% 14%;
     --brand-muted: 220 9% 46%;
 
     /* Gradients & shadows */
     --gradient-card: linear-gradient(180deg, transparent 30%, hsl(var(--brand-darker) / 0.85) 100%);
-    --gradient-orange: linear-gradient(135deg, hsl(21 94% 53%), hsl(15 90% 55%));
+    --gradient-orange: linear-gradient(135deg, hsl(var(--brand-orange)), hsl(29 90% 55%));
     --shadow-card: 0 24px 60px -24px hsl(220 30% 20% / 0.18);
     --shadow-soft: 0 4px 20px -6px hsl(220 30% 20% / 0.10);
     --shadow-orange: 0 14px 36px -14px hsl(var(--brand-orange) / 0.55);
+    --shadow-blue: 0 14px 36px -14px hsl(var(--primary) / 0.55);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -80,19 +75,19 @@
     --card-foreground: 0 0% 98%;
     --popover: 230 28% 13%;
     --popover-foreground: 0 0% 98%;
-    --primary: 21 94% 53%;
+    --primary: 216 90% 44%;
     --primary-foreground: 0 0% 100%;
     --secondary: 230 20% 18%;
     --secondary-foreground: 0 0% 98%;
     --muted: 230 20% 18%;
     --muted-foreground: 220 9% 65%;
-    --accent: 21 94% 53%;
+    --accent: 29 100% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 40%;
     --destructive-foreground: 0 0% 98%;
     --border: 230 20% 22%;
     --input: 230 20% 22%;
-    --ring: 21 94% 53%;
+    --ring: 216 90% 44%;
   }
 }
 
@@ -131,19 +126,19 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-[15px] font-medium text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-orange)] hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center rounded-sm bg-primary px-7 py-3.5 text-[15px] font-medium text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-blue)] hover:-translate-y-0.5;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-full border border-white/70 bg-transparent px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-300 hover:bg-white hover:text-foreground;
+    @apply inline-flex items-center justify-center rounded-sm border border-white/70 bg-transparent px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-300 hover:bg-white hover:text-foreground;
   }
 
   .btn-white {
-    @apply inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-[15px] font-medium text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+    @apply inline-flex items-center justify-center rounded-sm bg-white px-7 py-3.5 text-[15px] font-medium text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
   }
 
   .btn-icon {
-    @apply inline-flex items-center justify-center rounded-full bg-white text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+    @apply inline-flex items-center justify-center rounded-sm bg-white text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
   }
 
   .container-px {

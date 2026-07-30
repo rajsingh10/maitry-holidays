@@ -57,12 +57,12 @@ const ContactUs = () => {
                     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2">
                         {/* Contact Information */}
                         <Reveal delay={0.1}>
-                            <div className="h-full rounded-3xl bg-white p-8 md:p-12 shadow-card border border-primary/30 flex flex-col">
+                            <div className="h-full rounded-sm bg-white p-8 md:p-12 shadow-card border border-primary/30 flex flex-col">
                                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mb-8">Contact Information</h2>
 
                                 <div className="space-y-8 flex-grow">
                                     <div className="flex items-start gap-5 group cursor-pointer">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                                             <MessageCircle className="w-6 h-6" />
                                         </div>
                                         <div className="pt-1">
@@ -74,7 +74,7 @@ const ContactUs = () => {
                                     </div>
 
                                     <div className="flex items-start gap-5 group cursor-pointer">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                                             <Mail className="w-6 h-6" />
                                         </div>
                                         <div className="pt-1">
@@ -86,7 +86,7 @@ const ContactUs = () => {
                                     </div>
 
                                     <div className="flex items-start gap-5 group cursor-pointer">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                                             <Instagram className="w-6 h-6" />
                                         </div>
                                         <div className="pt-1">
@@ -98,7 +98,7 @@ const ContactUs = () => {
                                     </div>
 
                                     <div className="flex items-start gap-5">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-primary/10 text-primary">
                                             <MapPin className="w-6 h-6" />
                                         </div>
                                         <div className="pt-1">
@@ -114,7 +114,7 @@ const ContactUs = () => {
 
                         {/* Contact Form */}
                         <Reveal delay={0.2}>
-                            <div className="h-full rounded-3xl bg-white p-8 md:p-12 shadow-card border border-primary/30">
+                            <div className="h-full rounded-sm bg-white p-8 md:p-12 shadow-card border border-primary/30">
                                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mb-2">Send us a Message</h2>
                                 <p className="text-muted-foreground text-[15px] mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
 
@@ -122,22 +122,22 @@ const ContactUs = () => {
                                     <div className="grid gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
                                             <label htmlFor="name" className="text-sm font-medium text-foreground">First Name</label>
-                                            <Input id="name" placeholder="John" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
+                                            <Input id="name" placeholder="John" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                         </div>
                                         <div className="space-y-2">
                                             <label htmlFor="lastName" className="text-sm font-medium text-foreground">Last Name</label>
-                                            <Input id="lastName" placeholder="Doe" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
+                                            <Input id="lastName" placeholder="Doe" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
                                         <label htmlFor="email" className="text-sm font-medium text-foreground">Email Address</label>
-                                        <Input id="email" type="email" placeholder="john@example.com" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
+                                        <Input id="email" type="email" placeholder="john@example.com" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                     </div>
 
                                     <div className="space-y-2">
                                         <label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number</label>
-                                        <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
+                                        <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
                                     </div>
 
                                     <div className="space-y-2">
@@ -145,11 +145,11 @@ const ContactUs = () => {
                                         <Textarea
                                             id="message"
                                             placeholder="Tell us about your travel plans..."
-                                            className="min-h-[120px] rounded-xl bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 resize-none py-3"
+                                            className="min-h-[120px] rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 resize-none py-3"
                                         />
                                     </div>
 
-                                    <Button className="w-full h-12 rounded-xl text-base gap-2 group transition-all duration-300 hover:shadow-[var(--shadow-orange)]">
+                                    <Button className="w-full h-12 rounded-sm text-base gap-2 group transition-all duration-300 hover:shadow-[var(--shadow-orange)]">
                                         Send Message
                                         <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                     </Button>
@@ -162,7 +162,7 @@ const ContactUs = () => {
                 {/* Map Section */}
                 <div className="container-px pb-24">
                     <Reveal delay={0.3}>
-                        <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-card border border-primary/10 relative group">
+                        <div className="w-full h-[400px] md:h-[500px] rounded-sm overflow-hidden shadow-card border border-primary/10 relative group">
                             <iframe
                                 src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Signet%20Mall,%20Kamrej%20Char%20Rasta,%20Surat,%20Gujarat%20394185+(Maitry%20Holidays)&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                 width="100%"

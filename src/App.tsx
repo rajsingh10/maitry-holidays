@@ -21,6 +21,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs.tsx"));
 const CharDham = lazy(() => import("./pages/CharDham.tsx"));
 const Nepal = lazy(() => import("./pages/Nepal.tsx"));
 const PackagesMain = lazy(() => import("./pages/PackagesMain.tsx"));
+const Gallery = lazy(() => import("./pages/Gallery.tsx"));
 
 // Loading fallback component
 const PageLoading = () => (
@@ -48,6 +49,7 @@ const App = () => (
               <Route path="/chardham" element={<CharDham />} />
               <Route path="/nepal" element={<Nepal />} />
               <Route path="/packages" element={<PackagesMain />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="/thank-you" element={<ThankYou />} />
