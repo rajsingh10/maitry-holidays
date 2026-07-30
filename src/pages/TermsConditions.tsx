@@ -14,7 +14,8 @@ import {
     CheckCircle2,
     Info,
     Calendar,
-    IndianRupee
+    IndianRupee,
+    TrendingUp
 } from "lucide-react";
 
 const TermsConditions = () => {
@@ -63,12 +64,12 @@ const TermsConditions = () => {
 
                 {/* Content Section */}
                 <div className="container-px pb-32">
-                    <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-12 shadow-card border border-primary/20">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-8 md:p-12 shadow-card border border-primary/20">
                         <div className="flex flex-col gap-12">
                             {/* 1. Booking Process */}
                             <div>
                                 <div className="flex items-center gap-4 mb-10">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500">
                                         <CreditCard className="w-7 h-7" />
                                     </div>
                                     <div>
@@ -79,7 +80,7 @@ const TermsConditions = () => {
 
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div className="space-y-6">
-                                        <div className="p-6 rounded-2xl bg-brand-cream/100 border border-brand-cream">
+                                        <div className="p-6 rounded-xl bg-brand-cream/100 border border-brand-cream">
                                             <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                                                 <IndianRupee className="w-4 h-4 text-primary" /> Payment Schedule
                                             </h3>
@@ -89,7 +90,7 @@ const TermsConditions = () => {
                                                 <li className="flex gap-3"><span className="text-primary font-bold">•</span> Final 40% during the tour before the trip starts.</li>
                                             </ul>
                                         </div>
-                                        <div className="p-6 rounded-2xl bg-brand-cream/100 border border-brand-cream">
+                                        <div className="p-6 rounded-xl bg-brand-cream/100 border border-brand-cream">
                                             <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                                                 <CheckCircle2 className="w-4 h-4 text-primary" /> Payment Methods
                                             </h3>
@@ -99,7 +100,7 @@ const TermsConditions = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="space-y-4 bg-brand-cream/100 border border-brand-cream rounded-2xl text-foreground/90 text-[15px] p-4">
+                                    <div className="space-y-4 bg-brand-cream/100 border border-brand-cream rounded-xl text-foreground/90 text-[15px] p-4">
                                         <p className="flex gap-4"><CheckCircle2 className="w-5 h-5 shrink-0 text-primary" /> Full payment is required on confirmation of all services and before departure.</p>
                                         <p className="flex gap-4"><CheckCircle2 className="w-5 h-5 shrink-0 text-primary" /> Package cannot be combined with any other offers.</p>
                                         <p className="flex gap-4"><CheckCircle2 className="w-5 h-5 shrink-0 text-primary" /> Not valid during national holidays, festivals & long weekends.</p>
@@ -113,50 +114,83 @@ const TermsConditions = () => {
 
                             {/* 2. Cancellation & Postponing */}
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div>
+                                {/* Cancellation Policy Card */}
+                                <div className="flex flex-col bg-brand-cream/40 border border-brand-cream/80 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-soft">
                                     <div className="flex items-center gap-4 mb-8">
-                                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
-                                            <XCircle className="w-7 h-7" />
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600 border border-red-100">
+                                            <XCircle className="w-6 h-6" />
                                         </div>
-                                        <h2 className="text-2xl font-semibold text-foreground">Cancellation Policy</h2>
+                                        <div>
+                                            <h2 className="text-xl md:text-2xl font-semibold text-foreground tracking-tight">Cancellation Policy</h2>
+                                            <p className="text-muted-foreground text-xs">Standard cancellation timeline & charges</p>
+                                        </div>
                                     </div>
-                                    <div className="space-y-4">
-                                        <div className="flex justify-between items-center py-3 border-b border-border">
-                                            <span className="text-foreground/90 font-medium">Once booking is made</span>
-                                            <span className="font-semibold text-primary">30% Charges</span>
+                                    
+                                    <div className="flex-1 flex flex-col justify-between">
+                                        <div className="space-y-3">
+                                            <div className="flex justify-between items-center p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <span className="text-foreground/80 font-medium text-sm md:text-base">Once booking is made</span>
+                                                <span className="px-3 py-1 text-xs md:text-sm font-semibold rounded-full bg-red-50 text-red-600 border border-red-100 shrink-0">30% Charges</span>
+                                            </div>
+                                            <div className="flex justify-between items-center p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <span className="text-foreground/80 font-medium text-sm md:text-base">30 - 15 days before check-in</span>
+                                                <span className="px-3 py-1 text-xs md:text-sm font-semibold rounded-full bg-red-50 text-red-600 border border-red-100 shrink-0">50% Charges</span>
+                                            </div>
+                                            <div className="flex justify-between items-center p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <span className="text-foreground/80 font-medium text-sm md:text-base">15 - 7 days before check-in</span>
+                                                <span className="px-3 py-1 text-xs md:text-sm font-semibold rounded-full bg-red-50 text-red-600 border border-red-100 shrink-0">75% Charges</span>
+                                            </div>
+                                            <div className="flex justify-between items-center p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <span className="text-foreground/80 font-medium text-sm md:text-base">Within 7 days of check-in</span>
+                                                <span className="px-3 py-1 text-xs md:text-sm font-semibold rounded-full bg-red-50 text-red-600 border border-red-100 shrink-0">100% Charges</span>
+                                            </div>
                                         </div>
-                                        <div className="flex justify-between items-center py-3 border-b border-border">
-                                            <span className="text-foreground/90 font-medium">30 - 15 days before check-in</span>
-                                            <span className="font-semibold text-primary">50% Charges</span>
+                                        
+                                        <div className="mt-6 p-4 rounded-xl bg-amber-50/50 border border-amber-100/80 flex items-start gap-2.5">
+                                            <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                                            <p className="text-amber-800 font-medium text-xs leading-relaxed">
+                                                <span className="font-semibold">Note:</span> 25% of the total tour cost is strictly non-refundable under all circumstances.
+                                            </p>
                                         </div>
-                                        <div className="flex justify-between items-center py-3 border-b border-border">
-                                            <span className="text-foreground/90 font-medium">15 - 07 days before check-in</span>
-                                            <span className="font-semibold text-primary">75% Charges</span>
-                                        </div>
-                                        <div className="flex justify-between items-center py-3 border-b border-border">
-                                            <span className="text-foreground/90 font-medium">07 days before check-in</span>
-                                            <span className="font-semibold text-primary">100% Charges</span>
-                                        </div>
-                                        <p className="text-foreground/70 font-medium text-[13px] pt-4 italic">
-                                            * 25% of the total cost is strictly non-refundable.
-                                        </p>
                                     </div>
                                 </div>
 
-                                <div>
+                                {/* Prepone & Postpone Card */}
+                                <div className="flex flex-col bg-brand-cream/40 border border-brand-cream/80 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-soft">
                                     <div className="flex items-center gap-4 mb-8">
-                                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
-                                            <RefreshCcw className="w-7 h-7" />
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
+                                            <RefreshCcw className="w-6 h-6" />
                                         </div>
-                                        <h2 className="text-2xl font-semibold text-foreground">Prepone & Postpone</h2>
+                                        <div>
+                                            <h2 className="text-xl md:text-2xl font-semibold text-foreground tracking-tight">Prepone & Postpone</h2>
+                                            <p className="text-muted-foreground text-xs">Rescheduling policy & conditions</p>
+                                        </div>
                                     </div>
-                                    <ul className="space-y-4 text-foreground/90 text-[15px]">
-                                        <li className="flex gap-3"><Info className="w-5 h-5 shrink-0 text-primary" /> Inform us at least 10 days in advance via mail for any date changes.</li>
-                                        <li className="flex gap-3"><Info className="w-5 h-5 shrink-0 text-primary" /> Postponement/Preponement charges depend on hotel availability and policies.</li>
-                                        <li className="flex gap-3"><Info className="w-5 h-5 shrink-0 text-primary" /> No plan changes accepted within 10 days of travel except in cases of adverse weather or strikes.</li>
-                                        <li className="flex gap-3"><Info className="w-5 h-5 shrink-0 text-primary" /> Advance payments can be utilized within 1 year from the date of payment.</li>
-                                        <li className="flex gap-3"><Info className="w-5 h-5 shrink-0 text-primary" /> Costing is subject to season/off-season fluctuations.</li>
-                                    </ul>
+                                    
+                                    <div className="flex-1 flex flex-col justify-between">
+                                        <ul className="space-y-3.5 text-foreground/85 text-[14px] md:text-[15px]">
+                                            <li className="flex gap-3 items-start p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <Calendar className="w-5 h-5 shrink-0 text-blue-600 mt-0.5" />
+                                                <span className="leading-relaxed">Inform us at least <span className="font-semibold text-foreground">10 days in advance</span> via email for any date changes.</span>
+                                            </li>
+                                            <li className="flex gap-3 items-start p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <Info className="w-5 h-5 shrink-0 text-blue-600 mt-0.5" />
+                                                <span className="leading-relaxed">Postponement/Preponement charges depend on hotel availability and respective policies.</span>
+                                            </li>
+                                            <li className="flex gap-3 items-start p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <AlertTriangle className="w-5 h-5 shrink-0 text-blue-600 mt-0.5" />
+                                                <span className="leading-relaxed">No plan changes accepted within <span className="font-semibold text-foreground">10 days of travel</span> except for adverse weather or strikes.</span>
+                                            </li>
+                                            <li className="flex gap-3 items-start p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <CreditCard className="w-5 h-5 shrink-0 text-blue-600 mt-0.5" />
+                                                <span className="leading-relaxed">Advance payments can be utilized within <span className="font-semibold text-foreground">1 year</span> from the date of payment.</span>
+                                            </li>
+                                            <li className="flex gap-3 items-start p-3 rounded-lg bg-white/60 border border-border/40 hover:bg-white transition-colors duration-200">
+                                                <TrendingUp className="w-5 h-5 shrink-0 text-blue-600 mt-0.5" />
+                                                <span className="leading-relaxed">Package costing is subject to seasonal and off-seasonal fluctuations.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
 
@@ -165,7 +199,7 @@ const TermsConditions = () => {
                             {/* 3. Important Notes & Local Conditions */}
                             <div>
                                 <div className="flex items-center gap-4 mb-10">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500">
                                         <AlertTriangle className="w-7 h-7" />
                                     </div>
                                     <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Important Note</h2>
@@ -203,7 +237,7 @@ const TermsConditions = () => {
                             {/* 4. General Terms & ID Requirements */}
                             <div>
                                 <div className="flex items-center gap-4 mb-10">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500">
                                         <Info className="w-7 h-7" />
                                     </div>
                                     <h2 className="text-2xl md:text-3xl font-semibold text-foreground">General Terms</h2>
@@ -235,7 +269,7 @@ const TermsConditions = () => {
                                     <p className="text-[15px] font-medium text-foreground italic mb-2">
                                         "By accepting our quotation, you acknowledge that you have read and agree to all booking terms, payment, and cancellation policies."
                                     </p>
-                                    <p className="text-[13px] font-light text-muted-foreground">
+                                    <p className="text-[13px]  text-muted-foreground">
                                         Visit this page periodically for updates to our terms.
                                     </p>
                                 </div>
