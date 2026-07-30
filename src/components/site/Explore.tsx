@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { MapPin, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
 import {
@@ -9,20 +9,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import d1 from "@/assets/images/uttarakhand.avif";
-import d2 from "@/assets/images/uttarakhand1.avif";
-import d3 from "@/assets/images/North India.avif";
-import d4 from "@/assets/images/Shimla & Manali.avif";
-import d5 from "@/assets/images/golden temple.avif";
-import d6 from "@/assets/images/Ayodhya & Varanasi.avif";
+import d1 from "@/assets/images/kerala (1).webp";
+import d2 from "@/assets/images/chardham-yatra-tour.jpg";
+import d3 from "@/assets/images/INDIA.jpg";
 
 const places = [
-  { name: "Uttarakhand", trips: 14, img: d1, link: "/uttarakhand" },
-  { name: "Himachal", trips: 15, img: d2, link: "/himachal" },
-  { name: "North India", trips: 12, img: d3, link: "/north-india" },
-  { name: "Shimla & Manali", trips: 24, img: d4, link: "/himachal" },
-  { name: "Golden Temple", trips: 25, img: d5, link: "/north-india" },
-  { name: "Ayodhya & Varanasi", trips: 25, img: d6, link: "/north-india" },
+  { name: "Kerala", trips: 3, img: d1, link: "/kerala" },
+  { name: "Char Dham", trips: 4, img: d2, link: "/chardham" },
+  { name: "Nepal", trips: 3, img: d3, link: "/nepal" },
 ];
 
 const DestinationCard = ({ p }: { p: (typeof places)[0] }) => {
@@ -31,7 +25,7 @@ const DestinationCard = ({ p }: { p: (typeof places)[0] }) => {
     <MotionLink
       to={p.link}
       variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-      className="group relative block aspect-[4/5] overflow-hidden rounded-3xl shadow-[var(--shadow-soft)]"
+      className="group relative block aspect-[3/4] overflow-hidden rounded-t-full rounded-b-3xl shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
     >
       <img
         src={p.img}
@@ -40,17 +34,26 @@ const DestinationCard = ({ p }: { p: (typeof places)[0] }) => {
         decoding="async"
         width={400}
         height={500}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-darker/90 via-brand-darker/20 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6">
-        <div className="text-white">
-          <p className="text-[12px] font-light text-white/75">{p.trips} Trips Packages</p>
-          <h3 className="mt-1 text-2xl font-semibold">{p.name}</h3>
-        </div>
-        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-foreground transition-all duration-300 group-hover:rotate-90 group-hover:bg-primary group-hover:text-primary-foreground">
-          <Plus className="h-5 w-5" />
-        </span>
+      
+      {/* Dark gradient for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
+      
+      {/* Inner Decorative Border */}
+      <div className="absolute inset-3 rounded-t-full rounded-b-2xl border border-white/30 transition-all duration-500 group-hover:border-white/60 group-hover:scale-[0.96]" />
+      
+      {/* Animated Content Wrapper */}
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end p-8 pb-12 transition-transform duration-500 group-hover:-translate-y-8">
+        <h3 className="text-3xl font-bold tracking-tight text-white mb-2">{p.name}</h3>
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/80">{p.trips} Packages</p>
+      </div>
+
+      {/* Button that slides up from the bottom */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full opacity-0 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-100">
+         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg">
+           <ArrowUpRight className="h-5 w-5" />
+         </span>
       </div>
     </MotionLink>
   );
