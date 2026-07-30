@@ -12,7 +12,8 @@ import {
     Mail,
     Instagram,
     MessageCircle,
-    Info
+    Info,
+    CheckCircle2
 } from "lucide-react";
 
 const AboutUs = () => {
@@ -59,7 +60,7 @@ const AboutUs = () => {
                     <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
                         {/* Image Collage */}
                         <Reveal delay={0.1}>
-                            <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-3xl w-full">
+                            <div className="relative h-full min-h-[450px] md:min-h-[600px] rounded-3xl w-full">
                                 <div className="absolute top-0 left-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-10">
                                     <img
                                         src={aboutImg1}
@@ -83,62 +84,97 @@ const AboutUs = () => {
 
                         {/* Text and Contact Information */}
                         <Reveal delay={0.2}>
-                            <div className="flex flex-col h-full justify-center">
-                                <h2 className="text-3xl md:text-4xl font-semibold text-foreground tracking-tight mb-6">
-                                    Who <span className="text-primary italic-display">We Are</span>
+                            <div className="flex flex-col h-full justify-center lg:pl-4">
+                                {/* Label */}
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="w-12 h-[2px] bg-primary"></div>
+                                    <span className="text-[13px] font-semibold tracking-widest uppercase text-primary">Who We Are</span>
+                                </div>
+                                
+                                {/* Heading */}
+                                <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
+                                    Your Trusted Partner in <br className="hidden xl:block"/>
+                                    <span className="text-primary italic-display">Exploration</span>
                                 </h2>
+                                
                                 <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                                     At Maitry Holidays, we believe that traveling is more than just visiting a destination; it's about experiencing the world, discovering new cultures, and creating memories that last a lifetime. Our dedicated team is passionate about curating personalized holiday packages that cater to your unique preferences and dreams.
                                 </p>
 
-                                <div className="rounded-3xl bg-white p-8 shadow-card border border-primary/30 space-y-6">
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">Get in Touch</h3>
-
-                                    <div className="flex items-start gap-4 group cursor-pointer">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                                            <MessageCircle className="w-5 h-5" />
-                                        </div>
-                                        <div className="pt-1">
-                                            <p className="text-sm font-medium text-foreground mb-0.5">WhatsApp</p>
-                                            <a href="https://wa.me/917041260720" target="_blank" rel="noopener noreferrer" className="text-muted-foreground group-hover:text-primary transition-colors">
-                                                +91 7041260720
-                                            </a>
-                                        </div>
+                                {/* Features List */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-10">
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-primary/80" strokeWidth={2.5} />
+                                        <span className="font-medium text-foreground text-sm md:text-base">Personalized Itineraries</span>
                                     </div>
-
-                                    <div className="flex items-start gap-4 group cursor-pointer">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                                            <Mail className="w-5 h-5" />
-                                        </div>
-                                        <div className="pt-1">
-                                            <p className="text-sm font-medium text-foreground mb-0.5">Email Address</p>
-                                            <a href="mailto:maitry.holidays13@gmail.com" className="text-muted-foreground group-hover:text-primary transition-colors">
-                                                maitry.holidays13@gmail.com
-                                            </a>
-                                        </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-primary/80" strokeWidth={2.5} />
+                                        <span className="font-medium text-foreground text-sm md:text-base">Expert Local Guides</span>
                                     </div>
-
-                                    <div className="flex items-start gap-4 group cursor-pointer">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                                            <Instagram className="w-5 h-5" />
-                                        </div>
-                                        <div className="pt-1">
-                                            <p className="text-sm font-medium text-foreground mb-0.5">Instagram</p>
-                                            <a href="https://instagram.com/maitry_holidays" target="_blank" rel="noopener noreferrer" className="text-muted-foreground group-hover:text-primary transition-colors">
-                                                @maitry_holidays
-                                            </a>
-                                        </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-primary/80" strokeWidth={2.5} />
+                                        <span className="font-medium text-foreground text-sm md:text-base">24/7 Customer Support</span>
                                     </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-primary/80" strokeWidth={2.5} />
+                                        <span className="font-medium text-foreground text-sm md:text-base">Best Price Guarantee</span>
+                                    </div>
+                                </div>
 
-                                    <div className="flex items-start gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                                            <MapPin className="w-5 h-5" />
+                                <div className="border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] bg-white/50 backdrop-blur-sm rounded-[2rem] p-6 md:p-8">
+                                    <h3 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h3>
+                                    
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        {/* WhatsApp */}
+                                        <div className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-card transition-all duration-300 border border-gray-100 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer">
+                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                                <MessageCircle className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[13px] text-muted-foreground mb-1">WhatsApp</p>
+                                                <a href="https://wa.me/917041260720" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground group-hover:text-primary transition-colors text-sm md:text-[15px]">
+                                                    +91 7041260720
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div className="pt-1">
-                                            <p className="text-sm font-medium text-foreground mb-0.5">Business Address</p>
-                                            <p className="text-muted-foreground text-sm leading-relaxed">
-                                                F-39, Signet Mall, Kamrej Char Rasta, Surat, Gujarat Zip code: 394185
-                                            </p>
+
+                                        {/* Email */}
+                                        <div className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-card transition-all duration-300 border border-gray-100 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer">
+                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                                <Mail className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[13px] text-muted-foreground mb-1">Email Address</p>
+                                                <a href="mailto:maitry.holidays13@gmail.com" className="font-medium text-foreground group-hover:text-primary transition-colors text-sm md:text-[15px] break-all">
+                                                    maitry.holidays13@gmail.com
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {/* Instagram */}
+                                        <div className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-card transition-all duration-300 border border-gray-100 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer">
+                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                                <Instagram className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[13px] text-muted-foreground mb-1">Instagram</p>
+                                                <a href="https://instagram.com/maitry_holidays" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground group-hover:text-primary transition-colors text-sm md:text-[15px]">
+                                                    @maitry_holidays
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {/* Business Address */}
+                                        <div className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-card transition-all duration-300 border border-gray-100 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer">
+                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                                <MapPin className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[13px] text-muted-foreground mb-1">Business Address</p>
+                                                <p className="font-medium text-foreground text-sm md:text-[15px] leading-relaxed group-hover:text-primary transition-colors">
+                                                    Kamrej Char Rasta, Surat
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
