@@ -42,7 +42,7 @@ const ContactUs = () => {
 
                     <div className="container-px w-full text-center mt-12 md:mt-20">
                         <Reveal>
-                            <div className="flex items-center justify-center gap-2 text-white/90 font-medium tracking-wider uppercase text-[12px] mb-4">
+                            <div className="flex items-center justify-center gap-2 text-white/90 font-medium tracking-wider uppercase text-[14px] mb-4">
                                 <PhoneCall className="w-4 h-4" />
                                 <span>Get in Touch</span>
                             </div>
@@ -63,7 +63,7 @@ const ContactUs = () => {
                         <Reveal delay={0.1}>
                             <div className="h-full rounded-3xl bg-white p-8 md:p-12 shadow-card border border-primary/30 flex flex-col">
                                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mb-8">Contact Information</h2>
-                                
+
                                 <div className="space-y-8 flex-grow">
                                     <div className="flex items-start gap-5 group cursor-pointer">
                                         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
@@ -121,7 +121,7 @@ const ContactUs = () => {
                             <div className="h-full rounded-3xl bg-white p-8 md:p-12 shadow-card border border-primary/30">
                                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mb-2">Send us a Message</h2>
                                 <p className="text-muted-foreground text-[15px] mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
-                                
+
                                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                                     <div className="grid gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
@@ -133,12 +133,12 @@ const ContactUs = () => {
                                             <Input id="lastName" placeholder="Doe" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
                                         </div>
                                     </div>
-                                    
+
                                     <div className="space-y-2">
                                         <label htmlFor="email" className="text-sm font-medium text-foreground">Email Address</label>
                                         <Input id="email" type="email" placeholder="john@example.com" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
                                     </div>
-                                    
+
                                     <div className="space-y-2">
                                         <label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number</label>
                                         <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-xl bg-slate-50 border-slate-200 focus-visible:ring-primary/20" />
