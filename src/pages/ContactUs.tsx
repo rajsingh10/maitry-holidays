@@ -3,7 +3,10 @@ import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
 import { Reveal } from "@/lib/motion";
-import { useEffect } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import api from "@/lib/api";
 import heroBg from "@/assets/images/chardham_banner_bg.png";
 import {
     MapPin,
@@ -18,9 +21,44 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const ContactUs = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [errors, setErrors] = useState<Record<string, string[]>>({});
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const today = new Date();
+    const minDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            setErrors({});
+            await api.post("/store-enquiries", data);
+            toast.success("Message sent successfully!", {
+                description: "We will get back to you shortly.",
+            });
+            (e.target as HTMLFormElement).reset();
+            navigate("/thank-you");
+        } catch (error: any) {
+            console.error("Form submission error:", error);
+            if (error.response?.data?.errors) {
+                setErrors(error.response.data.errors);
+            }
+            toast.error(error.response?.data?.message || "Something went wrong", {
+                description: "Please try again later or contact us directly.",
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-background">
@@ -29,23 +67,27 @@ const ContactUs = () => {
 
             <main>
                 {/* Hero Section */}
-                <section className="relative isolate flex flex-col items-center justify-center overflow-hidden py-24 md:py-32 min-h-[400px] md:min-h-[500px]">
+                <section className="relative isolate flex items-center overflow-hidden py-24 md:py-32 min-h-[400px] md:min-h-[500px]">
                     <div className="absolute inset-0 -z-20 h-full w-full bg-brand-darker">
                         <img
                             src={heroBg}
                             alt="Contact Us Background"
-                            className="absolute inset-0 h-full w-full object-cover bg-center bg-fixed"
+                            className="absolute inset-0 h-full w-full object-cover"
                         />
                     </div>
-                    {/* Dark Overlay to match home page hero */}
-                    <div className="absolute inset-0 -z-10 bg-black/60" />
+                    {/* Dark Overlay */}
+                    <div className="absolute inset-0 -z-10 bg-black/30 bg-gradient-to-r from-brand-darker/80 via-brand-darker/40 to-transparent lg:from-brand-darker/90 lg:via-brand-darker/40 lg:to-transparent" />
 
-                    <div className="container-px w-full text-center relative z-10">
+                    <div className="container-px w-full text-center mt-12 md:mt-20 relative z-10">
                         <Reveal>
-                            <h1 className="text-4xl md:text-5xl lg:text-[56px] font-semibold text-white leading-[1.05] mb-5">
+                            <div className="flex items-center justify-center gap-2 text-white/90 font-medium tracking-wider uppercase text-[14px] mb-4">
+                                <PhoneCall className="w-4 h-4 text-primary" />
+                                <span>Get in Touch</span>
+                            </div>
+                            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
                                 Contact <span className="italic-display text-primary font-normal">Us</span>
                             </h1>
-                            <p className="text-[15px] text-white/80 font-light max-w-md mx-auto leading-relaxed">
+                            <p className="text-lg md:text-xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed">
                                 We'd love to hear from you. Reach out to us for any queries, bookings, or customized holiday packages.
                             </p>
                         </Reveal>
@@ -118,40 +160,88 @@ const ContactUs = () => {
                                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mb-2">Send us a Message</h2>
                                 <p className="text-muted-foreground text-[15px] mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
 
-                                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                                <form className="space-y-6" onSubmit={onSubmit}>
                                     <div className="grid gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
-                                            <label htmlFor="name" className="text-sm font-medium text-foreground">First Name</label>
-                                            <Input id="name" placeholder="John" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
+                                            <label htmlFor="quote-name" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Full Name</label>
+                                            <Input
+                                                id="quote-name"
+                                                name="full_name"
+                                                required
+                                                placeholder="John Doe"
+                                                className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.full_name ? 'border-red-500' : ''}`}
+                                            />
+                                            {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="lastName" className="text-sm font-medium text-foreground">Last Name</label>
-                                            <Input id="lastName" placeholder="Doe" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
+                                            <label htmlFor="quote-mobile" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Mobile Number</label>
+                                            <Input
+                                                id="quote-mobile"
+                                                name="phone"
+                                                required
+                                                type="text"
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
+                                                onInput={(e) => {
+                                                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                                                }}
+                                                placeholder="9876543210"
+                                                className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.phone ? 'border-red-500' : ''}`}
+                                            />
+                                            {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="email" className="text-sm font-medium text-foreground">Email Address</label>
-                                        <Input id="email" type="email" placeholder="john@example.com" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number</label>
-                                        <Input id="phone" type="tel" placeholder="+91 98765 43210" className="h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0" />
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label htmlFor="message" className="text-sm font-medium text-foreground">Your Message</label>
-                                        <Textarea
-                                            id="message"
-                                            placeholder="Tell us about your travel plans..."
-                                            className="min-h-[120px] rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 resize-none py-3"
+                                        <label htmlFor="quote-email" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Email Address</label>
+                                        <Input
+                                            id="quote-email"
+                                            name="email"
+                                            type="email"
+                                            required
+                                            placeholder="john@example.com"
+                                            className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.email ? 'border-red-500' : ''}`}
                                         />
+                                        {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
                                     </div>
 
-                                    <Button className="w-full h-12 rounded-sm text-base gap-2 group transition-all duration-300 hover:shadow-[var(--shadow-orange)]">
-                                        Send Message
-                                        <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                    <div className="space-y-2">
+                                        <label htmlFor="quote-date" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Travel Date</label>
+                                        <Input
+                                            id="quote-date"
+                                            name="arrival_date"
+                                            type="date"
+                                            min={minDate}
+                                            required
+                                            className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.arrival_date ? 'border-red-500' : ''}`}
+                                        />
+                                        {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label htmlFor="quote-msg" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Special Requirements</label>
+                                        <Textarea
+                                            id="quote-msg"
+                                            name="message"
+                                            required
+                                            placeholder="e.g. Dietary needs, accessible room..."
+                                            className={`min-h-[120px] rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 resize-none py-3 ${errors.message ? 'border-red-500' : ''}`}
+                                        />
+                                        {errors.message && <p className="text-[10px] text-red-500 mt-1">{errors.message[0]}</p>}
+                                    </div>
+
+                                    <Button type="submit" disabled={loading} className="w-full h-12 rounded-sm text-base gap-2 group transition-all duration-300 hover:shadow-[var(--shadow-orange)]">
+                                        {loading ? (
+                                            <span className="flex items-center justify-center gap-2">
+                                                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                                                Sending...
+                                            </span>
+                                        ) : (
+                                            <>
+                                                Send Message
+                                                <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                            </>
+                                        )}
                                     </Button>
                                 </form>
                             </div>
