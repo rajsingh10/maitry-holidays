@@ -64,7 +64,8 @@ export const packages = [
     images: [p3, g7, g8],
     title: "Char Dham Yatra: Path to Salvation", duration: "12 Days / 11 Nights", price: "₹36,000", category: "chardham",
     bullets: ["Visit Yamunotri, Gangotri, Kedarnath & Badrinath", "Comfortable Surat-to-Surat travel with pure vegetarian Gujarati meals", "Comfortable hotel accommodation, AC transportation & experienced tour guide"],
-    inclusions: ["stay", "meals", "transit", "guide", "sightseeing"]
+    inclusions: ["stay", "meals", "transit", "guide", "sightseeing"],
+    link: "/packages/char-dham-yatra-12-days"
   },
   {
     img: p26,

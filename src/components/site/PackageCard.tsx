@@ -11,6 +11,7 @@ interface PackageProps {
     price: string;
     bullets: string[];
     inclusions?: string[];
+    link?: string;
   };
   idx: number;
 }
@@ -57,34 +58,66 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent z-20"></div>
 
       {/* Slanted Image Container */}
-      <div
-        className="relative aspect-[4/3] overflow-hidden group/slider bg-brand-darker"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
-      >
-        <img
-          src={pkg.img}
-          alt={`${pkg.title} package`}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-        />
+      {pkg.link ? (
+        <Link
+          to={pkg.link}
+          className="relative aspect-[4/3] overflow-hidden group/slider bg-brand-darker block cursor-pointer"
+          style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
+        >
+          <img
+            src={pkg.img}
+            alt={`${pkg.title} package`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+          />
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none" />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none" />
 
-        {/* Floating Duration Badge on Image */}
-        <div className="absolute top-4 right-4 z-10 flex items-center justify-center rounded-sm bg-black/40 backdrop-blur-md px-3 py-1.5 border border-white/20">
-          <span className="text-[11px] font-bold tracking-widest text-white uppercase shadow-sm">
-            {pkg.duration}
-          </span>
+          {/* Floating Duration Badge on Image */}
+          <div className="absolute top-4 right-4 z-10 flex items-center justify-center rounded-sm bg-black/40 backdrop-blur-md px-3 py-1.5 border border-white/20">
+            <span className="text-[11px] font-bold tracking-widest text-white uppercase shadow-sm">
+              {pkg.duration}
+            </span>
+          </div>
+
+          {/* Title overlayed on image */}
+          <div className="absolute bottom-6 left-5 right-5 z-10">
+            <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md group-hover:text-primary transition-colors">
+              {pkg.title}
+            </h3>
+          </div>
+        </Link>
+      ) : (
+        <div
+          className="relative aspect-[4/3] overflow-hidden group/slider bg-brand-darker"
+          style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
+        >
+          <img
+            src={pkg.img}
+            alt={`${pkg.title} package`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none" />
+
+          {/* Floating Duration Badge on Image */}
+          <div className="absolute top-4 right-4 z-10 flex items-center justify-center rounded-sm bg-black/40 backdrop-blur-md px-3 py-1.5 border border-white/20">
+            <span className="text-[11px] font-bold tracking-widest text-white uppercase shadow-sm">
+              {pkg.duration}
+            </span>
+          </div>
+
+          {/* Title overlayed on image */}
+          <div className="absolute bottom-6 left-5 right-5 z-10">
+            <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md">
+              {pkg.title}
+            </h3>
+          </div>
         </div>
-
-        {/* Title overlayed on image */}
-        <div className="absolute bottom-6 left-5 right-5 z-10">
-          <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md">
-            {pkg.title}
-          </h3>
-        </div>
-      </div>
+      )}
 
       <div className="flex flex-1 flex-col p-5 sm:p-6 pt-2">
         {/* Modern Inclusions Tags */}
@@ -130,10 +163,22 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
-              Book Now
-              <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            {pkg.link ? (
+              <>
+                <Link to={pkg.link} className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
+                  View Details
+                  <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link to="/contact" className="flex h-[52px] items-center justify-center px-4 rounded-sm border border-primary text-primary transition-colors hover:bg-primary hover:text-white text-[14px] font-bold" aria-label="Book Now">
+                  Book
+                </Link>
+              </>
+            ) : (
+              <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
+                Book Now
+                <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            )}
             <a href="tel:+917041260720" className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-sm bg-accent/10 text-accent transition-colors hover:bg-accent hover:text-white border border-accent/20" aria-label="Call Us">
               <Phone className="h-5 w-5" strokeWidth={2.5} />
             </a>
