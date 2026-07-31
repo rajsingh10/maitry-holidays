@@ -20,6 +20,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs.tsx"));
 
 const CharDham = lazy(() => import("./pages/CharDham.tsx"));
 const CharDham12Days = lazy(() => import("./pages/CharDham12Days.tsx"));
+const AshtavinayakTour = lazy(() => import("./pages/AshtavinayakTour.tsx"));
 const Nepal = lazy(() => import("./pages/Nepal.tsx"));
 const PackagesMain = lazy(() => import("./pages/PackagesMain.tsx"));
 const Gallery = lazy(() => import("./pages/Gallery.tsx"));
@@ -49,6 +50,7 @@ const App = () => (
               <Route path="/kerala" element={<Kerala />} />
               <Route path="/chardham" element={<CharDham />} />
               <Route path="/packages/char-dham-yatra-12-days" element={<CharDham12Days />} />
+              <Route path="/packages/ashtavinayak-ganpati-tour-6-days" element={<AshtavinayakTour />} />
               <Route path="/nepal" element={<Nepal />} />
               <Route path="/packages" element={<PackagesMain />} />
               <Route path="/gallery" element={<Gallery />} />
