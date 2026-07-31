@@ -73,7 +73,7 @@ const Hero = ({
   return (
     <section
       id="hero"
-      className="relative isolate flex min-h-[600px] items-center overflow-hidden py-16 md:min-h-[700px] lg:min-h-[800px] lg:py-24"
+      className="relative isolate flex min-h-[100dvh] items-center overflow-hidden py-16 md:min-h-[700px] lg:min-h-[800px] lg:py-24"
       aria-label="Hero"
     >
       <div className="absolute inset-0 -z-20 h-full w-full bg-brand-darker">
@@ -136,52 +136,25 @@ const Hero = ({
             </AnimatePresence>
           </div>
 
-          {/* <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-12 w-full max-w-5xl"
-          >
-            <div id="contact" className="rounded-sm bg-white/10 p-2 md:p-3 shadow-2xl backdrop-blur-md border border-white/20">
-              <QuoteForm horizontal={true} />
-            </div>
-          </motion.div> */}
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            className="mt-10 flex w-full max-w-sm sm:max-w-none flex-row items-center justify-center gap-2 sm:gap-4 px-2 sm:px-0"
           >
-            <a href={buttonLink} className="btn-primary group !rounded-sm px-8 py-4 text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+            <a href={buttonLink} className="btn-primary group flex flex-1 sm:flex-none items-center justify-center !rounded-sm px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
               {buttonText}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
             </a>
-            <Link to="/contact" className="group inline-flex items-center justify-center rounded-sm border-2 border-white/50 bg-white/10 backdrop-blur-md px-8 py-4 text-[16px] font-semibold text-white transition-all hover:bg-white hover:text-brand-darker">
+            <Link to="/contact" className="group flex flex-1 sm:flex-none items-center justify-center rounded-sm border-2 border-white/50 bg-white/10 backdrop-blur-md px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold text-white transition-all hover:bg-white hover:text-brand-darker text-center leading-tight">
               Contact Us
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>
-
-        {/* Slider Pagination Dots - Only show on Home Page */}
-        {/* {isHomePage && (
-          <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3 z-10">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => handleDotClick(i)}
-                className={`h-1.5 transition-all duration-500 rounded-full ${currentIdx === i ? "w-8 bg-primary" : "w-2 bg-white/40 hover:bg-white/60"
-                  }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
-        )} */}
       </div>
     </section>
   );
 };
 
 export default Hero;
-
