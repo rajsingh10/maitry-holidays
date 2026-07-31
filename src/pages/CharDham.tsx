@@ -5,7 +5,7 @@ import { packages } from "@/data/packages";
 import { Reveal } from "@/lib/motion";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import Hero from "@/components/site/Hero";
-import chardhamHero from "@/assets/images/chardham-yatra-tour.jpg";
+import chardhamHero from "@/assets/images/chardham_hero.jpg";
 import { useEffect, lazy, Suspense } from "react";
 import SEO from "@/components/SEO";
 import FloatingActions from "@/components/site/FloatingActions";

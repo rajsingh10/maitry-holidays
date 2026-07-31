@@ -1,6 +1,7 @@
 import p1 from "@/assets/images/luxury-manali.jpg";
 import p2 from "@/assets/images/shimla-weekend-tour.jpg";
-import p3 from "@/assets/images/chardham-yatra-tour.jpg";
+// import p3 from "@/assets/images/chardham-yatra-tour.jpg";
+import p3 from "@/assets/images/chardham_yatra.png";
 import p4 from "@/assets/images/dodham-yatra.jpg";
 import p5 from "@/assets/images/Ayodhya & Varanasi.avif";
 import p6 from "@/assets/images/vaishno-devi.jpg";
@@ -10,30 +11,10 @@ import p9 from "@/assets/images/haridwar-tour.png";
 import p10 from "@/assets/images/auli-tour.jpg";
 import p11 from "@/assets/images/best-uttarakhand.jpg";
 import p12 from "@/assets/images/mini-switzerland.jpg";
-import p13 from "@/assets/images/Kainchi-Dham.avif"
-import p14 from "@/assets/images/nainiatal-corbett.jpg"
-import p15 from "@/assets/images/shimla-manali.jpg"
-import p16 from "@/assets/images/manali-volvo.jpg"
-import p17 from "@/assets/images/manali-honeymoon.jpg"
-import p18 from "@/assets/images/shimla-tour.jpg"
-import p19 from "@/assets/images/mathura & vrindavan.jfif"
-import p20 from "@/assets/images/Khatu Shyam & Salasar Balaji Divine.jfif"
-import p21 from "@/assets/images/Shakti Peeth Devi Darshan Tour.jfif"
-import p22 from "@/assets/images/Ayodhya temple.jfif"
-import p23 from "@/assets/images/nainital-honeymoon.jpg"
-import p24 from "@/assets/images/grand-uttarakhand.jpg"
-import p25 from "@/assets/images/uttarakhand-tour.jpg"
-import p26 from "@/assets/images/do-dham-yatra.jpg"
+// import p26 from "@/assets/images/do-dham-yatra.jpg"
+import p26 from "@/assets/images/divyadarshan.png"
 import p27 from "@/assets/images/badrinath-tour.jpg"
 import p28 from "@/assets/images/INDIA.jpg"
-import p29 from "@/assets/images/Dharamshala.jfif"
-import p30 from "@/assets/images/Dalhousie & Khajjiar.jfif"
-import p31 from "@/assets/images/jim-corbett.jpg"
-import p32 from "@/assets/images/Kullu Manali Premium Car Tour.jpg"
-import p33 from "@/assets/images/Shimla & Manali Romantic Car Escape.jfif"
-import p34 from "@/assets/images/Shimla & Manali Deluxe Car Tour.avif"
-import p35 from "@/assets/images/Complete Himachal Tour Package.jpg"
-import p36 from "@/assets/images/Grand Himachal & Amritsar Explorer.jfif"
 import p37 from "@/assets/images/kerala (1).webp"
 import p38 from "@/assets/images/kerala_munnar.png"
 import p39 from "@/assets/images/nepal_kathmandu.png"
@@ -56,48 +37,55 @@ import g12 from "@/assets/images/68e40233b2f423c944e1da77_popular-destination-im
 export const packages = [
   // Kerala
   {
-    img: p37, 
+    img: p37,
     images: [p37, g1, g2],
     title: "Kerala Backwaters & Beaches", duration: "5 Days / 4 Nights", price: "₹14,999", category: "kerala",
-    bullets: ["Premium Houseboat Stay in Alleppey", "Munnar Tea Gardens & Waterfalls", "Private AC Transport"]
+    bullets: ["Premium Houseboat Stay in Alleppey", "Munnar Tea Gardens & Waterfalls", "Private AC Transport"],
+    inclusions: ["stay", "transit", "sightseeing"]
   },
   {
     img: p38,
     images: [p38, g3, g4],
     title: "Munnar Hill Station Retreat", duration: "4 Days / 3 Nights", price: "₹11,499", category: "kerala",
-    bullets: ["Stay in Luxury Resort amidst Tea Plantations", "Eravikulam National Park Safari", "Spice Plantation Tour & Elephant Ride"]
+    bullets: ["Stay in Luxury Resort amidst Tea Plantations", "Eravikulam National Park Safari", "Spice Plantation Tour & Elephant Ride"],
+    inclusions: ["stay", "transit", "sightseeing"]
   },
   {
     img: p42,
     images: [p42, g5, g6],
     title: "Complete Kerala Explorer", duration: "7 Days / 6 Nights", price: "₹22,999", category: "kerala",
-    bullets: ["Covering Kochi, Munnar, Thekkady & Alleppey", "Kathakali & Kalaripayattu Cultural Shows", "Periyar Lake Boating & Ayurvedic Massage"]
+    bullets: ["Covering Kochi, Munnar, Thekkady & Alleppey", "Kathakali & Kalaripayattu Cultural Shows", "Periyar Lake Boating & Ayurvedic Massage"],
+    inclusions: ["stay", "transit", "sightseeing"]
   },
 
   // Char Dham
   {
     img: p3,
     images: [p3, g7, g8],
-    title: "Char Dham Yatra: Path to Salvation", duration: "12 Days / 11 Nights", price: "₹25,999", category: "chardham",
-    bullets: ["Yamunotri, Gangotri, Kedarnath & Badrinath", "11 Nights Premium Stay & Pure Veg Meals", "Private AC vehicle with expert hill driver"]
+    title: "Char Dham Yatra: Path to Salvation", duration: "12 Days / 11 Nights", price: "₹36,000", category: "chardham",
+    bullets: ["Visit Yamunotri, Gangotri, Kedarnath & Badrinath", "Comfortable Surat-to-Surat travel with pure vegetarian Gujarati meals", "Comfortable hotel accommodation, AC transportation & experienced tour guide"],
+    inclusions: ["stay", "meals", "transit", "guide", "sightseeing"]
   },
   {
     img: p26,
     images: [p26, g9, g10],
-    title: "Do Dham Yatra: The Divine Duo", duration: "6 Days / 5 Nights", price: "₹16,999", category: "chardham",
-    bullets: ["Kedarnath (Shiva) & Badrinath (Vishnu)", "05 Nights Premium Stay at base camps", "Holy Confluences (Prayags) visit en route"]
+    title: "Divya Darshan Bharat Yatra", duration: "9 Days / 10 Nights", price: "₹28,000", category: "chardham",
+    bullets: ["Tirupati, Vellore (Golden Temple), Madurai, Rameswaram & Kanyakumari", "Kanyakumari, Trivandrum & Kovalam Beach sightseeing", "9 Nights / 10 Days with comfortable hotel stay, pure vegetarian meals & AC transportation"],
+    inclusions: ["stay", "meals", "transit", "guide", "sightseeing"]
   },
   {
     img: p4,
     images: [p4, g11, g12],
     title: "Kedarnath Dham: The Shiva Calling", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
-    bullets: ["16km trek to the 11th Jyotirlinga", "Stay at closest points (Guptkashi/Sitapur)", "Mandatory Yatra Registration Support"]
+    bullets: ["16km trek to the 11th Jyotirlinga", "Stay at closest points (Guptkashi/Sitapur)", "Mandatory Yatra Registration Support"],
+    inclusions: ["stay", "transit"]
   },
   {
     img: p27,
     images: [p27, p5, p6],
     title: "Badrinath Dham: Vaikuntha Experience", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
-    bullets: ["Morning & Evening Darshan at Lord Vishnu's abode", "Visit Mana (India’s Last Village) & Tapt Kund", "03 Nights Premium Stay & Satvik Meals"]
+    bullets: ["Morning & Evening Darshan at Lord Vishnu's abode", "Visit Mana (India’s Last Village) & Tapt Kund", "03 Nights Premium Stay & Satvik Meals"],
+    inclusions: ["stay", "meals", "transit", "sightseeing"]
   },
 
   // Nepal
@@ -105,19 +93,22 @@ export const packages = [
     img: p39,
     images: [p39, p7, p8],
     title: "Kathmandu & Pokhara Explorer", duration: "6 Days / 5 Nights", price: "₹18,999", category: "nepal",
-    bullets: ["Visit Pashupatinath & Boudhanath Stupa", "Pokhara Lake Boating & Mountain Views", "Premium Hotel Stays & Transfers"]
+    bullets: ["Visit Pashupatinath & Boudhanath Stupa", "Pokhara Lake Boating & Mountain Views", "Premium Hotel Stays & Transfers"],
+    inclusions: ["stay", "transit", "sightseeing"]
   },
   {
     img: p40,
     images: [p40, p9, p10],
     title: "Muktinath Darshan Yatra", duration: "5 Days / 4 Nights", price: "₹15,499", category: "nepal",
-    bullets: ["Holy Bath at 108 Waterspouts", "Scenic flight from Pokhara to Jomsom", "Dedicated AC Vehicle for Darshan"]
+    bullets: ["Holy Bath at 108 Waterspouts", "Scenic flight from Pokhara to Jomsom", "Dedicated AC Vehicle for Darshan"],
+    inclusions: ["stay", "transit", "sightseeing"]
   },
   {
     img: p41,
     images: [p41, p11, p12],
     title: "Best of Nepal Cultural Tour", duration: "7 Days / 6 Nights", price: "₹22,500", category: "nepal",
-    bullets: ["Explore Kathmandu, Pokhara & Chitwan", "Wildlife Safari in Chitwan National Park", "Swayambhunath & Durbar Square Visits"]
+    bullets: ["Explore Kathmandu, Pokhara & Chitwan", "Wildlife Safari in Chitwan National Park", "Swayambhunath & Durbar Square Visits"],
+    inclusions: ["stay", "transit", "sightseeing"]
   },
 ];
 

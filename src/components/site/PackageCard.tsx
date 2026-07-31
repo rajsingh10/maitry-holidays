@@ -10,15 +10,38 @@ interface PackageProps {
     duration: string;
     price: string;
     bullets: string[];
-    includes?: {
-      stay?: boolean;
-      meals?: boolean;
-      transport?: boolean;
-      sightseeing?: boolean;
-    };
+    inclusions?: string[];
   };
   idx: number;
 }
+
+const inclusionConfig: Record<string, { label: string; icon: any; className: string }> = {
+  stay: {
+    label: "Stay",
+    icon: Hotel,
+    className: "bg-primary/10 text-primary border-primary/20"
+  },
+  meals: {
+    label: "Meals",
+    icon: Utensils,
+    className: "bg-accent/10 text-accent border-accent/20"
+  },
+  transit: {
+    label: "Transit",
+    icon: Car,
+    className: "bg-primary/10 text-primary border-primary/20"
+  },
+  guide: {
+    label: "Guide",
+    icon: User,
+    className: "bg-accent/10 text-accent border-accent/20"
+  },
+  sightseeing: {
+    label: "Sightseeing",
+    icon: Camera,
+    className: "bg-primary/10 text-primary border-primary/20"
+  }
+};
 
 const PackageCard = ({ pkg, idx }: PackageProps) => {
   return (
@@ -34,15 +57,15 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent z-20"></div>
 
       {/* Slanted Image Container */}
-      <div 
+      <div
         className="relative aspect-[4/3] overflow-hidden group/slider bg-brand-darker"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
       >
-        <img 
-          src={pkg.img} 
-          alt={`${pkg.title} package`} 
-          loading="lazy" 
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
+        <img
+          src={pkg.img}
+          alt={`${pkg.title} package`}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
         />
 
         {/* Gradient overlay */}
@@ -54,7 +77,7 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
             {pkg.duration}
           </span>
         </div>
-        
+
         {/* Title overlayed on image */}
         <div className="absolute bottom-6 left-5 right-5 z-10">
           <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md">
@@ -66,21 +89,20 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
       <div className="flex flex-1 flex-col p-5 sm:p-6 pt-2">
         {/* Modern Inclusions Tags */}
         <div className="flex flex-wrap gap-2 mb-5">
-          <div className="flex items-center gap-1.5 rounded-sm bg-primary/10 px-2.5 py-1 text-primary border border-primary/20">
-            <Hotel className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Stay</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-sm bg-accent/10 px-2.5 py-1 text-accent border border-accent/20">
-            <Utensils className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Meals</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-sm bg-primary/10 px-2.5 py-1 text-primary border border-primary/20">
-            <Car className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Transit</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-sm bg-accent/10 px-2.5 py-1 text-accent border border-accent/20">
-            <User className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Guide</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-sm bg-primary/10 px-2.5 py-1 text-primary border border-primary/20">
-            <Camera className="h-3 w-3" /> <span className="text-[10px] font-bold uppercase tracking-wider">Sightseeing</span>
-          </div>
+          {(pkg.inclusions || ["stay", "meals", "transit", "guide", "sightseeing"]).map((inclusion) => {
+            const config = inclusionConfig[inclusion.toLowerCase()];
+            if (!config) return null;
+            const Icon = config.icon;
+            return (
+              <div
+                key={inclusion}
+                className={`flex items-center gap-1.5 rounded-sm px-2.5 py-1 border text-[10px] font-bold uppercase tracking-wider ${config.className}`}
+              >
+                <Icon className="h-3 w-3" />
+                <span>{config.label}</span>
+              </div>
+            );
+          })}
         </div>
 
         {/* Highlight Bullets */}
@@ -100,9 +122,11 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
           <div className="flex items-end justify-between">
             <div className="flex flex-col">
               <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Starting Price</span>
-              <span className="text-3xl font-extrabold text-foreground leading-none">{pkg.price}</span>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-3xl font-extrabold text-foreground leading-none">{pkg.price}</span>
+                <span className="text-[12px] font-medium text-muted-foreground">/ per person</span>
+              </div>
             </div>
-            <span className="text-[12px] font-medium text-muted-foreground mb-1">per person</span>
           </div>
 
           <div className="flex items-center gap-2">
