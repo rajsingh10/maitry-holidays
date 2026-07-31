@@ -2,6 +2,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
+import Testimonials from "@/components/site/Testimonials";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
@@ -319,6 +320,9 @@ const AboutUs = () => {
                         </RevealGroup>
                     </div>
                 </section>
+
+                {/* Testimonials Section */}
+                <Testimonials />
 
                 {/* Ultra-Premium Contact & Connect Card Section */}
                 <section className="py-10 md:py-14 bg-background relative z-10">

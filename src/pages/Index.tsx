@@ -4,7 +4,9 @@ import Navbar from "@/components/site/Navbar";
 import Hero from "@/components/site/Hero";
 
 // Lazy-load all below-the-fold sections to reduce initial bundle size
+const PromoBanner = lazy(() => import("@/components/site/PromoBanner"));
 const Packages = lazy(() => import("@/components/site/Packages"));
+const TourPosters = lazy(() => import("@/components/site/TourPosters"));
 const WhyUs = lazy(() => import("@/components/site/WhyUs"));
 const About = lazy(() => import("@/components/site/About"));
 const Explore = lazy(() => import("@/components/site/Explore"));
@@ -23,6 +25,8 @@ const Index = () => {
         <Hero />
         <Suspense fallback={<div className="h-[2000px] w-full" />}>
           <div className="min-h-[1100px] bg-background"><Packages /></div>
+          <PromoBanner />
+          <div className="min-h-[800px] bg-brand-cream"><TourPosters /></div>
           <div className="min-h-[500px] bg-[#1c0600]"><WhyUs /></div>
           <div className="min-h-[800px] bg-background"><About /></div>
           <div className="min-h-[800px] bg-background"><Explore /></div>

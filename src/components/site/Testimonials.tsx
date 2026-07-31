@@ -1,122 +1,173 @@
-import { Star, Quote } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Reveal } from "@/lib/motion";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
-import u1 from "@/assets/images/68d706662e2c1302fd9b1c46_user-image1.png";
-import u2 from "@/assets/images/68d7066501f243c7ab093727_user-image2.png";
-import u3 from "@/assets/images/68d706666da03ec43b49d714_user-image3.png";
+import v1 from "@/assets/video/VID-20260731-WA0005.mp4";
+import v2 from "@/assets/video/VID-20260731-WA0006.mp4";
+import v3 from "@/assets/video/VID-20260731-WA0007.mp4";
+import v4 from "@/assets/video/VID-20260731-WA0008.mp4";
+import v5 from "@/assets/video/VID-20260731-WA0009.mp4";
+import v6 from "@/assets/video/VID-20260731-WA0010.mp4";
 
 const reviews = [
   {
-    quote: "I booked Shimla and Manali holidays including hotel, cab through this travel agency, named Maitry Holiday. Overall Experience is totally flawless and convenient.",
-    name: "Anand Maurya", location: "Mumbai", avatar: u1
+    id: 1,
+    videoSrc: v1
   },
   {
-    quote: "I had a family trip to Manali. It was a very good experience with the cab pilot and he was experienced as well as well versed with location.",
-    name: "Priya Sinha", location: "Delhi", avatar: u2
+    id: 2,
+    videoSrc: v2
   },
   {
-    quote: "We had recently a Jim Corbett trip by Maitry Holiday. We had booking in resort Pumpkin tusk and woods that is awesome place. Foods and services are fantastic.",
-    name: "Shraddha Singh", location: "Bengaluru", avatar: u3
+    id: 3,
+    videoSrc: v3
   },
   {
-    quote: "Our Kerala backwaters trip was incredibly well organized. From the houseboat stay in Alleppey to the beautiful tea gardens of Munnar, everything was perfect.",
-    name: "Rahul Verma", location: "Pune", avatar: u1
+    id: 4,
+    videoSrc: v4
   },
   {
-    quote: "Highly recommend Maitry Holidays for the Char Dham Yatra. The journey was spiritual and stress-free thanks to their amazing ground team and seamless arrangements.",
-    name: "Smita Patel", location: "Ahmedabad", avatar: u2
+    id: 5,
+    videoSrc: v5
   },
   {
-    quote: "The Nepal package was breathtaking! We visited Kathmandu and Pokhara. The hotels were top-notch and our guide was extremely knowledgeable. Will book again!",
-    name: "Aditya Sharma", location: "Jaipur", avatar: u3
+    id: 6,
+    videoSrc: v6
   }
 ];
 
 const Testimonials = () => {
+  const [activeIndex, setActiveIndex] = useState(2); // Center active by default
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null); // For fullscreen playback
+
+  useEffect(() => {
+    // The active video is always the 3rd element in the rotated DOM array (index 2)
+    const videos = document.querySelectorAll('#testimonials video') as NodeListOf<HTMLVideoElement>;
+    videos.forEach((vid, i) => {
+      if (i === 2) {
+        vid.play().catch(() => { });
+      } else {
+        vid.pause();
+      }
+    });
+  }, [activeIndex]);
+
+  const getRotatedItems = () => {
+    const items = [...reviews];
+    const shift = 2 - activeIndex;
+    if (shift > 0) {
+      for (let i = 0; i < shift; i++) items.unshift(items.pop()!);
+    } else if (shift < 0) {
+      for (let i = 0; i < -shift; i++) items.push(items.shift()!);
+    }
+    return items;
+  };
+
   return (
-    <section id="testimonials" aria-label="What our clients say" className="bg-white section-pad overflow-hidden">
+    <section id="testimonials" aria-label="What our clients say" className="bg-gradient-to-b from-pink-50/50 to-orange-50/50 section-pad overflow-hidden">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-[13px] font-light uppercase tracking-widest text-primary mb-3">Testimonials</p>
-          <h2 className="text-4xl font-semibold leading-[1.05] text-foreground md:text-5xl lg:text-[56px]">
-            What our <span className="italic-display text-primary">clients say</span>
+          <h2 className="text-4xl font-extrabold leading-[1.05] text-foreground md:text-5xl lg:text-[56px] uppercase tracking-tight">
+            Happy <span className="text-primary italic-display font-light">Travelers</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-lg text-[16px] font-light leading-relaxed text-muted-foreground">
-            We take pride in serving our travelers with unforgettable journeys around the world. Here's what they shared about their experiences.
-          </p>
         </Reveal>
 
-        <Reveal className="mt-16 max-w-7xl mx-auto px-4 md:px-12 relative pb-16">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 3500,
-                stopOnInteraction: true,
-              }),
-            ]}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4 md:-ml-6 pt-16">
-              {reviews.map((r, i) => (
-                <CarouselItem key={i} className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3">
-                  <div className="group relative flex h-full flex-col rounded-sm bg-white px-8 pb-10 pt-10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] border border-brand-darker/5">
-                    {/* Header: Avatar + Name + Location */}
-                    <div className="relative z-10 flex items-center gap-5 mb-8">
-                      <div className="relative shrink-0 -mt-16">
-                        <div className="absolute inset-0 rounded-full bg-primary/20 blur-md transition-all duration-300 group-hover:bg-primary/40 group-hover:scale-110"></div>
-                        <img
-                          src={r.avatar}
-                          alt={r.name}
-                          loading="lazy"
-                          width={80}
-                          height={80}
-                          className="relative h-20 w-20 rounded-full object-cover ring-4 ring-white shadow-lg"
-                        />
-                        {/* Tiny quote badge */}
-                        <div className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shadow-md">
-                          <Quote className="h-4 w-4 fill-white" />
-                        </div>
-                      </div>
-                      <div className="pt-2">
-                        <div className="text-[17px] font-semibold text-foreground tracking-tight">{r.name}</div>
-                        <div className="text-[14px] text-primary font-medium mt-0.5">{r.location}</div>
-                      </div>
-                    </div>
+        <Reveal className="mt-10 md:mt-12 flex h-[400px] md:h-[500px] w-full max-w-7xl mx-auto gap-2 md:gap-4 relative px-2 sm:px-0 justify-center">
+          {getRotatedItems().map((r, i) => {
+            // Find original index to maintain correct state
+            const originalIndex = reviews.findIndex(item => item.id === r.id);
+            const isActive = originalIndex === activeIndex;
 
-                    {/* Quote Content */}
-                    <div className="relative z-10 flex-grow">
-                      <div className="mb-6 flex gap-1">
-                        {[0, 1, 2, 3, 4].map((star) => (
-                          <Star key={star} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                      <blockquote className="text-[17px] font-light leading-relaxed text-foreground md:text-[18px] italic relative">
-                        <span className="text-4xl text-primary/20 absolute -top-4 -left-3 font-serif">"</span>
-                        {r.quote}
-                        <span className="text-4xl text-primary/20 absolute -bottom-6 -right-2 font-serif">"</span>
-                      </blockquote>
-                    </div>
+            return (
+              <motion.div
+                layout
+                key={r.id}
+                onClick={() => {
+                  if (isActive) {
+                    setSelectedVideo(r.videoSrc);
+                  } else {
+                    setActiveIndex(originalIndex);
+                  }
+                }}
+                className={`group relative h-full overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-2xl md:rounded-[2rem] shadow-lg ${isActive
+                    ? "flex-grow basis-full sm:basis-[220px] md:basis-[550px] shadow-2xl scale-100 block"
+                    : "basis-[60px] md:basis-[220px] opacity-70 hover:opacity-100 scale-95 md:scale-100 hidden sm:block"
+                  }`}
+              >
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  muted
+                  loop
+                  preload="metadata"
+                >
+                  <source src={r.videoSrc} type="video/mp4" />
+                </video>
+
+                {/* Dark Overlay for inactive */}
+                <div className={`absolute inset-0 bg-black transition-opacity duration-700 ${isActive ? 'opacity-0' : 'opacity-60 group-hover:opacity-40'}`} />
+
+                {/* Mobile Navigation Arrows (Only on Active item) */}
+                {isActive && (
+                  <div className="sm:hidden absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-3 z-10 pointer-events-none">
+                    <button
+                      className="pointer-events-auto bg-black/40 text-white p-2.5 rounded-full backdrop-blur-sm border border-white/20 active:scale-95 transition-transform"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveIndex(prev => prev === 0 ? reviews.length - 1 : prev - 1);
+                      }}
+                    >
+                      <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+                    </button>
+                    <button
+                      className="pointer-events-auto bg-black/40 text-white p-2.5 rounded-full backdrop-blur-sm border border-white/20 active:scale-95 transition-transform"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveIndex(prev => prev === reviews.length - 1 ? 0 : prev + 1);
+                      }}
+                    >
+                      <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+                    </button>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="hidden md:flex">
-              <CarouselPrevious className="left-0 -translate-x-1/2 bg-white hover:bg-gray-50 shadow-md" />
-              <CarouselNext className="right-0 translate-x-1/2 bg-white hover:bg-gray-50 shadow-md" />
-            </div>
-            <div className="flex md:hidden justify-center gap-4 mt-8">
-              <CarouselPrevious className="static translate-y-0 translate-x-0 bg-white hover:bg-gray-50 shadow-md" />
-              <CarouselNext className="static translate-y-0 translate-x-0 bg-white hover:bg-gray-50 shadow-md" />
-            </div>
-          </Carousel>
+                )}
+
+                {/* Desktop Navigation Arrows (Only on Inactive items) */}
+                {!isActive && (
+                  <div className="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2 text-primary drop-shadow-md transition-transform duration-300 group-hover:scale-125">
+                    {i < 2 ? <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} /> : <ArrowRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </Reveal>
       </div>
+
+      {/* Fullscreen Video Modal */}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-md transition-colors"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          <div
+            className="relative w-full max-w-4xl max-h-[90vh] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            <video
+              src={selectedVideo}
+              className="w-full h-full object-contain"
+              controls
+              autoPlay
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

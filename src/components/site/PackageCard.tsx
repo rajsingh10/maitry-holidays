@@ -170,12 +170,12 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
                   <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link to="/contact" className="flex h-[52px] items-center justify-center px-4 rounded-sm border border-primary text-primary transition-colors hover:bg-primary hover:text-white text-[14px] font-bold" aria-label="Book Now">
-                  Book
+                  Enquiry
                 </Link>
               </>
             ) : (
               <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
-                Book Now
+                Get an enquiry
                 <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             )}

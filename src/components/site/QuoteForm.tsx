@@ -67,7 +67,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               <input
                 id="quote-name"
                 name="full_name"
-                required
                 className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.full_name ? 'border-red-500' : 'border-border'}`}
                 placeholder="John Doe"
               />
@@ -84,7 +83,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 onInput={(e) => {
                   e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
                 }}
-                required
                 className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
                 placeholder="9876543210"
               />
@@ -98,7 +96,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
             <div className="space-y-1 w-full">
               <input
                 name="full_name"
-                required
                 className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.full_name ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="Full Name"
               />
@@ -107,7 +104,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               <input
                 name="email"
                 type="email"
-                required
                 className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="Email Address"
               />
@@ -124,7 +120,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                   id="quote-email"
                   name="email"
                   type="email"
-                  required
                   className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
                   placeholder="john@example.com"
                 />
@@ -137,7 +132,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                   name="arrival_date"
                   type="date"
                   min={minDate}
-                  required
                   className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.arrival_date ? 'border-red-500' : 'border-border'}`}
                 />
                 {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
@@ -152,7 +146,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
               }}
-              required
               className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.phone ? 'ring-2 ring-red-500' : ''}`}
               placeholder="Mobile Number"
             />
@@ -165,7 +158,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               name="arrival_date"
               type="date"
               min={minDate}
-              required
               className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.arrival_date ? 'ring-2 ring-red-500' : ''}`}
             />
           </div>
@@ -177,7 +169,6 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
             <textarea
               id="quote-msg"
               name="message"
-              required
               rows={3}
               className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors resize-none ${errors.message ? 'border-red-500' : 'border-border'}`}
               placeholder="e.g. Dietary needs, accessible room..."

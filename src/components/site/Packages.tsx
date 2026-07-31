@@ -7,9 +7,10 @@ import { ArrowRight } from "lucide-react";
 
 interface PackagesProps {
   bgImage?: string;
+  showAll?: boolean;
 }
 
-const Packages = ({ bgImage }: PackagesProps = {}) => {
+const Packages = ({ bgImage, showAll = false }: PackagesProps = {}) => {
   return (
     <>
       {bgImage && (
@@ -64,7 +65,7 @@ const Packages = ({ bgImage }: PackagesProps = {}) => {
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {packages
                   .filter((pkg) => pkg.category === cat.id)
-                  .slice(0, 6)
+                  .slice(0, showAll ? undefined : 6)
                   .map((pkg, idx) => (
                     <PackageCard key={pkg.title} pkg={pkg} idx={idx} />
                   ))}
