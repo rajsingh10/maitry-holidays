@@ -167,7 +167,6 @@ const ContactUs = () => {
                                             <Input
                                                 id="quote-name"
                                                 name="full_name"
-                                                required
                                                 placeholder="John Doe"
                                                 className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.full_name ? 'border-red-500' : ''}`}
                                             />
@@ -178,7 +177,6 @@ const ContactUs = () => {
                                             <Input
                                                 id="quote-mobile"
                                                 name="phone"
-                                                required
                                                 type="text"
                                                 inputMode="numeric"
                                                 pattern="[0-9]*"
@@ -192,30 +190,30 @@ const ContactUs = () => {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <label htmlFor="quote-email" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Email Address</label>
-                                        <Input
-                                            id="quote-email"
-                                            name="email"
-                                            type="email"
-                                            required
-                                            placeholder="john@example.com"
-                                            className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.email ? 'border-red-500' : ''}`}
-                                        />
-                                        {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
-                                    </div>
+                                    <div className="grid gap-6 md:grid-cols-2">
+                                        <div className="space-y-2">
+                                            <label htmlFor="quote-email" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Email Address</label>
+                                            <Input
+                                                id="quote-email"
+                                                name="email"
+                                                type="email"
+                                                placeholder="john@example.com"
+                                                className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.email ? 'border-red-500' : ''}`}
+                                            />
+                                            {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
+                                        </div>
 
-                                    <div className="space-y-2">
-                                        <label htmlFor="quote-date" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Travel Date</label>
-                                        <Input
-                                            id="quote-date"
-                                            name="arrival_date"
-                                            type="date"
-                                            min={minDate}
-                                            required
-                                            className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.arrival_date ? 'border-red-500' : ''}`}
-                                        />
-                                        {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
+                                        <div className="space-y-2">
+                                            <label htmlFor="quote-date" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Travel Date</label>
+                                            <Input
+                                                id="quote-date"
+                                                name="arrival_date"
+                                                type="date"
+                                                min={minDate}
+                                                className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.arrival_date ? 'border-red-500' : ''}`}
+                                            />
+                                            {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
+                                        </div>
                                     </div>
 
                                     <div className="space-y-2">
@@ -223,7 +221,6 @@ const ContactUs = () => {
                                         <Textarea
                                             id="quote-msg"
                                             name="message"
-                                            required
                                             placeholder="e.g. Dietary needs, accessible room..."
                                             className={`min-h-[120px] rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 resize-none py-3 ${errors.message ? 'border-red-500' : ''}`}
                                         />

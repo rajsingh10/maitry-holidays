@@ -144,10 +144,22 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
-              Book Now
-              <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            {pkg.link ? (
+              <>
+                <Link to={pkg.link} className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
+                  View Details
+                  <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link to="/contact" className="flex h-[52px] items-center justify-center px-4 rounded-sm border border-primary text-primary transition-colors hover:bg-primary hover:text-white text-[14px] font-bold" aria-label="Book Now">
+                  Enquiry
+                </Link>
+              </>
+            ) : (
+              <Link to="/contact" className="btn-primary flex items-center justify-center group flex-1 rounded-sm py-3.5 text-[15px] font-bold text-center shadow-[var(--shadow-blue)] transition-transform hover:-translate-y-0.5">
+                Get an enquiry
+                <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            )}
             <a href="tel:+917041260720" className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-sm bg-accent/10 text-accent transition-colors hover:bg-accent hover:text-white border border-accent/20" aria-label="Call Us">
               <Phone className="h-5 w-5" strokeWidth={2.5} />
             </a>
