@@ -55,9 +55,21 @@ const TourPosters = ({ showAll = false }: TourPostersProps = {}) => {
               />
 
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                <div className="bg-white/20 p-4 rounded-full text-white backdrop-blur-md transform scale-50 group-hover:scale-100 transition-transform duration-300">
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-[2px]">
+                <div className="bg-white/20 p-4 rounded-full text-white backdrop-blur-md transform scale-50 group-hover:scale-100 transition-transform duration-300 mb-8">
                   <ZoomIn className="w-8 h-8" />
+                </div>
+                
+                {/* Action Button (Appears on Hover) */}
+                <div className="absolute bottom-6 left-6 right-6 transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-75">
+                  <Link 
+                    to="/contact" 
+                    className="w-full btn-primary flex items-center justify-center group/btn rounded-sm py-3.5 text-[15px] font-bold text-center shadow-lg hover:scale-[1.02] transition-transform"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Get an enquiry
+                    <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             </div>
