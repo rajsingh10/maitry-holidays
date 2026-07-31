@@ -1,7 +1,7 @@
 import p1 from "@/assets/images/luxury-manali.jpg";
 import p2 from "@/assets/images/shimla-weekend-tour.jpg";
 // import p3 from "@/assets/images/chardham-yatra-tour.jpg";
-import p3 from "@/assets/images/chardham_yatra.png";
+import p3 from "@/assets/images/chardham_yatra.webp";
 import p4 from "@/assets/images/dodham-yatra.jpg";
 import p5 from "@/assets/images/Ayodhya & Varanasi.avif";
 import p6 from "@/assets/images/vaishno-devi.jpg";
@@ -12,7 +12,7 @@ import p10 from "@/assets/images/auli-tour.jpg";
 import p11 from "@/assets/images/best-uttarakhand.jpg";
 import p12 from "@/assets/images/mini-switzerland.jpg";
 // import p26 from "@/assets/images/do-dham-yatra.jpg"
-import p26 from "@/assets/images/divyadarshan.png"
+import p26 from "@/assets/images/divya_darshan.webp"
 import p27 from "@/assets/images/badrinath-tour.jpg"
 import p28 from "@/assets/images/INDIA.jpg"
 import p37 from "@/assets/images/kerala (1).webp"
