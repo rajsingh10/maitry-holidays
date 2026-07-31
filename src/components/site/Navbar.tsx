@@ -94,7 +94,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => navigate("/packages")}
-              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-white/10 border border-white/20 backdrop-blur-sm px-7 py-2.5 text-[16px] font-semibold text-white transition-all duration-300 hover:bg-white hover:text-brand-darker hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-white/10 border border-white/20 backdrop-blur-sm px-7 py-2.5 text-[16px] font-semibold text-white transition-all duration-300 hover:bg-brand-orange  hover:-translate-y-0.5"
             >
               Packages
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
