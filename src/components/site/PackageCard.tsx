@@ -94,7 +94,7 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
 
         {/* Title overlayed on image */}
         <div className="absolute bottom-6 left-5 right-5 z-10">
-          <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md group-hover:text-primary transition-colors">
+          <h3 className="text-2xl sm:text-[26px] font-bold leading-tight text-white drop-shadow-md">
             {pkg.title}
           </h3>
         </div>

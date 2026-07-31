@@ -12,6 +12,7 @@ import {
   Calendar,
   Clock,
   ArrowRight,
+  ArrowLeft,
   Phone,
   MessageCircle,
   Check,
@@ -239,12 +240,20 @@ const CharDham12Days = () => {
           <img
             src={chardhamCardImg}
             alt="Char Dham Yatra Hero"
-            className="absolute inset-0 h-full w-full object-cover opacity-60"
+            className="absolute inset-0 h-full w-full object-cover opacity-35"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-darker via-brand-darker/60 to-black/40" />
+          <div className="absolute inset-0 bg-brand-darker/60 bg-gradient-to-t from-brand-darker via-brand-darker/90 to-black/70" />
         </div>
 
         <div className="container-px relative z-10 w-full mt-12">
+          <Link
+            to="/packages"
+            className="inline-flex items-center gap-2 text-white/80 hover:text-accent font-semibold text-[14px] mb-6 transition-colors group"
+          >
+            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            <span>Back to Tour Packages</span>
+          </Link>
+
           <Reveal>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-white font-semibold tracking-wider uppercase text-[11px] mb-6">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
