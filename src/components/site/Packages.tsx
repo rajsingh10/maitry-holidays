@@ -45,7 +45,7 @@ const Packages = ({ bgImage, showAll = false }: PackagesProps = {}) => {
             </Reveal>
           )}
 
-          <Tabs defaultValue="kerala" className="w-full">
+          <Tabs defaultValue="chardham" className="w-full">
           <Reveal delay={0.2} className="flex justify-center mb-10">
             <TabsList className="bg-brand-cream/50 p-1 h-auto flex-wrap justify-center border border-border/50 rounded-sm">
               {categories.map((cat) => (
