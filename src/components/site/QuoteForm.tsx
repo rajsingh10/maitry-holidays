@@ -10,9 +10,10 @@ interface QuoteFormProps {
   title?: string;
   subtitle?: string;
   horizontal?: boolean;
+  singleColumn?: boolean;
 }
 
-const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitle = "Fill the form and we'll contact you in 24h.", horizontal = false }: QuoteFormProps) => {
+const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitle = "Fill the form and we'll contact you in 24h.", horizontal = false, singleColumn = false }: QuoteFormProps) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
@@ -73,16 +74,21 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
             </div>
             <div className="space-y-1 md:space-y-1.5">
-              <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-email">Email Address</label>
+              <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-mobile">Mobile Number</label>
               <input
-                id="quote-email"
-                name="email"
-                type="email"
+                id="quote-mobile"
+                name="phone"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                onInput={(e) => {
+                  e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                }}
                 required
-                className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
-                placeholder="john@example.com"
+                className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
+                placeholder="9876543210"
               />
-              {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
+              {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
             </div>
           </div>
         )}
@@ -109,25 +115,20 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
           </>
         )}
 
-        <div className={horizontal ? "space-y-1 w-full" : "grid gap-3 md:gap-4 grid-cols-2"}>
+        <div className={horizontal ? "space-y-1 w-full" : `grid gap-3 md:gap-4 ${singleColumn ? 'grid-cols-1' : 'grid-cols-2'}`}>
           {!horizontal ? (
             <>
               <div className="space-y-1 md:space-y-1.5">
-                <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-mobile">Mobile Number</label>
+                <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-email">Email Address</label>
                 <input
-                  id="quote-mobile"
-                  name="phone"
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  onInput={(e) => {
-                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
-                  }}
+                  id="quote-email"
+                  name="email"
+                  type="email"
                   required
-                  className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
-                  placeholder="9876543210"
+                  className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
+                  placeholder="john@example.com"
                 />
-                {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
+                {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
               </div>
               <div className="space-y-1 md:space-y-1.5">
                 <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-date">Travel Date</label>
@@ -173,11 +174,12 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
         {!horizontal && (
           <div className="space-y-1 md:space-y-1.5">
             <label className="text-[11px] md:text-[12px] font-semibold uppercase tracking-wider text-foreground/100" htmlFor="quote-msg">Special Requirements</label>
-            <input
+            <textarea
               id="quote-msg"
               name="message"
               required
-              className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.message ? 'border-red-500' : 'border-border'}`}
+              rows={3}
+              className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors resize-none ${errors.message ? 'border-red-500' : 'border-border'}`}
               placeholder="e.g. Dietary needs, accessible room..."
             />
             {errors.message && <p className="text-[10px] text-red-500 mt-1">{errors.message[0]}</p>}

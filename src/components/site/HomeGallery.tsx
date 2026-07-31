@@ -36,17 +36,17 @@ const HomeGallery = () => {
                 </Reveal>
 
                 {/* Image Grid */}
-                <RevealGroup className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {galleryImages.map((img, index) => (
-                        <motion.div 
-                            key={index} 
+                        <motion.div
+                            key={index}
                             variants={fadeUp}
-                            className="break-inside-avoid relative group rounded-sm overflow-hidden shadow-card border border-border/50 cursor-pointer"
+                            className="relative group rounded-sm overflow-hidden shadow-card border border-border/50 cursor-pointer"
                         >
-                            <img 
-                                src={img.src} 
-                                alt={img.title} 
-                                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                            <img
+                                src={img.src}
+                                alt={img.title}
+                                className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
                                 loading="lazy"
                             />
                             {/* Hover Overlay */}

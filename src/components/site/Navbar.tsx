@@ -71,9 +71,9 @@ const Navbar = () => {
           : "absolute top-0 md:top-10 bg-transparent py-1 lg:py-2"
           }`}
       >
-        <nav className="container px-4 lg:px-20 flex h-14 lg:h-16 items-center justify-between" aria-label="Main">
+        <nav className="container px-4 lg:px-20 flex h-20 lg:h-16 items-center justify-between" aria-label="Main">
           <span onClick={() => navigate("/")} className="flex cursor-pointer items-center transition-transform hover:scale-105" aria-label="Maitry Holidays home">
-            <Logo className="h-10 lg:h-28 w-auto object-contain transition-all duration-500" variant="light" />
+            <Logo className="h-28 sm:h-32 lg:h-28 w-auto object-contain transition-all duration-500" variant="light" />
           </span>
 
           {/* Desktop Nav */}
@@ -124,8 +124,8 @@ const Navbar = () => {
         className={`fixed top-0 right-0 z-[70] h-full w-4/5 max-w-sm bg-brand-darker shadow-2xl transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${open ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <Logo className="h-10 w-auto object-contain" variant="light" />
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10">
+          <Logo className="h-28 sm:h-32 w-auto object-contain" variant="light" />
           <button
             onClick={() => setOpen(false)}
             className="h-10 w-10 inline-flex items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition-colors"

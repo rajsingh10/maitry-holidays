@@ -37,8 +37,8 @@ const Gallery = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const filteredImages = activeCategory === "All" 
-        ? galleryImages 
+    const filteredImages = activeCategory === "All"
+        ? galleryImages
         : galleryImages.filter(img => img.category === activeCategory);
 
     return (
@@ -83,11 +83,10 @@ const Gallery = () => {
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
-                                className={`px-6 py-2.5 rounded-sm text-sm font-medium transition-all duration-300 ${
-                                    activeCategory === cat
+                                className={`px-6 py-2.5 rounded-sm text-sm font-medium transition-all duration-300 ${activeCategory === cat
                                         ? "bg-primary text-white shadow-md shadow-primary/30"
                                         : "bg-white text-muted-foreground border border-border hover:bg-gray-50 hover:text-foreground"
-                                }`}
+                                    }`}
                             >
                                 {cat}
                             </button>
@@ -95,17 +94,17 @@ const Gallery = () => {
                     </div>
 
                     {/* Image Grid */}
-                    <RevealGroup key={activeCategory} className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                    <RevealGroup key={activeCategory} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {filteredImages.map((img, index) => (
-                            <motion.div 
-                                key={img.src} 
+                            <motion.div
+                                key={img.src}
                                 variants={fadeUp}
-                                className="break-inside-avoid relative group rounded-sm overflow-hidden shadow-card border border-border/50 cursor-pointer"
+                                className="relative group rounded-sm overflow-hidden shadow-card border border-border/50 cursor-pointer"
                             >
-                                <img 
-                                    src={img.src} 
-                                    alt={img.title} 
-                                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                                <img
+                                    src={img.src}
+                                    alt={img.title}
+                                    className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
                                     loading="lazy"
                                 />
                                 {/* Hover Overlay */}
