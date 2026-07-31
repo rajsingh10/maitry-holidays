@@ -149,7 +149,7 @@ const Footer = () => {
               <ul className="flex flex-col gap-5">
                 <li className="flex items-start gap-3 text-[14px] font-light text-white/80 leading-relaxed">
                   <MapPin className="mt-1 h-5 w-5 shrink-0 text-white/50" />
-                  <span>Ground Floor, JJ Camp 01, Veer Singh Marg, Shiv Mandir, New Delhi - 110001</span>
+                  <span>F-39, Signet Mall, Kamrej Char Rasta,Surat, Gujarat Zip code: 394185</span>
                 </li>
                 <li className="flex items-center gap-3 text-[14px] font-light text-white/80">
                   <Phone className="h-4 w-4 shrink-0 text-white/50" />
