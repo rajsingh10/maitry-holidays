@@ -90,20 +90,20 @@ export const packages = [
     bullets: ["Tirupati, Vellore (Golden Temple), Madurai, Rameswaram & Kanyakumari", "Kanyakumari, Trivandrum & Kovalam Beach sightseeing", "9 Nights / 10 Days with comfortable hotel stay, pure vegetarian meals & AC transportation"],
     inclusions: ["stay", "meals", "transit", "guide", "sightseeing"]
   },
-  {
-    img: p4,
-    images: [p4, g11, g12],
-    title: "Kedarnath Dham: The Shiva Calling", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
-    bullets: ["16km trek to the 11th Jyotirlinga", "Stay at closest points (Guptkashi/Sitapur)", "Mandatory Yatra Registration Support"],
-    inclusions: ["stay", "transit"]
-  },
-  {
-    img: p27,
-    images: [p27, p5, p6],
-    title: "Badrinath Dham: Vaikuntha Experience", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
-    bullets: ["Morning & Evening Darshan at Lord Vishnu's abode", "Visit Mana (India’s Last Village) & Tapt Kund", "03 Nights Premium Stay & Satvik Meals"],
-    inclusions: ["stay", "meals", "transit", "sightseeing"]
-  },
+  // {
+  //   img: p4,
+  //   images: [p4, g11, g12],
+  //   title: "Kedarnath Dham: The Shiva Calling", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
+  //   bullets: ["16km trek to the 11th Jyotirlinga", "Stay at closest points (Guptkashi/Sitapur)", "Mandatory Yatra Registration Support"],
+  //   inclusions: ["stay", "transit"]
+  // },
+  // {
+  //   img: p27,
+  //   images: [p27, p5, p6],
+  //   title: "Badrinath Dham: Vaikuntha Experience", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
+  //   bullets: ["Morning & Evening Darshan at Lord Vishnu's abode", "Visit Mana (India’s Last Village) & Tapt Kund", "03 Nights Premium Stay & Satvik Meals"],
+  //   inclusions: ["stay", "meals", "transit", "sightseeing"]
+  // },
 
   // Nepal
   {
@@ -147,13 +147,24 @@ export const packages = [
     inclusions: ["stay", "meals", "transit", "sightseeing"],
     link: "/packages/north-east-tour-11-days"
   },
+
+  // South India
+  {
+    img: p26,
+    images: [p26, g1, g2],
+    title: "South India Tour: Sacred Temples & Scenic Destinations", duration: "11 Days / 10 Nights", price: "On Request", category: "southindia",
+    bullets: ["Visit Mallikarjuna Jyotirlinga, Tirumala Balaji & Rameswaram Dham", "Explore Vellore Golden Temple & Padmanabhaswamy Temple in Trivandrum", "Scenic Dhanushkodi beach, Kanyakumari sunset & Kovalam beach"],
+    inclusions: ["stay", "meals", "transit", "sightseeing"],
+    link: "/packages/south-india-tour-11-days"
+  },
 ];
 
 export const categories = [
-  { id: "kerala", label: "Kerala", img: p28, path: "/kerala" },
+  // { id: "kerala", label: "Kerala", img: p28, path: "/kerala" },
   { id: "chardham", label: "Char Dham", img: p3, path: "/chardham" },
   { id: "divine-darshan", label: "Divine Darshan Yatra", img: p26, path: "/packages" },
-  { id: "nepal", label: "Nepal", img: p28, path: "/nepal" },
+  // { id: "nepal", label: "Nepal", img: p28, path: "/nepal" },
   { id: "kashmir", label: "Kashmir", img: p12, path: "/packages" },
   { id: "northeast", label: "North East", img: p28, path: "/packages" },
+  { id: "southindia", label: "South India", img: p26, path: "/packages" },
 ];

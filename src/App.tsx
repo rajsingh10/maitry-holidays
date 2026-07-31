@@ -24,6 +24,7 @@ const AshtavinayakTour = lazy(() => import("./pages/AshtavinayakTour.tsx"));
 const GangasagarKolkataPuriYatra = lazy(() => import("./pages/GangasagarKolkataPuriYatra.tsx"));
 const KashmirTour = lazy(() => import("./pages/KashmirTour.tsx"));
 const NorthEastTour = lazy(() => import("./pages/NorthEastTour.tsx"));
+const SouthIndiaTour = lazy(() => import("./pages/SouthIndiaTour.tsx"));
 const Nepal = lazy(() => import("./pages/Nepal.tsx"));
 const PackagesMain = lazy(() => import("./pages/PackagesMain.tsx"));
 const Gallery = lazy(() => import("./pages/Gallery.tsx"));
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/packages/gangasagar-kolkata-jagannath-puri-yatra" element={<GangasagarKolkataPuriYatra />} />
               <Route path="/packages/kashmir-tour-7-days" element={<KashmirTour />} />
               <Route path="/packages/north-east-tour-11-days" element={<NorthEastTour />} />
+              <Route path="/packages/south-india-tour-11-days" element={<SouthIndiaTour />} />
               <Route path="/nepal" element={<Nepal />} />
               <Route path="/packages" element={<PackagesMain />} />
               <Route path="/gallery" element={<Gallery />} />
