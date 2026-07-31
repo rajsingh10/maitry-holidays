@@ -514,7 +514,7 @@ const CharDham12Days = () => {
 
                   <div className="space-y-3">
                     <Link to="/contact" className="w-full btn-primary !bg-accent hover:bg-accent/95 text-white flex items-center justify-center gap-2 rounded-sm py-4 font-bold tracking-wider text-[15px] transition-transform hover:-translate-y-0.5 hover:shadow-[var(--shadow-orange)]">
-                      Book Yatra Now
+                      Enquiry Now
                       <ArrowRight className="w-4 h-4" />
                     </Link>
 
