@@ -68,9 +68,17 @@ export const packages = [
     link: "/packages/char-dham-yatra-12-days"
   },
   {
+    img: p26,
+    images: [p26, g9, g10],
+    title: "Gangasagar – Kolkata – Jagannath Puri Yatra", duration: "6 Days / 5 Nights", price: "₹18,000", category: "divine-darshan",
+    bullets: ["Visit sacred Jagannath Temple & Kapil Muni Ashram in Gangasagar", "Explore historic temples in Bhubaneswar & iconic sites of Kolkata", "Comfortable 3-star hotel stay, train travel & pure vegetarian Gujarati meals"],
+    inclusions: ["stay", "meals", "transit", "sightseeing"],
+    link: "/packages/gangasagar-kolkata-jagannath-puri-yatra"
+  },
+  {
     img: p3,
     images: [p3, g7, g8],
-    title: "Ashtavinayak Ganpati Tour", duration: "6 Days / 5 Nights", price: "₹14,000", category: "chardham",
+    title: "Ashtavinayak Ganpati Tour", duration: "6 Days / 5 Nights", price: "₹14,000", category: "divine-darshan",
     bullets: ["Visit the 8 Most Sacred Ganesha Temples of Maharashtra (Swayambhu)", "Visit 5 powerful Jyotirlingas: Bhimashankar, Parli Vaijnath, Aundha Nagnath, Grishneshwar & Trimbakeshwar", "Travel by comfortable Tempo Traveller with delicious Gujarati meals prepared by an experienced cook"],
     inclusions: ["stay", "meals", "transit", "sightseeing"],
     link: "/packages/ashtavinayak-ganpati-tour-6-days"
@@ -124,5 +132,6 @@ export const packages = [
 export const categories = [
   { id: "kerala", label: "Kerala", img: p28, path: "/kerala" },
   { id: "chardham", label: "Char Dham", img: p3, path: "/chardham" },
+  { id: "divine-darshan", label: "Divine Darshan Yatra", img: p26, path: "/packages" },
   { id: "nepal", label: "Nepal", img: p28, path: "/nepal" },
 ];
