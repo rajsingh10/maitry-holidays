@@ -22,6 +22,8 @@ const CharDham = lazy(() => import("./pages/CharDham.tsx"));
 const CharDham12Days = lazy(() => import("./pages/CharDham12Days.tsx"));
 const AshtavinayakTour = lazy(() => import("./pages/AshtavinayakTour.tsx"));
 const GangasagarKolkataPuriYatra = lazy(() => import("./pages/GangasagarKolkataPuriYatra.tsx"));
+const KashmirTour = lazy(() => import("./pages/KashmirTour.tsx"));
+const NorthEastTour = lazy(() => import("./pages/NorthEastTour.tsx"));
 const Nepal = lazy(() => import("./pages/Nepal.tsx"));
 const PackagesMain = lazy(() => import("./pages/PackagesMain.tsx"));
 const Gallery = lazy(() => import("./pages/Gallery.tsx"));
@@ -53,6 +55,8 @@ const App = () => (
               <Route path="/packages/char-dham-yatra-12-days" element={<CharDham12Days />} />
               <Route path="/packages/ashtavinayak-ganpati-tour-6-days" element={<AshtavinayakTour />} />
               <Route path="/packages/gangasagar-kolkata-jagannath-puri-yatra" element={<GangasagarKolkataPuriYatra />} />
+              <Route path="/packages/kashmir-tour-7-days" element={<KashmirTour />} />
+              <Route path="/packages/north-east-tour-11-days" element={<NorthEastTour />} />
               <Route path="/nepal" element={<Nepal />} />
               <Route path="/packages" element={<PackagesMain />} />
               <Route path="/gallery" element={<Gallery />} />

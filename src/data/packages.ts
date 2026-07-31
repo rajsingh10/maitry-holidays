@@ -127,6 +127,26 @@ export const packages = [
     bullets: ["Explore Kathmandu, Pokhara & Chitwan", "Wildlife Safari in Chitwan National Park", "Swayambhunath & Durbar Square Visits"],
     inclusions: ["stay", "transit", "sightseeing"]
   },
+
+  // Kashmir
+  {
+    img: p12,
+    images: [p12, g1, g2],
+    title: "Kashmir Tour: Experience the Paradise on Earth", duration: "7 Days / 6 Nights", price: "On Request", category: "kashmir",
+    bullets: ["Explore Srinagar Mughal Gardens & Dal Lake Shikara Ride", "Visit snow-covered Gulmarg & Thajiwas Glacier in Sonamarg", "Scenic Pahalgam Valley, Apple Orchards & tasty Gujarati meals"],
+    inclusions: ["stay", "meals", "transit", "sightseeing"],
+    link: "/packages/kashmir-tour-7-days"
+  },
+
+  // North East
+  {
+    img: p28,
+    images: [p28, g1, g2],
+    title: "North East Tour: Explore the Hidden Gems", duration: "11 Days / 10 Nights", price: "On Request", category: "northeast",
+    bullets: ["Explore scenic Tawang Monastery & Sela Pass in Arunachal", "Safari in Kaziranga National Park & Bihu Dance", "Visit Asia's cleanest Mawlynnong village & Dawki clear river"],
+    inclusions: ["stay", "meals", "transit", "sightseeing"],
+    link: "/packages/north-east-tour-11-days"
+  },
 ];
 
 export const categories = [
@@ -134,4 +154,6 @@ export const categories = [
   { id: "chardham", label: "Char Dham", img: p3, path: "/chardham" },
   { id: "divine-darshan", label: "Divine Darshan Yatra", img: p26, path: "/packages" },
   { id: "nepal", label: "Nepal", img: p28, path: "/nepal" },
+  { id: "kashmir", label: "Kashmir", img: p12, path: "/packages" },
+  { id: "northeast", label: "North East", img: p28, path: "/packages" },
 ];
