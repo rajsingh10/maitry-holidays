@@ -123,7 +123,7 @@ const PackageCard = ({ pkg, idx }: PackageProps) => {
             <div className="flex flex-col">
               <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Starting Price</span>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-3xl font-extrabold text-foreground leading-none">{pkg.price}</span>
+                <span className="font-display text-3xl font-extrabold text-foreground leading-none">{pkg.price}</span>
                 <span className="text-[12px] font-medium text-muted-foreground">/ per person</span>
               </div>
             </div>
