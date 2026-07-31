@@ -568,29 +568,6 @@ const CharDham12Days = () => {
         </div>
       </section>
 
-      {/* CTA Bottom Banner */}
-      <section className="bg-brand-cream/80 border-y border-border/60 py-16 text-center">
-        <div className="container-px max-w-3xl">
-          <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-              Ready to Seek Divine Blessings?
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto mb-8 font-light text-base leading-relaxed">
-              Contact us today for custom planning, group bookings, or package queries. Let Maitry Holidays handle the details while you focus on your spiritual journey.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link to="/contact" className="btn-primary px-8 rounded-sm">
-                Get a Custom Quote
-              </Link>
-              <a href="tel:+917041260720" className="inline-flex items-center gap-2 border border-border bg-white px-8 py-3.5 text-sm font-bold text-foreground transition-colors hover:bg-muted rounded-sm">
-                <Phone className="w-4 h-4 text-accent" />
-                Call Agent
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <Footer />
       <FloatingActions />
     </div>
