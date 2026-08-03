@@ -22,6 +22,7 @@ import p39 from "@/assets/images/nepal_kathmandu.webp"
 import p40 from "@/assets/images/nepal_muktinath.webp"
 import p41 from "@/assets/images/nepal_chitwan.webp"
 import p42 from "@/assets/images/kerala.webp"
+import pSouthIndia from "@/assets/images/south_img.webp"
 
 import g1 from "@/assets/images/68d58498cd278adf77c2fcb0_package-image5.webp"
 import g2 from "@/assets/images/68d58498e1e7b157e6d2c8e7_package-image3.webp"
@@ -85,8 +86,8 @@ export const packages = [
 
   // South India
   {
-    img: p26,
-    images: [p26, g1, g2],
+    img: pSouthIndia,
+    images: [pSouthIndia, g1, g2],
     title: "South India Tour: Sacred Temples & Scenic Destinations", duration: "11 Days / 10 Nights", price: "₹28,000", category: "southindia",
     bullets: ["Visit Mallikarjuna Jyotirlinga, Tirumala Balaji & Rameswaram Dham", "Explore Vellore Golden Temple & Padmanabhaswamy Temple in Trivandrum", "Scenic Dhanushkodi beach, Kanyakumari sunset & Kovalam beach"],
     inclusions: ["stay", "meals", "transit", "sightseeing"],
@@ -99,5 +100,5 @@ export const categories = [
   { id: "divine-darshan", label: "Divine Darshan Yatra", img: p26, path: "/packages" },
   { id: "kashmir", label: "Kashmir", img: p12, path: "/packages" },
   { id: "northeast", label: "North East", img: p28, path: "/packages" },
-  { id: "southindia", label: "South India", img: p26, path: "/packages" },
+  { id: "southindia", label: "South India", img: pSouthIndia, path: "/packages" },
 ];

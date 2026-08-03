@@ -4,6 +4,7 @@ import ashtavinayakImg from "@/assets/images/ashtavinayak.webp";
 import miniSwitzerlandImg from "@/assets/images/mini-switzerland.webp";
 import indiaImg from "@/assets/images/INDIA.webp";
 import northEastImg from "@/assets/images/noth_east.webp";
+import southIndiaImg from "@/assets/images/south_img.webp";
 
 export interface ItineraryItem {
   day: number;
@@ -904,7 +905,7 @@ export const packagesData: PackageDetail[] = [
       title: "South India Tour:",
       italicTitle: "Sacred Yatra",
       description: "Experience the spiritual and cultural beauty of Andhra Pradesh, Tamil Nadu, and Kerala, visiting famous Jyotirlingas, temples, beaches, and iconic tourist destinations. Complete with delicious Gujarati meals prepared by an experienced cook.",
-      bgImage: divyaDarshanImg
+      bgImage: southIndiaImg
     },
     metrics: {
       duration: "11 Days / 10 Nights",
