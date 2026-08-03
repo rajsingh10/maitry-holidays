@@ -2,12 +2,12 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
-import { renderTextWithHighlights } from "@/lib/highlight";
 import SEO from "@/components/SEO";
 import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import heroBg from "@/assets/images/divya_darshan.webp";
+import { renderTextWithHighlights } from "@/lib/highlight";
+import { packagesData } from "@/data/packagesData";
 import {
   MapPin,
   Calendar,
@@ -31,162 +31,28 @@ import {
   Waves
 } from "lucide-react";
 
-// Itinerary Data for 11 Days
-const itinerary = [
-  {
-    day: 1,
-    title: "Surat to Raichur",
-    description: "Board 20924 – Humsafar Express from Surat at 1:00 PM. Begin your spiritual journey towards Raichur.",
-    icon: Train,
-    stay: "Overnight Train Journey",
-    activities: [
-      "Board 20924 – Humsafar Express from Surat Railway Station at 1:00 PM",
-      "Begin your journey towards Raichur",
-      "Comfortable overnight travel by train"
-    ]
-  },
-  {
-    day: 2,
-    title: "Raichur – Srisailam",
-    description: "Arrive at Raichur Railway Station around 4:30 AM. Proceed by road to Srisailam. Visit Mallikarjuna Temple and seek blessings.",
-    icon: Car,
-    stay: "Srisailam",
-    activities: [
-      "Arrive at Raichur Railway Station around 4:30 AM",
-      "Proceed by road towards Srisailam",
-      "🛕 Mallikarjuna Jyotirlinga: Seek blessings at the holy temple, one of the 12 sacred Jyotirlingas of Lord Shiva and an important Shakti Peetha.",
-      "Check in to the hotel after temple darshan"
-    ]
-  },
-  {
-    day: 3,
-    title: "Srisailam – Tirupati",
-    description: "After breakfast, depart for Tirupati. Upon arrival, check in to the hotel and collect your Balaji Darshan Token for the next day's temple visit.",
-    icon: Car,
-    stay: "Tirupati",
-    activities: [
-      "Enjoy breakfast at the hotel",
-      "Depart for Tirupati by road",
-      "Arrive and complete check-in at the hotel",
-      "Collect the Balaji Darshan Token for the upcoming temple visit"
-    ]
-  },
-  {
-    day: 4,
-    title: "Tirumala Balaji Darshan",
-    description: "After breakfast, proceed to Tirumala Hills for a divine darshan of Lord Venkateswara (Balaji), one of India's most visited and sacred pilgrimage sites.",
-    icon: Sparkles,
-    stay: "Tirupati",
-    activities: [
-      "Enjoy breakfast at Tirupati hotel",
-      "Proceed to Tirumala Hills by vehicle",
-      "🛕 Sri Venkateswara (Balaji) Temple: Detailed darshan of Lord Venkateswara.",
-      "Return to Tirupati in the evening"
-    ]
-  },
-  {
-    day: 5,
-    title: "Tirupati – Vellore",
-    description: "After breakfast, proceed towards Vellore, visiting Sri Padmavathi Ammavari Temple and ISKCON Temple en route. In the evening, explore the magnificent Golden Temple.",
-    icon: Compass,
-    stay: "Vellore",
-    activities: [
-      "🛕 Sri Padmavathi Ammavari Temple: Dedicated to Goddess Padmavathi, the divine consort of Lord Venkateswara.",
-      "🛕 ISKCON Temple: Visit the beautiful ISKCON Temple for peaceful darshan.",
-      "Continue to Vellore by road",
-      "🛕 Sripuram Golden Temple: Visit the magnificent Golden Temple, famous for its stunning architecture covered with real gold."
-    ]
-  },
-  {
-    day: 6,
-    title: "Vellore – Rameswaram",
-    description: "After breakfast, proceed towards the holy island town of Rameswaram. Complete hotel check-in upon arrival.",
-    icon: Car,
-    stay: "Rameswaram",
-    activities: [
-      "Depart Vellore by road after breakfast",
-      "Proceed towards the island of Rameswaram",
-      "Arrive and complete hotel check-in"
-    ]
-  },
-  {
-    day: 7,
-    title: "Rameswaram & Dhanushkodi",
-    description: "Visit the holy Ramanathaswamy Temple early in the morning. After lunch, take an excursion to the ghost town of Dhanushkodi.",
-    icon: Compass,
-    stay: "Rameswaram",
-    activities: [
-      "🛕 Ramanathaswamy Temple: Visit one of the 12 Jyotirlingas and one of the Char Dham pilgrimage sites, famous for its corridors and 22 holy water tanks.",
-      "Return to hotel for lunch",
-      "🌊 Dhanushkodi: Visit the ghost town located at the southern tip of Rameswaram where the Bay of Bengal meets the Indian Ocean."
-    ]
-  },
-  {
-    day: 8,
-    title: "Rameswaram – Kanyakumari",
-    description: "After breakfast, proceed towards Kanyakumari. Upon arrival, check in to the hotel and enjoy sightseeing around the coastal town.",
-    icon: Car,
-    stay: "Kanyakumari",
-    activities: [
-      "Depart Rameswaram after breakfast",
-      "Proceed towards Kanyakumari by road",
-      "Hotel check-in upon arrival",
-      "🌊 Enjoy beautiful coastal views, sunsets, and local attractions around Kanyakumari."
-    ]
-  },
-  {
-    day: 9,
-    title: "Kanyakumari – Trivandrum",
-    description: "After breakfast, depart for Trivandrum (Thiruvananthapuram), the capital city of Kerala. Complete hotel check-in and enjoy leisure time.",
-    icon: Car,
-    stay: "Trivandrum",
-    activities: [
-      "Depart Kanyakumari in the morning",
-      "Drive to Trivandrum (Thiruvananthapuram)",
-      "Hotel check-in and relax"
-    ]
-  },
-  {
-    day: 10,
-    title: "Trivandrum Sightseeing",
-    description: "Enjoy sightseeing in Trivandrum, visiting the famous Sree Padmanabhaswamy Temple and relaxing at Kovalam Beach.",
-    icon: Compass,
-    stay: "Trivandrum",
-    activities: [
-      "🛕 Sree Padmanabhaswamy Temple: One of India's richest and most sacred temples dedicated to Lord Vishnu.",
-      "🌊 Kovalam Beach: Relax at Kerala's famous beach known for its golden sands and beautiful coastline.",
-      "Return to the hotel in the evening"
-    ]
-  },
-  {
-    day: 11,
-    title: "Return Journey",
-    description: "Board 20923 – Humsafar Express at 7:50 AM from Trivandrum. Begin your return journey back to Surat with sweet memories.",
-    icon: Train,
-    stay: "Tour Completed",
-    activities: [
-      "Transfer to Trivandrum Railway Station",
-      "Board 20923 – Humsafar Express at 7:50 AM",
-      "Begin your return journey to Surat",
-      "Tour concludes with sweet spiritual memories"
-    ]
-  }
-];
-
-const inclusions = [
-  "Train journey as per the itinerary",
-  "All sightseeing and transfers by Force Urbania",
-  "3 AC Sleeper Coach transportation",
-  "Accommodation in comfortable 3-Star Hotels",
-  "Delicious Gujarati meals prepared by an experienced Gujarati cook"
-];
-
-const exclusions = [
-  "Personal expenses, laundry, telephone calls, tips, and medicines",
-  "Special Puja/Darshan ticket charges at temples",
-  "GST & travel insurance",
-  "Any entry fees or optional activities not mentioned in the itinerary"
-];
+const iconMap: Record<string, any> = {
+  MapPin,
+  Calendar,
+  Clock,
+  ArrowRight,
+  ArrowLeft,
+  Phone,
+  MessageCircle,
+  Check,
+  ChevronRight,
+  Info,
+  Hotel,
+  Utensils,
+  Car,
+  Compass,
+  Eye,
+  Sparkles,
+  AlertTriangle,
+  Train,
+  Landmark,
+  Waves
+};
 
 const getActivityIconAndText = (text: string) => {
   const emojis = ["🛕", "🌊", "🌅", "🏖️"];
@@ -221,6 +87,8 @@ const getActivityIconAndText = (text: string) => {
 };
 
 const SouthIndiaTour = () => {
+  const pkg = packagesData.find(p => p.slug === "south-india-tour-11-days")!;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -228,8 +96,8 @@ const SouthIndiaTour = () => {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <SEO
-        title="South India Tour Package: Temples & Scenic Destinations | Maitry Holidays"
-        description="Book our 11-day premium South India Tour covering Srisailam, Tirupati, Vellore, Rameswaram, Kanyakumari & Trivandrum. 3-Star stays & Gujarati meals."
+        title={pkg.seo.title}
+        description={pkg.seo.description}
       />
       <AnnouncementBar />
       <Navbar />
@@ -238,7 +106,7 @@ const SouthIndiaTour = () => {
       <section className="relative isolate flex items-center overflow-hidden py-24 md:py-32 min-h-[450px] md:min-h-[550px] bg-brand-darker">
         <div className="absolute inset-0 -z-20 h-full w-full">
           <img
-            src={heroBg}
+            src={pkg.hero.bgImage}
             alt="South India Tour Hero"
             className="absolute inset-0 h-full w-full object-cover opacity-35"
           />
@@ -257,18 +125,18 @@ const SouthIndiaTour = () => {
           <Reveal>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-white font-semibold tracking-wider uppercase text-[11px] mb-6">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
-              <span>Sacred Temples & Scenic Destinations</span>
+              <span>{pkg.hero.tag}</span>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
-              South India <span className="italic-display text-accent font-normal block sm:inline">Tour Package</span>
+              {pkg.hero.title} <span className="italic-display text-accent font-normal block sm:inline">{pkg.hero.italicTitle}</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 font-light max-w-3xl leading-relaxed mb-6">
-              Experience the spiritual and cultural beauty of Andhra Pradesh, Tamil Nadu, and Kerala, visiting famous Jyotirlingas, temples, beaches, and iconic tourist destinations. Complete with delicious Gujarati meals prepared by an experienced cook.
+              {pkg.hero.description}
             </p>
             <div className="flex flex-wrap gap-4 text-white/80 text-[14px]">
-              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-accent" /> 11 Days / 10 Nights</span>
-              <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-accent" /> Surat to Surat</span>
-              <span className="flex items-center gap-1.5"><Hotel className="w-4 h-4 text-accent" /> 3-Star Hotel Stays</span>
+              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-accent" /> {pkg.metrics.duration}</span>
+              <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-accent" /> {pkg.metrics.route}</span>
+              <span className="flex items-center gap-1.5"><Hotel className="w-4 h-4 text-accent" /> {pkg.metrics.stayType}</span>
             </div>
           </Reveal>
         </div>
@@ -289,29 +157,29 @@ const SouthIndiaTour = () => {
                     Yatra Overview
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    A grand pilgrimage through South India. Seek blessings at Mallikarjuna Temple (Jyotirlinga), Sri Venkateswara Balaji Temple in Tirumala, Sripuram Golden Temple in Vellore, Ramanathaswamy Temple in Rameswaram, and Sree Padmanabhaswamy Temple in Trivandrum. Visit scenic destinations like Dhanushkodi, Kanyakumari, and Kovalam Beach. We offer comfortable 3-star stays, Force Urbania transfers, and traditional Gujarati cooked meals.
+                    {pkg.overview}
                   </p>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Calendar className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Duration</span>
-                      <span className="text-sm font-semibold text-foreground">11 Days</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.duration.split(" / ")[0]}</span>
                     </div>
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Hotel className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Stays</span>
-                      <span className="text-sm font-semibold text-foreground">3-Star Hotels</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.stayType}</span>
                     </div>
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Utensils className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Meals</span>
-                      <span className="text-sm font-semibold text-foreground">Veg Gujarati Meals</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.mealsType}</span>
                     </div>
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Car className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Transport</span>
-                      <span className="text-sm font-semibold text-foreground">Force Urbania</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.transitType}</span>
                     </div>
                   </div>
                 </div>
@@ -325,13 +193,13 @@ const SouthIndiaTour = () => {
                     Day-Wise Itinerary
                   </h2>
                   <p className="text-muted-foreground mt-2 font-light">
-                    Explore your daily program below. Train departures, local vehicle sightseeing, hotel transfers, and temple darshans are all managed.
+                    Follow your divine path day by day. All timings and details are carefully planned for a smooth pilgrimage.
                   </p>
                 </Reveal>
 
                 <div className="relative border-l-2 border-primary/20 ml-4 md:ml-6 space-y-12 pb-4">
-                  {itinerary.map((dayPlan, index) => {
-                    const DayIcon = dayPlan.icon;
+                  {pkg.itinerary.map((dayPlan, index) => {
+                    const DayIcon = iconMap[dayPlan.iconName] || Compass;
                     return (
                       <Reveal key={dayPlan.day} delay={index * 0.05}>
                         <div className="relative pl-8 md:pl-10 group">
@@ -399,7 +267,7 @@ const SouthIndiaTour = () => {
                       Package Inclusions
                     </h3>
                     <ul className="space-y-4">
-                      {inclusions.map((item, idx) => (
+                      {pkg.inclusions.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-[14px] leading-relaxed text-emerald-800 font-medium">
                           <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-emerald-500 text-white shadow-sm">
                             <Check className="h-3 w-3" strokeWidth={3} />
@@ -418,7 +286,7 @@ const SouthIndiaTour = () => {
                       Package Exclusions
                     </h3>
                     <ul className="space-y-4">
-                      {exclusions.map((item, idx) => (
+                      {pkg.exclusions.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-[14px] leading-relaxed text-orange-900 font-medium">
                           <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-accent text-white shadow-sm">
                             <span className="text-[10px] font-extrabold font-sans">✕</span>
@@ -431,6 +299,24 @@ const SouthIndiaTour = () => {
                 </Reveal>
               </div>
 
+              {/* Important Notes & Travel Guidelines */}
+              <Reveal>
+                <div className="bg-amber-50/50 p-6 md:p-8 rounded-sm border border-amber-200">
+                  <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+                    <AlertTriangle className="w-5 h-5 text-amber-600" />
+                    Important Notes & Guidelines
+                  </h3>
+                  <div className="space-y-3 text-[14px] text-amber-800 font-medium leading-relaxed">
+                    {pkg.guidelines.map((item, idx) => (
+                      <p key={idx} className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+
             </div>
 
             {/* Sidebar Sticky / Floating Info Panel */}
@@ -440,41 +326,26 @@ const SouthIndiaTour = () => {
                   {/* Background overlay */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-2xl -z-10"></div>
 
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent mb-2 block">Sacred Temple Tour</span>
-                  <h3 className="text-2xl font-bold leading-tight mb-4">South India Tour (11 Days)</h3>
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent mb-2 block">{pkg.sidebar.tag}</span>
+                  <h3 className="text-2xl font-bold leading-tight mb-4">{pkg.sidebar.title}</h3>
 
-                  <div className="border-t border-white/10 my-4 pt-4">
-                    <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Starting Price</span>
-                    <div className="flex items-baseline gap-1.5 mt-1">
-                      <span className="font-display text-4xl font-extrabold text-accent leading-none">₹28,000</span>
-                      <span className="text-[12px] text-white/60 font-medium">/ per person</span>
+                  {pkg.sidebar.startingPrice && pkg.sidebar.startingPrice !== "On Request" && (
+                    <div className="border-t border-white/10 my-4 pt-4">
+                      <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Starting Price</span>
+                      <div className="flex items-baseline gap-1.5 mt-1">
+                        <span className="font-display text-4xl font-extrabold text-accent leading-none">{pkg.sidebar.startingPrice}</span>
+                        <span className="text-[12px] text-white/60 font-medium">/ per person</span>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="border-t border-white/10 my-4 pt-4">
-                    <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Duration</span>
-                    <div className="flex items-baseline gap-1.5 mt-1">
-                      <span className="font-display text-2xl font-extrabold text-accent leading-none">11 Days / 10 Nights</span>
-                    </div>
-                  </div>
+                  )}
 
                   <div className="space-y-3.5 my-6 text-sm text-white/90">
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>Mallikarjuna & Rameswaram Jyotirlinga</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>Tirumala Balaji & Vellore Golden Temple</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>Dhanushkodi, Kanyakumari & Kovalam Beach</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>3-Star Hotels & Force Urbania transfers</span>
-                    </div>
+                    {pkg.sidebar.list.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2.5">
+                        <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
 
                   <div className="space-y-3">
@@ -488,7 +359,7 @@ const SouthIndiaTour = () => {
                       <span>Call +91 70412 60720</span>
                     </a>
 
-                    <a href="https://wa.me/917041260720?text=Hi%20Maitry%20Holidays,%20I%20am%20interested%20in%20booking%20the%20South%20India%20Tour%2011%20Days%20package." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 rounded-sm bg-emerald-600 hover:bg-emerald-700 py-4 font-bold text-[15px] transition-colors">
+                    <a href={`https://wa.me/917041260720?text=Hi%20Maitry%20Holidays,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(pkg.sidebar.title)}%20package.`} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 rounded-sm bg-emerald-600 hover:bg-emerald-700 py-4 font-bold text-[15px] transition-colors">
                       <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
                       <span>Chat on WhatsApp</span>
                     </a>

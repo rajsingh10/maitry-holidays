@@ -2,12 +2,12 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
-import { renderTextWithHighlights } from "@/lib/highlight";
 import SEO from "@/components/SEO";
-import { Reveal, motion } from "@/lib/motion";
+import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import chardhamCardImg from "@/assets/images/chardham_yatra.webp";
+import { renderTextWithHighlights } from "@/lib/highlight";
+import { packagesData } from "@/data/packagesData";
 import {
   MapPin,
   Calendar,
@@ -30,101 +30,31 @@ import {
   Landmark
 } from "lucide-react";
 
-// Itinerary Data for 6 Days
-const itinerary = [
-  {
-    day: 1,
-    title: "Surat to Pune",
-    description: "Report at the boarding point in Surat by 3:00 AM. Depart for Pune by luxury bus. Relax and enjoy a comfortable overnight journey to Pune.",
-    icon: Bus,
-    stay: "Pune",
-    activities: [
-      "Report at boarding point by 3:00 AM",
-      "Depart from Surat by luxury bus",
-      "Comfortable overnight travel"
-    ]
-  },
-  {
-    day: 2,
-    title: "Morgaon – Siddhatek",
-    description: "After breakfast with tea/coffee, proceed towards Morgaon (approx. 490 km, ~10 hours travel time). Upon arrival, check in to the hotel, freshen up, and visit the first temple of the Ashtavinayak Yatra. Later, proceed to Siddhatek to visit the second temple, then return to the hotel.",
-    icon: Sparkles,
-    stay: "Morgaon",
-    metrics: {
-      distance: "490 km",
-      time: "Around 10 Hours"
-    },
-    activities: [
-      "🛕 Shree Mayureshwar Temple – Morgaon: The first and most important temple of the Ashtavinayak pilgrimage. Lord Ganesha is worshipped here as Mayureshwar, who is believed to have defeated the demon Sindhu while riding a peacock.",
-      "🛕 Shree Siddhivinayak Temple – Siddhatek: One of the rare temples where Lord Ganesha's trunk bends to the right. According to Hindu mythology, Lord Vishnu performed penance here and attained success (Siddhi) with Lord Ganesha's blessings."
-    ]
-  },
-  {
-    day: 3,
-    title: "Theur – Ranjangaon – Ozar",
-    description: "After breakfast, begin the day's pilgrimage covering three sacred Ganesha temples. Visit Theur, Ranjangaon, and Ozar, and check in at Ozar for the night stay.",
-    icon: Compass,
-    stay: "Ozar",
-    activities: [
-      "🛕 Shree Chintamani Temple – Theur: Famous for removing worries and mental stress. Lord Ganesha is worshipped here as Chintamani, the remover of anxiety. This temple is considered one of the most revered Swayambhu Ganesh temples.",
-      "🛕 Shree Mahaganpati Temple – Ranjangaon: It is believed that Lord Shiva worshipped Lord Ganesha here before defeating the demon Tripurasura. The temple houses a powerful self-manifested idol of Lord Mahaganpati.",
-      "🛕 Shree Vighneshwar Temple – Ozar: Lord Ganesha is worshipped here as the Remover of Obstacles (Vighna). Sincere prayers at this temple are believed to remove difficulties and obstacles from one's life."
-    ]
-  },
-  {
-    day: 4,
-    title: "Lenyadri – Bhimashankar – Pali – Mahad",
-    description: "After breakfast, proceed to Lenyadri to visit the unique cave temple. Next, head to Bhimashankar to seek blessings at the sacred Jyotirlinga. Continue your pilgrimage to Pali and Mahad, and return to the hotel.",
-    icon: MapPin,
-    stay: "Ozar",
-    activities: [
-      "🛕 Shree Girijatmaj Temple – Lenyadri: Reach the temple by climbing 283 steps. This unique temple is carved into a mountain cave and has no supporting pillars. Goddess Parvati performed severe penance here for 13 years, and Lord Ganesha was born at this sacred place.",
-      "🛕 Bhimashankar Jyotirlinga: Visit one of the 12 sacred Jyotirlingas of Lord Shiva. Seek blessings at this ancient and spiritually significant temple.",
-      "🛕 Shree Ballaleshwar Temple – Pali: The only Ganesh temple named after a devotee, Ballal. The idol is self-manifested (Swayambhu). As per tradition, devotees first worship Dhundi Ganpati before offering prayers to Ballaleshwar.",
-      "🛕 Shree Varadvinayak Temple – Mahad: Lord Ganesha is worshipped here as the Bestower of Wishes. Devotees believe that sincere prayers offered here fulfill all genuine wishes. The idol is self-manifested."
-    ]
-  },
-  {
-    day: 5,
-    title: "Jyotirlinga Darshan",
-    description: "After breakfast, continue the spiritual journey to visit three major Jyotirlingas. Seek blessings at Parli Vaijnath, Aundha Nagnath, and Grishneshwar, and then proceed to Shirdi.",
-    icon: Eye,
-    stay: "Shirdi",
-    activities: [
-      "🛕 Parli Vaijnath Jyotirlinga: One of the twelve sacred Jyotirlingas dedicated to Lord Shiva.",
-      "🛕 Aundha Nagnath Jyotirlinga: An ancient and highly revered Jyotirlinga temple believed to be one of the oldest Shiva temples in India.",
-      "🛕 Grishneshwar Jyotirlinga: The twelfth Jyotirlinga, located near the famous Ellora Caves, known for its beautiful architecture and spiritual importance."
-    ]
-  },
-  {
-    day: 6,
-    title: "Shirdi – Trimbakeshwar – Surat",
-    description: "After breakfast, visit Shirdi Sai Baba Temple, then drive to Trimbakeshwar Jyotirlinga near Nashik. After darshan, begin the return journey to Surat via the scenic hill station of Saputara.",
-    icon: Car,
-    stay: "Tour Completed",
-    activities: [
-      "🛕 Shirdi Sai Baba Temple: Seek blessings at the world-famous shrine of Sai Baba.",
-      "🛕 Trimbakeshwar Jyotirlinga: Famous for its unique three-faced Shiva Lingam representing Brahma, Vishnu, and Mahesh.",
-      "Begin the return journey to Surat via the scenic hill station of Saputara, concluding the tour with divine blessings."
-    ]
-  }
-];
-
-const inclusions = [
-  "Travel by comfortable Tempo Traveller for all sightseeing and transfers",
-  "Delicious Gujarati meals prepared by an experienced Gujarati cook",
-  "Comfortable hotel night stays in Pune, Morgaon, Ozar, and Shirdi",
-  "Dedicated driver and tour assistance throughout the journey"
-];
-
-const exclusions = [
-  "Personal expenses, laundry, telephone calls, tips, and medicines",
-  "Special Puja charges at temples",
-  "GST & travel insurance",
-  "Any entry fees or optional activities not mentioned in the itinerary"
-];
+const iconMap: Record<string, any> = {
+  MapPin,
+  Calendar,
+  Clock,
+  ArrowRight,
+  ArrowLeft,
+  Phone,
+  MessageCircle,
+  Check,
+  ChevronRight,
+  Info,
+  Hotel,
+  Utensils,
+  Car,
+  Compass,
+  Eye,
+  Sparkles,
+  AlertTriangle,
+  Bus,
+  Landmark
+};
 
 const AshtavinayakTour = () => {
+  const pkg = packagesData.find(p => p.slug === "ashtavinayak-ganpati-tour-6-days")!;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -132,8 +62,8 @@ const AshtavinayakTour = () => {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <SEO
-        title="Ashtavinayak Ganpati Tour with 5 Jyotirlinga | Maitry Holidays"
-        description="Embark on the sacred Ashtavinayak Ganpati Tour covering the 8 Swayambhu Ganesha temples and 5 Jyotirlingas of Maharashtra. Luxury bus & Gujarati meals."
+        title={pkg.seo.title}
+        description={pkg.seo.description}
       />
       <AnnouncementBar />
       <Navbar />
@@ -142,7 +72,7 @@ const AshtavinayakTour = () => {
       <section className="relative isolate flex items-center overflow-hidden py-24 md:py-32 min-h-[450px] md:min-h-[550px] bg-brand-darker">
         <div className="absolute inset-0 -z-20 h-full w-full">
           <img
-            src={chardhamCardImg}
+            src={pkg.hero.bgImage}
             alt="Ashtavinayak Tour Hero"
             className="absolute inset-0 h-full w-full object-cover opacity-35"
           />
@@ -161,18 +91,18 @@ const AshtavinayakTour = () => {
           <Reveal>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-white font-semibold tracking-wider uppercase text-[11px] mb-6">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
-              <span>Divine Ganesha & Shiva Yatra</span>
+              <span>{pkg.hero.tag}</span>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
-              Ashtavinayak <span className="italic-display text-accent font-normal">Ganpati Tour</span>
+              {pkg.hero.title} <span className="italic-display text-accent font-normal">{pkg.hero.italicTitle}</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 font-light max-w-3xl leading-relaxed mb-6">
-              A sacred 6 Days / 5 Nights pilgrimage covering the 8 self-manifested (Swayambhu) Ganesha temples and 5 powerful Jyotirlingas of Maharashtra. Complete with comfortable stays, pure vegetarian Gujarati meals, and transport.
+              {pkg.hero.description}
             </p>
             <div className="flex flex-wrap gap-4 text-white/80 text-[14px]">
-              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-accent" /> 6 Days / 5 Nights</span>
-              <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-accent" /> Surat to Surat</span>
-              <span className="flex items-center gap-1.5"><Hotel className="w-4 h-4 text-accent" /> Comfortable Hotel Stays</span>
+              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-accent" /> {pkg.metrics.duration}</span>
+              <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-accent" /> {pkg.metrics.route}</span>
+              <span className="flex items-center gap-1.5"><Hotel className="w-4 h-4 text-accent" /> {pkg.metrics.stayType}</span>
             </div>
           </Reveal>
         </div>
@@ -193,29 +123,29 @@ const AshtavinayakTour = () => {
                     Yatra Overview
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Embark on the sacred Ashtavinayak Yatra with Maitry Holidays. Seek blessings at the eight self-manifested (Swayambhu) Ganesha temples of Maharashtra alongside 5 powerful Shiva Jyotirlingas (Bhimashankar, Parli Vaijnath, Aundha Nagnath, Grishneshwar, and Trimbakeshwar). Our tour ensures comfortable luxury travel, hygienic stays, and freshly cooked Gujarati meals prepared by an experienced Gujarati cook.
+                    {pkg.overview}
                   </p>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Calendar className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Duration</span>
-                      <span className="text-sm font-semibold text-foreground">6 Days</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.duration.split(" / ")[0]}</span>
                     </div>
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Hotel className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Stays</span>
-                      <span className="text-sm font-semibold text-foreground">Comfortable Hotels</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.stayType}</span>
                     </div>
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Utensils className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Meals</span>
-                      <span className="text-sm font-semibold text-foreground">Veg Gujarati Meals</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.mealsType}</span>
                     </div>
                     <div className="bg-brand-cream/50 p-4 rounded-sm border border-border/50 text-center">
                       <Car className="w-5 h-5 text-primary mx-auto mb-2" />
                       <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-bold">Transport</span>
-                      <span className="text-sm font-semibold text-foreground">Tempo Traveller / Bus</span>
+                      <span className="text-sm font-semibold text-foreground">{pkg.metrics.transitType}</span>
                     </div>
                   </div>
                 </div>
@@ -234,8 +164,8 @@ const AshtavinayakTour = () => {
                 </Reveal>
 
                 <div className="relative border-l-2 border-primary/20 ml-4 md:ml-6 space-y-12 pb-4">
-                  {itinerary.map((dayPlan, index) => {
-                    const DayIcon = dayPlan.icon;
+                  {pkg.itinerary.map((dayPlan, index) => {
+                    const DayIcon = iconMap[dayPlan.iconName] || Compass;
                     return (
                       <Reveal key={dayPlan.day} delay={index * 0.05}>
                         <div className="relative pl-8 md:pl-10 group">
@@ -318,7 +248,7 @@ const AshtavinayakTour = () => {
                       Package Inclusions
                     </h3>
                     <ul className="space-y-4">
-                      {inclusions.map((item, idx) => (
+                      {pkg.inclusions.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-[14px] leading-relaxed text-emerald-800 font-medium">
                           <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-emerald-500 text-white shadow-sm">
                             <Check className="h-3 w-3" strokeWidth={3} />
@@ -337,7 +267,7 @@ const AshtavinayakTour = () => {
                       Package Exclusions
                     </h3>
                     <ul className="space-y-4">
-                      {exclusions.map((item, idx) => (
+                      {pkg.exclusions.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-[14px] leading-relaxed text-orange-900 font-medium">
                           <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-accent text-white shadow-sm">
                             <span className="text-[10px] font-extrabold font-sans">✕</span>
@@ -358,18 +288,12 @@ const AshtavinayakTour = () => {
                     Important Notes & Guidelines
                   </h3>
                   <div className="space-y-3 text-[14px] text-amber-800 font-medium leading-relaxed">
-                    <p className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                      <span>The itinerary involves visiting multiple sacred destinations in Maharashtra. Safe, coordinated, and comfortable transfers are arranged via Tempo Traveller/Luxury coach.</span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                      <span>Comfortable clothing and walking shoes are recommended, especially for climbing the 283 steps to the cave temple of Lenyadri.</span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                      <span>The itinerary is subject to change based on route updates, traffic, weather, and temple guidelines.</span>
-                    </p>
+                    {pkg.guidelines.map((item, idx) => (
+                      <p key={idx} className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </p>
+                    ))}
                   </div>
                 </div>
               </Reveal>
@@ -383,34 +307,26 @@ const AshtavinayakTour = () => {
                   {/* Background overlay */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-2xl -z-10"></div>
 
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent mb-2 block">Sacred Pilgrimage Package</span>
-                  <h3 className="text-2xl font-bold leading-tight mb-4">Ashtavinayak Tour (6 Days)</h3>
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent mb-2 block">{pkg.sidebar.tag}</span>
+                  <h3 className="text-2xl font-bold leading-tight mb-4">{pkg.sidebar.title}</h3>
 
-                  <div className="border-t border-white/10 my-4 pt-4">
-                    <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Starting Price</span>
-                    <div className="flex items-baseline gap-1.5 mt-1">
-                      <span className="font-display text-4xl font-extrabold text-accent leading-none">₹14,000</span>
-                      <span className="text-[12px] text-white/60 font-medium">/ per person</span>
+                  {pkg.sidebar.startingPrice && (
+                    <div className="border-t border-white/10 my-4 pt-4">
+                      <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Starting Price</span>
+                      <div className="flex items-baseline gap-1.5 mt-1">
+                        <span className="font-display text-4xl font-extrabold text-accent leading-none">{pkg.sidebar.startingPrice}</span>
+                        <span className="text-[12px] text-white/60 font-medium">/ per person</span>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <div className="space-y-3.5 my-6 text-sm text-white/90">
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>8 Sacred Ganesha Temples (Swayambhu)</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>5 Powerful Jyotirlingas Included</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>Pure Veg Gujarati Meals Included</span>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
-                      <span>Comfortable Tempo Traveller Transit</span>
-                    </div>
+                    {pkg.sidebar.list.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2.5">
+                        <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
 
                   <div className="space-y-3">
@@ -424,7 +340,7 @@ const AshtavinayakTour = () => {
                       <span>Call +91 70412 60720</span>
                     </a>
 
-                    <a href="https://wa.me/917041260720?text=Hi%20Maitry%20Holidays,%20I%20am%20interested%20in%20booking%20the%20Ashtavinayak%20Ganpati%20Tour%206%20Days%20package." target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 rounded-sm bg-emerald-600 hover:bg-emerald-700 py-4 font-bold text-[15px] transition-colors">
+                    <a href={`https://wa.me/917041260720?text=Hi%20Maitry%20Holidays,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(pkg.sidebar.title)}%20package.`} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 rounded-sm bg-emerald-600 hover:bg-emerald-700 py-4 font-bold text-[15px] transition-colors">
                       <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
                       <span>Chat on WhatsApp</span>
                     </a>
