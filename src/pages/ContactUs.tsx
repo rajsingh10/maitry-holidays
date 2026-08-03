@@ -3,6 +3,7 @@ import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
 import { Reveal } from "@/lib/motion";
+import SEO from "@/components/SEO";
 import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -39,6 +40,26 @@ const ContactUs = () => {
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
 
+        const newErrors: Record<string, string[]> = {};
+        if (!data.full_name || (data.full_name as string).trim().length < 3) {
+            newErrors.full_name = ["Name must be at least 3 characters."];
+        }
+        if (!data.phone || (data.phone as string).trim().length !== 10) {
+            newErrors.phone = ["Mobile number must be exactly 10 digits."];
+        }
+        if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email as string)) {
+            newErrors.email = ["Please enter a valid email address."];
+        }
+        if (!data.arrival_date) {
+            newErrors.arrival_date = ["Please select a travel date."];
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            setLoading(false);
+            return;
+        }
+
         try {
             setErrors({});
             await api.post("/store-enquiries", data);
@@ -61,7 +82,11 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background flex flex-col">
+            <SEO 
+                title="Contact Us - Maitry Holidays" 
+                description="Get in touch with Maitry Holidays for tour bookings, inquiries, and custom travel packages."
+            />
             <AnnouncementBar />
             <Navbar />
 
@@ -160,7 +185,7 @@ const ContactUs = () => {
                                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight mb-2">Send us a Message</h2>
                                 <p className="text-muted-foreground text-[15px] mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
 
-                                <form className="space-y-6" onSubmit={onSubmit}>
+                                <form noValidate className="space-y-6" onSubmit={onSubmit}>
                                     <div className="grid gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
                                             <label htmlFor="quote-name" className="text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-foreground/100">Full Name</label>
@@ -169,6 +194,8 @@ const ContactUs = () => {
                                                 name="full_name"
                                                 placeholder="John Doe"
                                                 className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.full_name ? 'border-red-500' : ''}`}
+                                                required
+                                                minLength={3}
                                             />
                                             {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
                                         </div>
@@ -185,6 +212,9 @@ const ContactUs = () => {
                                                 }}
                                                 placeholder="9876543210"
                                                 className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.phone ? 'border-red-500' : ''}`}
+                                                required
+                                                minLength={10}
+                                                maxLength={10}
                                             />
                                             {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
                                         </div>
@@ -199,6 +229,7 @@ const ContactUs = () => {
                                                 type="email"
                                                 placeholder="john@example.com"
                                                 className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.email ? 'border-red-500' : ''}`}
+                                                required
                                             />
                                             {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
                                         </div>
@@ -211,6 +242,7 @@ const ContactUs = () => {
                                                 type="date"
                                                 min={minDate}
                                                 className={`h-12 rounded-sm bg-slate-50 border-slate-200 focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:ring-offset-0 ${errors.arrival_date ? 'border-red-500' : ''}`}
+                                                required
                                             />
                                             {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
                                         </div>

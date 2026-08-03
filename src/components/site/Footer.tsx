@@ -170,7 +170,7 @@ const Footer = () => {
       <div className="border-t border-white/10 bg-brand-darker py-6">
         <div className="container-px text-center">
           <p className="text-[13px] font-light text-white/50">
-            © {new Date().getFullYear()} <span className="font-medium text-white">Maitry Holidays</span>. All Rights Reserved.
+            © {new Date().getFullYear()} <span className="font-medium text-primary">Maitry Holidays</span>. All Rights Reserved.
           </p>
         </div>
       </div>

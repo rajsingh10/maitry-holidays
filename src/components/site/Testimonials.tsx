@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Reveal } from "@/lib/motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
-import v1 from "@/assets/video/VID-20260731-WA0005.mp4";
-import v2 from "@/assets/video/VID-20260731-WA0006.mp4";
-import v3 from "@/assets/video/VID-20260731-WA0007.mp4";
-import v4 from "@/assets/video/VID-20260731-WA0008.mp4";
-import v5 from "@/assets/video/VID-20260731-WA0009.mp4";
-import v6 from "@/assets/video/VID-20260731-WA0010.mp4";
+import v1 from "@/assets/video/VID-20260731-WA0005.webm";
+import v2 from "@/assets/video/VID-20260731-WA0006.webm";
+import v3 from "@/assets/video/VID-20260731-WA0007.webm";
+import v4 from "@/assets/video/VID-20260731-WA0008.webm";
+import v5 from "@/assets/video/VID-20260731-WA0009.webm";
+import v6 from "@/assets/video/VID-20260731-WA0010.webm";
 
 const reviews = [
   {
@@ -39,23 +39,42 @@ const reviews = [
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(2); // Center active by default
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null); // For fullscreen playback
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // The active video is always the 3rd element in the rotated DOM array (index 2)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // 30% visibility is a good default
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     const videos = document.querySelectorAll('#testimonials video') as NodeListOf<HTMLVideoElement>;
     videos.forEach((vid, i) => {
-      if (i === 2) {
-        vid.muted = false;
-        vid.play().catch(() => {
-          vid.muted = true;
-          vid.play().catch(() => {});
-        });
-      } else {
-        vid.muted = true;
+      // Pause all inactive videos, or if the section is no longer visible
+      if (i !== 2 || !isVisible) {
         vid.pause();
       }
     });
+  }, [activeIndex, isVisible]);
+
+  useEffect(() => {
+    setIsPlaying(false);
   }, [activeIndex]);
 
   const getRotatedItems = () => {
@@ -70,7 +89,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" aria-label="What our clients say" className="bg-gradient-to-b from-pink-50/50 to-orange-50/50 section-pad overflow-hidden">
+    <section ref={sectionRef} id="testimonials" aria-label="What our clients say" className="bg-gradient-to-b from-pink-50/50 to-orange-50/50 section-pad overflow-hidden">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl font-extrabold leading-[1.05] text-foreground md:text-5xl lg:text-[56px] uppercase tracking-tight">
@@ -89,10 +108,19 @@ const Testimonials = () => {
                 layout
                 key={r.id}
                 onClick={() => {
-                  if (isActive) {
-                    setSelectedVideo(r.videoSrc);
-                  } else {
+                  if (!isActive) {
                     setActiveIndex(originalIndex);
+                  } else {
+                    const vid = document.getElementById(`video-${r.id}`) as HTMLVideoElement;
+                    if (vid) {
+                      if (vid.paused) {
+                        vid.play().catch(console.error);
+                        setIsPlaying(true);
+                      } else {
+                        vid.pause();
+                        setIsPlaying(false);
+                      }
+                    }
                   }
                 }}
                 className={`group relative h-full overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-2xl md:rounded-[2rem] shadow-lg ${isActive
@@ -101,16 +129,37 @@ const Testimonials = () => {
                   }`}
               >
                 <video
+                  id={`video-${r.id}`}
                   className="absolute inset-0 w-full h-full object-cover"
-                  muted={!isActive}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
                   loop
                   preload="metadata"
                 >
-                  <source src={r.videoSrc} type="video/mp4" />
+                  <source src={r.videoSrc} type="video/webm" />
                 </video>
 
                 {/* Dark Overlay for inactive */}
                 <div className={`absolute inset-0 bg-black transition-opacity duration-700 ${isActive ? 'opacity-0' : 'opacity-60 group-hover:opacity-40'}`} />
+
+                {/* Center Play Button Overlay */}
+                {isActive && !isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <button
+                      className="pointer-events-auto bg-primary text-white p-5 rounded-full shadow-xl backdrop-blur-sm transition-transform hover:scale-110 active:scale-95"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const vid = document.getElementById(`video-${r.id}`) as HTMLVideoElement;
+                        if (vid) {
+                          vid.play().catch(console.error);
+                          setIsPlaying(true);
+                        }
+                      }}
+                    >
+                      <Play className="w-8 h-8 fill-current ml-1" />
+                    </button>
+                  </div>
+                )}
 
                 {/* Mobile Navigation Arrows (Only on Active item) */}
                 {isActive && (
@@ -148,32 +197,7 @@ const Testimonials = () => {
         </Reveal>
       </div>
 
-      {/* Fullscreen Video Modal */}
-      {selectedVideo && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
-          onClick={() => setSelectedVideo(null)}
-        >
-          <button
-            className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-md transition-colors"
-            onClick={() => setSelectedVideo(null)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-          <div
-            className="relative w-full max-w-4xl max-h-[90vh] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
-            onClick={e => e.stopPropagation()}
-          >
-            <video
-              src={selectedVideo}
-              className="w-full h-full object-contain"
-              controls
-              autoPlay
-              muted={false}
-            />
-          </div>
-        </div>
-      )}
+
     </section>
   );
 };

@@ -45,9 +45,15 @@ const Packages = ({ bgImage, showAll = false }: PackagesProps = {}) => {
             </Reveal>
           )}
 
-          <Tabs defaultValue="chardham" className="w-full">
+          <Tabs defaultValue="all" className="w-full">
           <Reveal delay={0.2} className="flex justify-center mb-10">
             <TabsList className="bg-brand-cream/50 p-1 h-auto flex-wrap justify-center border border-border/50 rounded-sm">
+              <TabsTrigger
+                value="all"
+                className="px-6 py-2.5 text-[14px] font-medium data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-lg transition-all rounded-sm"
+              >
+                All Packages
+              </TabsTrigger>
               {categories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
@@ -59,6 +65,28 @@ const Packages = ({ bgImage, showAll = false }: PackagesProps = {}) => {
               ))}
             </TabsList>
           </Reveal>
+
+          <TabsContent value="all" className="mt-0 outline-none">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {packages
+                .slice(0, showAll ? undefined : 6)
+                .map((pkg, idx) => (
+                  <PackageCard key={pkg.title} pkg={pkg} idx={idx} />
+                ))}
+            </div>
+            
+            {!showAll && (
+              <Reveal className="mt-12 text-center">
+                <Link 
+                  to="/packages?type=regular"
+                  className="inline-flex items-center gap-2 rounded-sm border-2 border-primary px-8 py-3 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white"
+                >
+                  Explore all packages
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Reveal>
+            )}
+          </TabsContent>
 
           {categories.map((cat) => (
             <TabsContent key={cat.id} value={cat.id} className="mt-0 outline-none">

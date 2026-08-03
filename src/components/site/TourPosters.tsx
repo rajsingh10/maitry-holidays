@@ -79,7 +79,7 @@ const TourPosters = ({ showAll = false }: TourPostersProps = {}) => {
         {!showAll && (
           <Reveal className="mt-12 text-center">
             <Link
-              to="/packages"
+              to="/packages?type=special"
               className="inline-flex items-center gap-2 rounded-sm border-2 border-primary px-8 py-3 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white"
             >
               View all Special Packages

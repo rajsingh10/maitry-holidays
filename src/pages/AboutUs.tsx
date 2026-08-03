@@ -3,6 +3,7 @@ import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
 import Testimonials from "@/components/site/Testimonials";
+import SEO from "@/components/SEO";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
@@ -116,6 +117,10 @@ const AboutUs = () => {
 
     return (
         <div className="min-h-screen bg-background">
+            <SEO
+                title="About Us - Maitry Holidays"
+                description="Learn more about Maitry Holidays, your trusted partner for unforgettable travel experiences. Over 12k+ happy travelers and 5k+ tours organized."
+            />
             <AnnouncementBar />
             <Navbar />
 
@@ -152,7 +157,7 @@ const AboutUs = () => {
                 <section className="relative py-12 md:py-16 bg-background">
                     <div className="container-px">
                         <div className="grid gap-16 lg:grid-cols-12 items-center">
-                            
+
                             {/* Left: Dynamic Premium Collage */}
                             <div className="lg:col-span-5 relative h-[380px] md:h-[480px] w-full mt-6 lg:mt-0">
                                 {/* Back decorative dots */}
@@ -251,7 +256,7 @@ const AboutUs = () => {
                 {/* Premium Counters Section */}
                 <section className="py-10 md:py-14 bg-primary/5 border-y border-primary/10 relative">
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/40 via-transparent to-transparent pointer-events-none" />
-                    
+
                     <div className="container-px">
                         <RevealGroup className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                             {stats.map((s, idx) => {
@@ -353,7 +358,7 @@ const AboutUs = () => {
                                 <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {/* WhatsApp */}
                                     <Reveal delay={0.1} className="h-full">
-                                        <div 
+                                        <div
                                             onClick={() => window.open("https://wa.me/917041260720", "_blank")}
                                             className="h-full rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all duration-300 border border-border/80 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer"
                                         >
@@ -371,7 +376,7 @@ const AboutUs = () => {
 
                                     {/* Email */}
                                     <Reveal delay={0.15} className="h-full">
-                                        <div 
+                                        <div
                                             onClick={() => window.open("mailto:maitry.holidays13@gmail.com")}
                                             className="h-full rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all duration-300 border border-border/80 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer"
                                         >
@@ -389,7 +394,7 @@ const AboutUs = () => {
 
                                     {/* Instagram */}
                                     <Reveal delay={0.2} className="h-full">
-                                        <div 
+                                        <div
                                             onClick={() => window.open("https://instagram.com/maitry_holidays", "_blank")}
                                             className="h-full rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all duration-300 border border-border/80 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer"
                                         >
@@ -407,7 +412,7 @@ const AboutUs = () => {
 
                                     {/* Business Address */}
                                     <Reveal delay={0.25} className="h-full">
-                                        <div 
+                                        <div
                                             className="h-full rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all duration-300 border border-border/80 hover:border-primary/40 flex flex-col items-start gap-4 group cursor-pointer"
                                         >
                                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">

@@ -26,6 +26,12 @@ const KashmirTour = lazy(() => import("./pages/KashmirTour.tsx"));
 const NorthEastTour = lazy(() => import("./pages/NorthEastTour.tsx"));
 const SouthIndiaTour = lazy(() => import("./pages/SouthIndiaTour.tsx"));
 const Nepal = lazy(() => import("./pages/Nepal.tsx"));
+const DivineDarshan = lazy(() => import("./pages/DivineDarshan.tsx"));
+const Kashmir = lazy(() => import("./pages/Kashmir.tsx"));
+const NorthEast = lazy(() => import("./pages/NorthEast.tsx"));
+const SouthIndia = lazy(() => import("./pages/SouthIndia.tsx"));
+const DestinationsMain = lazy(() => import("./pages/DestinationsMain.tsx"));
+
 const PackagesMain = lazy(() => import("./pages/PackagesMain.tsx"));
 const Gallery = lazy(() => import("./pages/Gallery.tsx"));
 
@@ -48,11 +54,16 @@ const App = () => (
           <Suspense fallback={<PageLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/destinations" element={<DestinationsMain />} />
               <Route path="/himachal" element={<Himachal />} />
               <Route path="/uttarakhand" element={<Uttarakhand />} />
               <Route path="/north-india" element={<NorthIndia />} />
               <Route path="/kerala" element={<Kerala />} />
               <Route path="/chardham" element={<CharDham />} />
+              <Route path="/divine-darshan" element={<DivineDarshan />} />
+              <Route path="/kashmir" element={<Kashmir />} />
+              <Route path="/north-east" element={<NorthEast />} />
+              <Route path="/south-india" element={<SouthIndia />} />
               <Route path="/packages/char-dham-yatra-12-days" element={<CharDham12Days />} />
               <Route path="/packages/ashtavinayak-ganpati-tour-6-days" element={<AshtavinayakTour />} />
               <Route path="/packages/gangasagar-kolkata-jagannath-puri-yatra" element={<GangasagarKolkataPuriYatra />} />

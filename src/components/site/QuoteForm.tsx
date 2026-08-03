@@ -28,6 +28,26 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
+    const newErrors: Record<string, string[]> = {};
+    if (!data.full_name || (data.full_name as string).trim().length < 3) {
+      newErrors.full_name = ["Name must be at least 3 characters."];
+    }
+    if (!data.phone || (data.phone as string).trim().length !== 10) {
+      newErrors.phone = ["Mobile number must be exactly 10 digits."];
+    }
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email as string)) {
+      newErrors.email = ["Please enter a valid email address."];
+    }
+    if (!data.arrival_date) {
+      newErrors.arrival_date = ["Please select a travel date."];
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setLoading(false);
+      return;
+    }
+
     try {
       setErrors({});
       await api.post("/store-enquiries", data);
@@ -59,7 +79,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
         </div>
       )}
 
-      <form onSubmit={onSubmit} className={horizontal ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3" : "grid gap-3 md:gap-4"}>
+      <form noValidate onSubmit={onSubmit} className={horizontal ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3" : "grid gap-3 md:gap-4"}>
         {!horizontal && (
           <div className="grid gap-3 md:gap-4 grid-cols-2">
             <div className="space-y-1 md:space-y-1.5">
@@ -69,6 +89,8 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 name="full_name"
                 className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.full_name ? 'border-red-500' : 'border-border'}`}
                 placeholder="John Doe"
+                required
+                minLength={3}
               />
               {errors.full_name && <p className="text-[10px] text-red-500 mt-1">{errors.full_name[0]}</p>}
             </div>
@@ -85,6 +107,9 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 }}
                 className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.phone ? 'border-red-500' : 'border-border'}`}
                 placeholder="9876543210"
+                required
+                minLength={10}
+                maxLength={10}
               />
               {errors.phone && <p className="text-[10px] text-red-500 mt-1">{errors.phone[0]}</p>}
             </div>
@@ -98,6 +123,8 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 name="full_name"
                 className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.full_name ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="Full Name"
+                required
+                minLength={3}
               />
             </div>
             <div className="space-y-1 w-full">
@@ -106,6 +133,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                 type="email"
                 className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="Email Address"
+                required
               />
             </div>
           </>
@@ -122,6 +150,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                   type="email"
                   className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.email ? 'border-red-500' : 'border-border'}`}
                   placeholder="john@example.com"
+                  required
                 />
                 {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email[0]}</p>}
               </div>
@@ -133,6 +162,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
                   type="date"
                   min={minDate}
                   className={`w-full rounded-sm border bg-brand-cream/60 px-4 py-2 md:py-3 text-[14px] md:text-[15px] font-medium text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors ${errors.arrival_date ? 'border-red-500' : 'border-border'}`}
+                  required
                 />
                 {errors.arrival_date && <p className="text-[10px] text-red-500 mt-1">{errors.arrival_date[0]}</p>}
               </div>
@@ -148,6 +178,9 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               }}
               className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.phone ? 'ring-2 ring-red-500' : ''}`}
               placeholder="Mobile Number"
+              required
+              minLength={10}
+              maxLength={10}
             />
           )}
         </div>
@@ -159,6 +192,7 @@ const QuoteForm = ({ onSuccess, className, title = "Get Your Best Deal", subtitl
               type="date"
               min={minDate}
               className={`w-full rounded-sm border-none bg-white px-4 py-3 md:py-4 text-[14px] md:text-[15px] font-medium text-foreground placeholder:text-foreground/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.arrival_date ? 'ring-2 ring-red-500' : ''}`}
+              required
             />
           </div>
         )}
