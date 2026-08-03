@@ -2,6 +2,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
+import { renderTextWithHighlights } from "@/lib/highlight";
 import SEO from "@/components/SEO";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
 import { useEffect } from "react";
@@ -379,7 +380,7 @@ const CharDham12Days = () => {
                                   {dayPlan.enRoute.map((stop, sIdx) => (
                                     <li key={sIdx} className="flex items-start gap-2">
                                       <ChevronRight className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                                      <span>{stop}</span>
+                                      <span>{renderTextWithHighlights(stop)}</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -396,7 +397,7 @@ const CharDham12Days = () => {
                                   {dayPlan.activities.map((act, aIdx) => (
                                     <li key={aIdx} className="flex items-start gap-2.5">
                                       <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
-                                      <span className="leading-normal">{act}</span>
+                                      <span className="leading-normal">{renderTextWithHighlights(act)}</span>
                                     </li>
                                   ))}
                                 </ul>

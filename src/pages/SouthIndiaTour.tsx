@@ -2,6 +2,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
+import { renderTextWithHighlights } from "@/lib/highlight";
 import SEO from "@/components/SEO";
 import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
@@ -367,7 +368,7 @@ const SouthIndiaTour = () => {
                                     return (
                                       <li key={aIdx} className="flex items-start gap-2.5">
                                         <ActivityIcon className={`w-4 h-4 shrink-0 mt-0.5 ${iconColor}`} strokeWidth={ActivityIcon === Check ? 3 : 2.5} />
-                                        <span className="leading-normal">{activityText}</span>
+                                        <span className="leading-normal">{renderTextWithHighlights(activityText)}</span>
                                       </li>
                                     );
                                   })}

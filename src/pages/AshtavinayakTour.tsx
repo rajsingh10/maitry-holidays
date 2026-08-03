@@ -2,6 +2,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
+import { renderTextWithHighlights } from "@/lib/highlight";
 import SEO from "@/components/SEO";
 import { Reveal, motion } from "@/lib/motion";
 import { useEffect } from "react";
@@ -286,7 +287,7 @@ const AshtavinayakTour = () => {
                                         ) : (
                                           <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
                                         )}
-                                        <span className="leading-normal">{displayText}</span>
+                                        <span className="leading-normal">{renderTextWithHighlights(displayText)}</span>
                                       </li>
                                     );
                                   })}

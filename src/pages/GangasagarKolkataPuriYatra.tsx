@@ -2,6 +2,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
+import { renderTextWithHighlights } from "@/lib/highlight";
 import SEO from "@/components/SEO";
 import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
@@ -341,7 +342,7 @@ const GangasagarKolkataPuriYatra = () => {
                                     return (
                                       <li key={aIdx} className="flex items-start gap-2.5">
                                         <ActivityIcon className={`w-4 h-4 shrink-0 mt-0.5 ${iconColor}`} strokeWidth={ActivityIcon === Check ? 3 : 2.5} />
-                                        <span className="leading-normal">{activityText}</span>
+                                        <span className="leading-normal">{renderTextWithHighlights(activityText)}</span>
                                       </li>
                                     );
                                   })}
@@ -439,6 +440,14 @@ const GangasagarKolkataPuriYatra = () => {
 
                   <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent mb-2 block">Spiritual Pilgrimage Yatra</span>
                   <h3 className="text-2xl font-bold leading-tight mb-4">Gangasagar – Kolkata – Puri</h3>
+
+                  <div className="border-t border-white/10 my-4 pt-4">
+                    <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Starting Price</span>
+                    <div className="flex items-baseline gap-1.5 mt-1">
+                      <span className="font-display text-4xl font-extrabold text-accent leading-none">₹18,000</span>
+                      <span className="text-[12px] text-white/60 font-medium">/ per person</span>
+                    </div>
+                  </div>
 
                   <div className="border-t border-white/10 my-4 pt-4">
                     <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Departure Date</span>
