@@ -108,9 +108,9 @@ const SouthIndiaTour = () => {
           <img
             src={pkg.hero.bgImage}
             alt="South India Tour Hero"
-            className="absolute inset-0 h-full w-full object-cover opacity-35"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-brand-darker/60 bg-gradient-to-t from-brand-darker via-brand-darker/90 to-black/70" />
+          <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-brand-darker via-brand-darker/60 to-transparent" />
         </div>
 
         <div className="container-px relative z-10 w-full mt-12">
