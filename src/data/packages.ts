@@ -83,13 +83,7 @@ export const packages = [
     inclusions: ["stay", "meals", "transit", "sightseeing"],
     link: "/packages/ashtavinayak-ganpati-tour-6-days"
   },
-  {
-    img: p26,
-    images: [p26, g9, g10],
-    title: "Divya Darshan Bharat Yatra", duration: "9 Days / 10 Nights", price: "₹28,000", category: "chardham",
-    bullets: ["Tirupati, Vellore (Golden Temple), Madurai, Rameswaram & Kanyakumari", "Kanyakumari, Trivandrum & Kovalam Beach sightseeing", "9 Nights / 10 Days with comfortable hotel stay, pure vegetarian meals & AC transportation"],
-    inclusions: ["stay", "meals", "transit", "guide", "sightseeing"]
-  },
+
   // {
   //   img: p4,
   //   images: [p4, g11, g12],
