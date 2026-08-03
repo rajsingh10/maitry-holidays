@@ -480,6 +480,14 @@ const NorthEastTour = () => {
                   <h3 className="text-2xl font-bold leading-tight mb-4">North East Tour (12 Days)</h3>
 
                   <div className="border-t border-white/10 my-4 pt-4">
+                    <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Starting Price</span>
+                    <div className="flex items-baseline gap-1.5 mt-1">
+                      <span className="font-display text-4xl font-extrabold text-accent leading-none">₹48,000</span>
+                      <span className="text-[12px] text-white/60 font-medium">/ per person</span>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-white/10 my-4 pt-4">
                     <span className="text-[11px] uppercase text-white/60 tracking-wider font-semibold block">Inclusions</span>
                     <div className="flex items-baseline gap-1.5 mt-1">
                       <span className="font-display text-2xl font-extrabold text-accent leading-none">12 Days / 11 Nights</span>

@@ -142,7 +142,7 @@ export const packages = [
   {
     img: p28,
     images: [p28, g1, g2],
-    title: "North East Tour: Explore the Hidden Gems", duration: "11 Days / 10 Nights", price: "On Request", category: "northeast",
+    title: "North East Tour: Explore the Hidden Gems", duration: "11 Days / 10 Nights", price: "₹48,000", category: "northeast",
     bullets: ["Explore scenic Tawang Monastery & Sela Pass in Arunachal", "Safari in Kaziranga National Park & Bihu Dance", "Visit Asia's cleanest Mawlynnong village & Dawki clear river"],
     inclusions: ["stay", "meals", "transit", "sightseeing"],
     link: "/packages/north-east-tour-11-days"
@@ -152,7 +152,7 @@ export const packages = [
   {
     img: p26,
     images: [p26, g1, g2],
-    title: "South India Tour: Sacred Temples & Scenic Destinations", duration: "11 Days / 10 Nights", price: "On Request", category: "southindia",
+    title: "South India Tour: Sacred Temples & Scenic Destinations", duration: "11 Days / 10 Nights", price: "₹28,000", category: "southindia",
     bullets: ["Visit Mallikarjuna Jyotirlinga, Tirumala Balaji & Rameswaram Dham", "Explore Vellore Golden Temple & Padmanabhaswamy Temple in Trivandrum", "Scenic Dhanushkodi beach, Kanyakumari sunset & Kovalam beach"],
     inclusions: ["stay", "meals", "transit", "sightseeing"],
     link: "/packages/south-india-tour-11-days"
