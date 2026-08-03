@@ -7,10 +7,6 @@ import { lazy, Suspense } from "react";
 import { LazyMotion, domMax } from "framer-motion";
 
 const Index = lazy(() => import("./pages/Index.tsx"));
-const Himachal = lazy(() => import("./pages/Himachal.tsx"));
-const Uttarakhand = lazy(() => import("./pages/Uttarakhand.tsx"));
-const NorthIndia = lazy(() => import("./pages/NorthIndia.tsx"));
-const Kerala = lazy(() => import("./pages/Kerala.tsx"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.tsx"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -25,7 +21,6 @@ const GangasagarKolkataPuriYatra = lazy(() => import("./pages/GangasagarKolkataP
 const KashmirTour = lazy(() => import("./pages/KashmirTour.tsx"));
 const NorthEastTour = lazy(() => import("./pages/NorthEastTour.tsx"));
 const SouthIndiaTour = lazy(() => import("./pages/SouthIndiaTour.tsx"));
-const Nepal = lazy(() => import("./pages/Nepal.tsx"));
 const DivineDarshan = lazy(() => import("./pages/DivineDarshan.tsx"));
 const Kashmir = lazy(() => import("./pages/Kashmir.tsx"));
 const NorthEast = lazy(() => import("./pages/NorthEast.tsx"));
@@ -55,10 +50,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/destinations" element={<DestinationsMain />} />
-              <Route path="/himachal" element={<Himachal />} />
-              <Route path="/uttarakhand" element={<Uttarakhand />} />
-              <Route path="/north-india" element={<NorthIndia />} />
-              <Route path="/kerala" element={<Kerala />} />
               <Route path="/chardham" element={<CharDham />} />
               <Route path="/divine-darshan" element={<DivineDarshan />} />
               <Route path="/kashmir" element={<Kashmir />} />
@@ -70,7 +61,6 @@ const App = () => (
               <Route path="/packages/kashmir-tour-7-days" element={<KashmirTour />} />
               <Route path="/packages/north-east-tour-11-days" element={<NorthEastTour />} />
               <Route path="/packages/south-india-tour-11-days" element={<SouthIndiaTour />} />
-              <Route path="/nepal" element={<Nepal />} />
               <Route path="/packages" element={<PackagesMain />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

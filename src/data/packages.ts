@@ -1,42 +1,18 @@
-import p1 from "@/assets/images/luxury-manali.webp";
-import p2 from "@/assets/images/shimla-weekend-tour.webp";
-// import p3 from "@/assets/images/chardham-yatra-tour.webp";
-import p3 from "@/assets/images/chardham_yatra.webp";
-import p4 from "@/assets/images/dodham-yatra.webp";
-import pAshtavinayak from "@/assets/images/ashtavinayak.webp";
-import p5 from "@/assets/images/Ayodhya & Varanasi.avif";
-import p6 from "@/assets/images/vaishno-devi.webp";
-import p7 from "@/assets/images/North India.avif";
-import p8 from "@/assets/images/golden temple.avif";
-import p9 from "@/assets/images/haridwar-tour.webp";
-import p10 from "@/assets/images/auli-tour.webp";
-import p11 from "@/assets/images/best-uttarakhand.webp";
-import p12 from "@/assets/images/mini-switzerland.webp";
-// import p26 from "@/assets/images/do-dham-yatra.webp"
-import p26 from "@/assets/images/divya_darshan.webp"
-import p27 from "@/assets/images/badrinath-tour.webp"
-import p28 from "@/assets/images/noth_east.webp"
-import p37 from "@/assets/images/kerala (1).webp"
-import p38 from "@/assets/images/kerala_munnar.webp"
-import p39 from "@/assets/images/nepal_kathmandu.webp"
-import p40 from "@/assets/images/nepal_muktinath.webp"
-import p41 from "@/assets/images/nepal_chitwan.webp"
-import p42 from "@/assets/images/kerala.webp"
-import pSouthIndia from "@/assets/images/south_img.webp"
 
+import p3 from "@/assets/images/chardham_yatra.webp";
+import p12 from "@/assets/images/mini-switzerland.webp";
+import p26 from "@/assets/images/divya_darshan.webp"
+import p28 from "@/assets/images/INDIA.webp"
+import pAshtavinayak from "@/assets/images/ashtavinayak.webp";
+import pSouthIndia from "@/assets/images/south_img.webp"
 import g1 from "@/assets/images/68d58498cd278adf77c2fcb0_package-image5.webp"
 import g2 from "@/assets/images/68d58498e1e7b157e6d2c8e7_package-image3.webp"
-import g3 from "@/assets/images/68d584990acf69f30cb0ab44_package-image4.webp"
-import g4 from "@/assets/images/68d584996cc7bd69eb58cdda_package-image6.webp"
-import g5 from "@/assets/images/68d584997592b6b423757073_package-image2.webp"
-import g6 from "@/assets/images/68d5849977180d0ab8b0c9a6_package-image1.webp"
 import g7 from "@/assets/images/68e40231c5b5a7f61a03b7d8_popular-destination-image1.webp"
 import g8 from "@/assets/images/68e40231694516f09e10aa89_popular-destination-image2.webp"
 import g9 from "@/assets/images/68e402315cd843c163fedd88_popular-destination-image3.webp"
 import g10 from "@/assets/images/68e40232faeb1fb4e6f91eac_popular-destination-image4.webp"
-import g11 from "@/assets/images/68e40233282eb14c09c7ba08_popular-destination-image5.webp"
-import g12 from "@/assets/images/68e40233b2f423c944e1da77_popular-destination-image6.webp"
 export const packages = [
+
 
   // Char Dham
   {

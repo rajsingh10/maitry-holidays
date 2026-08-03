@@ -92,9 +92,12 @@ const Testimonials = () => {
     <section ref={sectionRef} id="testimonials" aria-label="What our clients say" className="bg-gradient-to-b from-pink-50/50 to-orange-50/50 section-pad overflow-hidden">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-extrabold leading-[1.05] text-foreground md:text-5xl lg:text-[56px] uppercase tracking-tight">
-            Happy <span className="text-primary italic-display font-light">Travelers</span>
+          <h2 className="text-4xl font-semibold leading-[1.05] text-foreground md:text-5xl lg:text-[56px]">
+            Happy <span className="italic-display text-primary">Travelers</span>
           </h2>
+          <p className="mt-5 max-w-md mx-auto text-[15px] font-light leading-relaxed text-muted-foreground">
+            Read what our happy travelers have to say about their unforgettable experiences with Maitry Holidays.
+          </p>
         </Reveal>
 
         <Reveal className="mt-10 md:mt-12 flex h-[400px] md:h-[500px] w-full max-w-7xl mx-auto gap-2 md:gap-4 relative px-2 sm:px-0 justify-center">
