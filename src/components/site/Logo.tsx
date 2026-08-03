@@ -1,4 +1,4 @@
-import logoImg from "@/assets/images/newlogo.png";
+import logoImg from "@/assets/images/newlogo.webp";
 import logoDark from "@/assets/images/68d58496c83d6c462e129093_logo-dark.svg";
 
 interface LogoProps {

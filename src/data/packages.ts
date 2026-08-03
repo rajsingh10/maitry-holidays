@@ -1,26 +1,26 @@
-import p1 from "@/assets/images/luxury-manali.jpg";
-import p2 from "@/assets/images/shimla-weekend-tour.jpg";
-// import p3 from "@/assets/images/chardham-yatra-tour.jpg";
+import p1 from "@/assets/images/luxury-manali.webp";
+import p2 from "@/assets/images/shimla-weekend-tour.webp";
+// import p3 from "@/assets/images/chardham-yatra-tour.webp";
 import p3 from "@/assets/images/chardham_yatra.webp";
-import p4 from "@/assets/images/dodham-yatra.jpg";
+import p4 from "@/assets/images/dodham-yatra.webp";
 import p5 from "@/assets/images/Ayodhya & Varanasi.avif";
-import p6 from "@/assets/images/vaishno-devi.jpg";
+import p6 from "@/assets/images/vaishno-devi.webp";
 import p7 from "@/assets/images/North India.avif";
 import p8 from "@/assets/images/golden temple.avif";
-import p9 from "@/assets/images/haridwar-tour.png";
-import p10 from "@/assets/images/auli-tour.jpg";
-import p11 from "@/assets/images/best-uttarakhand.jpg";
-import p12 from "@/assets/images/mini-switzerland.jpg";
-// import p26 from "@/assets/images/do-dham-yatra.jpg"
+import p9 from "@/assets/images/haridwar-tour.webp";
+import p10 from "@/assets/images/auli-tour.webp";
+import p11 from "@/assets/images/best-uttarakhand.webp";
+import p12 from "@/assets/images/mini-switzerland.webp";
+// import p26 from "@/assets/images/do-dham-yatra.webp"
 import p26 from "@/assets/images/divya_darshan.webp"
-import p27 from "@/assets/images/badrinath-tour.jpg"
-import p28 from "@/assets/images/INDIA.jpg"
+import p27 from "@/assets/images/badrinath-tour.webp"
+import p28 from "@/assets/images/INDIA.webp"
 import p37 from "@/assets/images/kerala (1).webp"
-import p38 from "@/assets/images/kerala_munnar.png"
-import p39 from "@/assets/images/nepal_kathmandu.png"
-import p40 from "@/assets/images/nepal_muktinath.png"
-import p41 from "@/assets/images/nepal_chitwan.png"
-import p42 from "@/assets/images/kerala.jpg"
+import p38 from "@/assets/images/kerala_munnar.webp"
+import p39 from "@/assets/images/nepal_kathmandu.webp"
+import p40 from "@/assets/images/nepal_muktinath.webp"
+import p41 from "@/assets/images/nepal_chitwan.webp"
+import p42 from "@/assets/images/kerala.webp"
 
 import g1 from "@/assets/images/68d58498cd278adf77c2fcb0_package-image5.webp"
 import g2 from "@/assets/images/68d58498e1e7b157e6d2c8e7_package-image3.webp"

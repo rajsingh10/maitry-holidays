@@ -1,12 +1,12 @@
 import { Reveal } from "@/lib/motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import imgLeh from "@/assets/images/INDIA.jpg";
-import imgPangong from "@/assets/images/himachal.jpg";
-import imgNubra from "@/assets/images/uttarakhand.jpg";
-import imgTirupati from "@/assets/images/hero_india.png";
-import imgVellore from "@/assets/images/hero_kerala.png";
-import imgKanyakumari from "@/assets/images/hero_chardham.png";
+import imgLeh from "@/assets/images/INDIA.webp";
+import imgPangong from "@/assets/images/himachal.webp";
+import imgNubra from "@/assets/images/uttarakhand.webp";
+import imgTirupati from "@/assets/images/hero_india.webp";
+import imgVellore from "@/assets/images/hero_kerala.webp";
+import imgKanyakumari from "@/assets/images/hero_chardham.webp";
 
 const offers = [
   {

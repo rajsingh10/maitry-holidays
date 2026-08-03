@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import { Reveal } from "@/lib/motion";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import heroBg from "@/assets/images/mini-switzerland.jpg";
+import heroBg from "@/assets/images/mini-switzerland.webp";
 import {
   MapPin,
   Calendar,

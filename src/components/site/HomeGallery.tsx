@@ -2,12 +2,12 @@ import { Reveal, RevealGroup, motion, fadeUp } from "@/lib/motion";
 import { Link } from "react-router-dom";
 import { Image as ImageIcon, ArrowRight } from "lucide-react";
 
-import img1 from "@/assets/images/hero_kerala.png";
-import img2 from "@/assets/images/hero_chardham.png";
-import img3 from "@/assets/images/hero_nepal.png";
+import img1 from "@/assets/images/hero_kerala.webp";
+import img2 from "@/assets/images/hero_chardham.webp";
+import img3 from "@/assets/images/hero_nepal.webp";
 import img4 from "@/assets/images/kerala (1).webp";
-import img5 from "@/assets/images/INDIA.jpg";
-import img6 from "@/assets/images/banner5.jpg";
+import img5 from "@/assets/images/INDIA.webp";
+import img6 from "@/assets/images/banner5.webp";
 
 const galleryImages = [
     { src: img1, title: "Kerala Backwaters", category: "Kerala" },

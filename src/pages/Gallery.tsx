@@ -4,18 +4,18 @@ import AnnouncementBar from "@/components/site/AnnouncementBar";
 import FloatingActions from "@/components/site/FloatingActions";
 import { Reveal, RevealGroup, motion, fadeUp } from "@/lib/motion";
 import { useEffect, useState } from "react";
-import heroBg from "@/assets/images/hero_india.png";
+import heroBg from "@/assets/images/hero_india.webp";
 import { Image as ImageIcon } from "lucide-react";
 
 // Import a selection of images for the gallery
-import img1 from "@/assets/images/hero_kerala.png";
-import img2 from "@/assets/images/hero_chardham.png";
-import img3 from "@/assets/images/hero_nepal.png";
+import img1 from "@/assets/images/hero_kerala.webp";
+import img2 from "@/assets/images/hero_chardham.webp";
+import img3 from "@/assets/images/hero_nepal.webp";
 import img4 from "@/assets/images/kerala (1).webp";
-import img5 from "@/assets/images/INDIA.jpg";
-import img6 from "@/assets/images/banner5.jpg";
-import img7 from "@/assets/images/banner6.jpg";
-import img8 from "@/assets/images/himachal.jpg";
+import img5 from "@/assets/images/INDIA.webp";
+import img6 from "@/assets/images/banner5.webp";
+import img7 from "@/assets/images/banner6.webp";
+import img8 from "@/assets/images/himachal.webp";
 
 const galleryImages = [
     { src: img1, title: "Kerala Backwaters", category: "Kerala" },

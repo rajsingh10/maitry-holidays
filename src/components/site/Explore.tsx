@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/carousel";
 
 import d1 from "@/assets/images/kerala (1).webp";
-import d2 from "@/assets/images/chardham-yatra-tour.jpg";
-import d3 from "@/assets/images/INDIA.jpg";
+import d2 from "@/assets/images/chardham-yatra-tour.webp";
+import d3 from "@/assets/images/INDIA.webp";
 
 const places = [
   { name: "Kerala", trips: 3, img: d1, link: "/kerala" },

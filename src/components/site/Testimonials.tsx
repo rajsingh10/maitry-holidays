@@ -46,8 +46,13 @@ const Testimonials = () => {
     const videos = document.querySelectorAll('#testimonials video') as NodeListOf<HTMLVideoElement>;
     videos.forEach((vid, i) => {
       if (i === 2) {
-        vid.play().catch(() => { });
+        vid.muted = false;
+        vid.play().catch(() => {
+          vid.muted = true;
+          vid.play().catch(() => {});
+        });
       } else {
+        vid.muted = true;
         vid.pause();
       }
     });
@@ -97,7 +102,7 @@ const Testimonials = () => {
               >
                 <video
                   className="absolute inset-0 w-full h-full object-cover"
-                  muted
+                  muted={!isActive}
                   loop
                   preload="metadata"
                 >
@@ -164,6 +169,7 @@ const Testimonials = () => {
               className="w-full h-full object-contain"
               controls
               autoPlay
+              muted={false}
             />
           </div>
         </div>

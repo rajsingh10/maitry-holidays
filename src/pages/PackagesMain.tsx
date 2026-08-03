@@ -9,7 +9,7 @@ import { Reveal } from "@/lib/motion";
 const Packages = lazy(() => import("@/components/site/Packages"));
 const Contact = lazy(() => import("@/components/site/Contact"));
 const TourPosters = lazy(() => import("@/components/site/TourPosters"));
-import heroImg from "@/assets/images/kerala_banner_bg.png";
+import heroImg from "@/assets/images/kerala_banner_bg.webp";
 
 const PackagesMain = () => {
   useEffect(() => {

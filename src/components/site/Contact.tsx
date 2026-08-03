@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Reveal } from "@/lib/motion";
 import FAQ from "./FAQ";
-import mapBg from "@/assets/images/contact-map-bg.png";
+import mapBg from "@/assets/images/contact-map-bg.webp";
 
 const Contact = () => {
   return (

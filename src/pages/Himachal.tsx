@@ -5,7 +5,7 @@ import { packages } from "@/data/packages";
 import { Reveal } from "@/lib/motion";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import Hero from "@/components/site/Hero";
-import himachalHero from "@/assets/images/himachal.jpg";
+import himachalHero from "@/assets/images/himachal.webp";
 import FloatingActions from "@/components/site/FloatingActions";
 import WhyUs from "@/components/site/WhyUs";
 import { useEffect, lazy, Suspense } from "react";

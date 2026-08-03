@@ -5,7 +5,7 @@ import { packages } from "@/data/packages";
 import { Reveal } from "@/lib/motion";
 import AnnouncementBar from "@/components/site/AnnouncementBar";
 import Hero from "@/components/site/Hero";
-import nepalHero from "@/assets/images/INDIA.jpg"; // Using a placeholder for now as requested by user's packages
+import nepalHero from "@/assets/images/INDIA.webp"; // Using a placeholder for now as requested by user's packages
 import { useEffect, lazy, Suspense } from "react";
 import SEO from "@/components/SEO";
 import FloatingActions from "@/components/site/FloatingActions";

@@ -3,10 +3,10 @@ import { Reveal } from "@/lib/motion";
 import { X, ZoomIn, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import p1 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.48 PM.jpeg";
-import p2 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.49 PM.jpeg";
-import p3 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.54 PM.jpeg";
-import p4 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.54 PM (1).jpeg";
+import p1 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.48 PM.webp";
+import p2 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.49 PM.webp";
+import p3 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.54 PM.webp";
+import p4 from "@/assets/images/packages/WhatsApp Image 2026-07-31 at 1.34.54 PM (1).webp";
 
 const posters = [
   p1,

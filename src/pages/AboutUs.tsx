@@ -6,9 +6,9 @@ import Testimonials from "@/components/site/Testimonials";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
-import heroBg from "@/assets/images/nepal_banner_bg.png";
-import aboutImg1 from "@/assets/images/about_img1.jpg";
-import aboutImg2 from "@/assets/images/about_img2.jpg";
+import heroBg from "@/assets/images/nepal_banner_bg.webp";
+import aboutImg1 from "@/assets/images/about_img1.webp";
+import aboutImg2 from "@/assets/images/about_img2.webp";
 import {
     MapPin,
     Mail,

@@ -2,10 +2,10 @@ import { useState, useEffect, memo, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Star, ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
-import heroBg from "@/assets/images/hero_india.png";
-import slider1 from "@/assets/images/hero_kerala.png";
-import slider2 from "@/assets/images/hero_chardham.png";
-import slider3 from "@/assets/images/hero_nepal.png";
+import heroBg from "@/assets/images/hero_india.webp";
+import slider1 from "@/assets/images/hero_kerala.webp";
+import slider2 from "@/assets/images/hero_chardham.webp";
+import slider3 from "@/assets/images/hero_nepal.webp";
 
 import callIcon from "@/assets/images/68d58496260c7e2b997749bc_call-dark.svg";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";

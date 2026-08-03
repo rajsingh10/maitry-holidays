@@ -7,7 +7,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import api from "@/lib/api";
-import heroBg from "@/assets/images/chardham_banner_bg.png";
+import heroBg from "@/assets/images/chardham_banner_bg.webp";
 import {
     MapPin,
     Mail,
