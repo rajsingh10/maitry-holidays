@@ -35,28 +35,6 @@ import g10 from "@/assets/images/68e40232faeb1fb4e6f91eac_popular-destination-im
 import g11 from "@/assets/images/68e40233282eb14c09c7ba08_popular-destination-image5.webp"
 import g12 from "@/assets/images/68e40233b2f423c944e1da77_popular-destination-image6.webp"
 export const packages = [
-  // Kerala
-  {
-    img: p37,
-    images: [p37, g1, g2],
-    title: "Kerala Backwaters & Beaches", duration: "5 Days / 4 Nights", price: "₹14,999", category: "kerala",
-    bullets: ["Premium Houseboat Stay in Alleppey", "Munnar Tea Gardens & Waterfalls", "Private AC Transport"],
-    inclusions: ["stay", "transit", "sightseeing"]
-  },
-  {
-    img: p38,
-    images: [p38, g3, g4],
-    title: "Munnar Hill Station Retreat", duration: "4 Days / 3 Nights", price: "₹11,499", category: "kerala",
-    bullets: ["Stay in Luxury Resort amidst Tea Plantations", "Eravikulam National Park Safari", "Spice Plantation Tour & Elephant Ride"],
-    inclusions: ["stay", "transit", "sightseeing"]
-  },
-  {
-    img: p42,
-    images: [p42, g5, g6],
-    title: "Complete Kerala Explorer", duration: "7 Days / 6 Nights", price: "₹22,999", category: "kerala",
-    bullets: ["Covering Kochi, Munnar, Thekkady & Alleppey", "Kathakali & Kalaripayattu Cultural Shows", "Periyar Lake Boating & Ayurvedic Massage"],
-    inclusions: ["stay", "transit", "sightseeing"]
-  },
 
   // Char Dham
   {
@@ -82,44 +60,6 @@ export const packages = [
     bullets: ["Visit the 8 Most Sacred Ganesha Temples of Maharashtra (Swayambhu)", "Visit 5 powerful Jyotirlingas: Bhimashankar, Parli Vaijnath, Aundha Nagnath, Grishneshwar & Trimbakeshwar", "Travel by comfortable Tempo Traveller with delicious Gujarati meals prepared by an experienced cook"],
     inclusions: ["stay", "meals", "transit", "sightseeing"],
     link: "/packages/ashtavinayak-ganpati-tour-6-days"
-  },
-
-  // {
-  //   img: p4,
-  //   images: [p4, g11, g12],
-  //   title: "Kedarnath Dham: The Shiva Calling", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
-  //   bullets: ["16km trek to the 11th Jyotirlinga", "Stay at closest points (Guptkashi/Sitapur)", "Mandatory Yatra Registration Support"],
-  //   inclusions: ["stay", "transit"]
-  // },
-  // {
-  //   img: p27,
-  //   images: [p27, p5, p6],
-  //   title: "Badrinath Dham: Vaikuntha Experience", duration: "4 Days / 3 Nights", price: "₹9,999", category: "chardham",
-  //   bullets: ["Morning & Evening Darshan at Lord Vishnu's abode", "Visit Mana (India’s Last Village) & Tapt Kund", "03 Nights Premium Stay & Satvik Meals"],
-  //   inclusions: ["stay", "meals", "transit", "sightseeing"]
-  // },
-
-  // Nepal
-  {
-    img: p39,
-    images: [p39, p7, p8],
-    title: "Kathmandu & Pokhara Explorer", duration: "6 Days / 5 Nights", price: "₹18,999", category: "nepal",
-    bullets: ["Visit Pashupatinath & Boudhanath Stupa", "Pokhara Lake Boating & Mountain Views", "Premium Hotel Stays & Transfers"],
-    inclusions: ["stay", "transit", "sightseeing"]
-  },
-  {
-    img: p40,
-    images: [p40, p9, p10],
-    title: "Muktinath Darshan Yatra", duration: "5 Days / 4 Nights", price: "₹15,499", category: "nepal",
-    bullets: ["Holy Bath at 108 Waterspouts", "Scenic flight from Pokhara to Jomsom", "Dedicated AC Vehicle for Darshan"],
-    inclusions: ["stay", "transit", "sightseeing"]
-  },
-  {
-    img: p41,
-    images: [p41, p11, p12],
-    title: "Best of Nepal Cultural Tour", duration: "7 Days / 6 Nights", price: "₹22,500", category: "nepal",
-    bullets: ["Explore Kathmandu, Pokhara & Chitwan", "Wildlife Safari in Chitwan National Park", "Swayambhunath & Durbar Square Visits"],
-    inclusions: ["stay", "transit", "sightseeing"]
   },
 
   // Kashmir
@@ -154,10 +94,8 @@ export const packages = [
 ];
 
 export const categories = [
-  // { id: "kerala", label: "Kerala", img: p28, path: "/kerala" },
   { id: "chardham", label: "Char Dham", img: p3, path: "/chardham" },
   { id: "divine-darshan", label: "Divine Darshan Yatra", img: p26, path: "/packages" },
-  // { id: "nepal", label: "Nepal", img: p28, path: "/nepal" },
   { id: "kashmir", label: "Kashmir", img: p12, path: "/packages" },
   { id: "northeast", label: "North East", img: p28, path: "/packages" },
   { id: "southindia", label: "South India", img: p26, path: "/packages" },

@@ -142,10 +142,17 @@ const Hero = ({
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="mt-10 flex w-full max-w-sm sm:max-w-none flex-row items-center justify-center gap-2 sm:gap-4 px-2 sm:px-0"
           >
-            <a href={buttonLink} className="btn-primary group flex flex-1 sm:flex-none items-center justify-center !rounded-sm px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
-              {buttonText}
-              <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
-            </a>
+            {buttonLink.startsWith('#') ? (
+              <a href={buttonLink} className="btn-primary group flex flex-1 sm:flex-none items-center justify-center !rounded-sm px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
+                {buttonText}
+                <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
+              </a>
+            ) : (
+              <Link to={buttonLink} className="btn-primary group flex flex-1 sm:flex-none items-center justify-center !rounded-sm px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
+                {buttonText}
+                <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
+              </Link>
+            )}
             <Link to="/contact" className="group flex flex-1 sm:flex-none items-center justify-center rounded-sm border-2 border-white/50 bg-white/10 backdrop-blur-md px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold text-white transition-all hover:bg-white hover:text-brand-darker text-center leading-tight">
               Contact Us
               <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
