@@ -12,7 +12,7 @@ import {
 import imgCharDham from "@/assets/images/chardham-yatra-tour.webp";
 import imgDivineDarshan from "@/assets/images/divya_darshan.webp";
 import imgKashmir from "@/assets/images/mini-switzerland.webp";
-import imgNorthEast from "@/assets/images/INDIA.webp";
+import imgNorthEast from "@/assets/images/noth_east.webp";
 import imgSouthIndia from "@/assets/images/kerala (1).webp";
 
 const places = [

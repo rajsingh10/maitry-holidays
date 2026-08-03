@@ -1,7 +1,9 @@
 import chardhamCardImg from "@/assets/images/chardham_yatra.webp";
 import divyaDarshanImg from "@/assets/images/divya_darshan.webp";
+import ashtavinayakImg from "@/assets/images/ashtavinayak.webp";
 import miniSwitzerlandImg from "@/assets/images/mini-switzerland.webp";
 import indiaImg from "@/assets/images/INDIA.webp";
+import northEastImg from "@/assets/images/noth_east.webp";
 
 export interface ItineraryItem {
   day: number;
@@ -279,7 +281,7 @@ export const packagesData: PackageDetail[] = [
       title: "Ashtavinayak",
       italicTitle: "Ganpati Tour",
       description: "A sacred 6 Days / 5 Nights pilgrimage covering the 8 self-manifested (Swayambhu) Ganesha temples and 5 powerful Jyotirlingas of Maharashtra. Complete with comfortable stays, pure vegetarian Gujarati meals, and transport.",
-      bgImage: chardhamCardImg
+      bgImage: ashtavinayakImg
     },
     metrics: {
       duration: "6 Days / 5 Nights",
@@ -703,7 +705,7 @@ export const packagesData: PackageDetail[] = [
       title: "North East Tour:",
       italicTitle: "Explore Hidden Gems",
       description: "An incredible 11 Days / 10 Nights tour program covering the scenic peaks of Arunachal, Kaziranga National Park in Assam, and the waterfalls of Meghalaya. Travel comfortably with pure vegetarian Gujarati meals.",
-      bgImage: indiaImg
+      bgImage: northEastImg
     },
     metrics: {
       duration: "11 Days / 10 Nights",

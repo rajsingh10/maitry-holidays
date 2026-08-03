@@ -3,6 +3,7 @@ import p2 from "@/assets/images/shimla-weekend-tour.webp";
 // import p3 from "@/assets/images/chardham-yatra-tour.webp";
 import p3 from "@/assets/images/chardham_yatra.webp";
 import p4 from "@/assets/images/dodham-yatra.webp";
+import pAshtavinayak from "@/assets/images/ashtavinayak.webp";
 import p5 from "@/assets/images/Ayodhya & Varanasi.avif";
 import p6 from "@/assets/images/vaishno-devi.webp";
 import p7 from "@/assets/images/North India.avif";
@@ -14,7 +15,7 @@ import p12 from "@/assets/images/mini-switzerland.webp";
 // import p26 from "@/assets/images/do-dham-yatra.webp"
 import p26 from "@/assets/images/divya_darshan.webp"
 import p27 from "@/assets/images/badrinath-tour.webp"
-import p28 from "@/assets/images/INDIA.webp"
+import p28 from "@/assets/images/noth_east.webp"
 import p37 from "@/assets/images/kerala (1).webp"
 import p38 from "@/assets/images/kerala_munnar.webp"
 import p39 from "@/assets/images/nepal_kathmandu.webp"
@@ -54,8 +55,8 @@ export const packages = [
     link: "/packages/gangasagar-kolkata-jagannath-puri-yatra"
   },
   {
-    img: p3,
-    images: [p3, g7, g8],
+    img: pAshtavinayak,
+    images: [pAshtavinayak, g7, g8],
     title: "Ashtavinayak Ganpati Tour", duration: "6 Days / 5 Nights", price: "₹14,000", category: "divine-darshan",
     bullets: ["Visit the 8 Most Sacred Ganesha Temples of Maharashtra (Swayambhu)", "Visit 5 powerful Jyotirlingas: Bhimashankar, Parli Vaijnath, Aundha Nagnath, Grishneshwar & Trimbakeshwar", "Travel by comfortable Tempo Traveller with delicious Gujarati meals prepared by an experienced cook"],
     inclusions: ["stay", "meals", "transit", "sightseeing"],
