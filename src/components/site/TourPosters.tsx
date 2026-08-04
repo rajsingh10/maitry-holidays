@@ -99,6 +99,7 @@ const TourPosters = ({ showAll = false }: TourPostersProps = {}) => {
             className="absolute top-4 right-4 md:top-8 md:right-8 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md transition-colors z-10"
             onClick={() => setSelectedPoster(null)}
           >
+            <span className="sr-only">Close poster</span>
             <X className="w-6 h-6" />
           </button>
 

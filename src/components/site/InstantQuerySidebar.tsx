@@ -38,6 +38,7 @@ const InstantQuerySidebar = () => {
             onClick={() => setIsOpen(false)} 
             className="text-gray-500 hover:text-black bg-white shadow-sm p-1.5 rounded-full border border-gray-200 transition-all hover:scale-105"
           >
+            <span className="sr-only">Close query form</span>
             <X className="h-5 w-5" />
           </button>
         </div>

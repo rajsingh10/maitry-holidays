@@ -3,9 +3,10 @@ import { useLocation, Link } from "react-router-dom";
 import { Star, ArrowRight } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 import heroBg from "@/assets/images/hero_india.webp";
-import slider1 from "@/assets/images/hero_kerala.webp";
 import slider2 from "@/assets/images/hero_chardham.webp";
-import slider3 from "@/assets/images/hero_nepal.webp";
+import slider3 from "@/assets/images/noth_east.webp";
+import slider4 from "@/assets/images/himachal.webp";
+import slider5 from "@/assets/images/ashtavinayak.webp";
 
 import callIcon from "@/assets/images/68d58496260c7e2b997749bc_call-dark.svg";
 import { Reveal, RevealGroup, motion } from "@/lib/motion";
@@ -41,9 +42,9 @@ const Hero = ({
   const isHomePage = pathname === "/";
   const slides = useMemo(() => isHomePage ? [
     { image: bgImage, title: title, subtitle: subtitle },
-    { image: slider1, title: "God's Own Country: Kerala", subtitle: "Experience the serene backwaters, lush green tea gardens, and pristine beaches of Kerala." },
     { image: slider2, title: "Divine Char Dham Yatra", subtitle: "Seek spiritual peace and divine blessings at the majestic snow-capped peaks of the Himalayas." },
-    { image: slider3, title: "Mystical Nepal Explorer", subtitle: "Discover ancient Buddhist stupas, vibrant culture, and the awe-inspiring beauty of Nepal." }
+    // { image: slider3, title: "Enchanting North East", subtitle: "Explore the hidden gems, misty mountains, and vibrant culture of North East India." },
+    { image: slider4, title: "Majestic Himachal", subtitle: "Discover breathtaking landscapes, serene valleys, and adventurous trails in Himachal Pradesh." },
   ] : [
     { image: bgImage, title: title, subtitle: subtitle }
   ], [isHomePage, bgImage, title, subtitle]);
@@ -121,13 +122,13 @@ const Hero = ({
                 className="flex flex-col items-center"
               >
                 <h1
-                  className="max-w-4xl text-balance text-5xl font-bold leading-[1.1] text-white sm:text-6xl md:text-7xl lg:text-[80px]"
+                  className="max-w-5xl px-2 text-balance text-4xl sm:text-5xl font-bold leading-[1.15] text-white md:text-7xl lg:text-[80px]"
                   style={{ textShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
                 >
                   {slides[currentIdx].title}
                 </h1>
                 <p
-                  className="mt-6 max-w-2xl text-[17px] md:text-[19px] font-medium leading-relaxed text-white/90"
+                  className="mt-4 sm:mt-6 max-w-2xl text-[15px] sm:text-[17px] md:text-[19px] font-medium leading-relaxed text-white/90 px-4 sm:px-0"
                   style={{ textShadow: "0 2px 10px rgba(0,0,0,0.2)" }}
                 >
                   {slides[currentIdx].subtitle}
@@ -140,22 +141,22 @@ const Hero = ({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex w-full max-w-sm sm:max-w-none flex-row items-center justify-center gap-2 sm:gap-4 px-2 sm:px-0"
+            className="mt-8 sm:mt-10 flex w-full max-w-[280px] sm:max-w-none flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-2 sm:px-0 mx-auto"
           >
             {buttonLink.startsWith('#') ? (
-              <a href={buttonLink} className="btn-primary group flex flex-1 sm:flex-none items-center justify-center !rounded-sm px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
+              <a href={buttonLink} className="btn-primary group flex w-full sm:w-auto h-[46px] sm:h-[48px] items-center justify-center !rounded-sm px-6 sm:px-6 text-[15px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
                 {buttonText}
-                <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
               </a>
             ) : (
-              <Link to={buttonLink} className="btn-primary group flex flex-1 sm:flex-none items-center justify-center !rounded-sm px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
+              <Link to={buttonLink} className="btn-primary group flex w-full sm:w-auto h-[46px] sm:h-[48px] items-center justify-center !rounded-sm px-6 sm:px-6 text-[15px] font-semibold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] text-center leading-tight">
                 {buttonText}
-                <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
               </Link>
             )}
-            <Link to="/contact" className="group flex flex-1 sm:flex-none items-center justify-center rounded-sm border-2 border-white/50 bg-white/10 backdrop-blur-md px-2 py-3 sm:px-8 sm:py-4 text-[13px] sm:text-[16px] font-semibold text-white transition-all hover:bg-white hover:text-brand-darker text-center leading-tight">
+            <Link to="/contact" className="group flex w-full sm:w-auto h-[46px] sm:h-[48px] items-center justify-center rounded-sm border-2 border-white/50 bg-white/10 backdrop-blur-md px-6 sm:px-6 text-[15px] font-semibold text-white transition-all hover:bg-white hover:text-brand-darker text-center leading-tight">
               Contact Us
-              <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>

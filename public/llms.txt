@@ -1,0 +1,25 @@
+# Maitry Holidays
+
+Maitry Holidays is your trusted travel agency for unforgettable holidays. We offer curated destinations, luxury packages, expert guides, and instant booking.
+
+## Quick Links
+
+- [Home](https://maitryholidays.com/)
+- [About Us](https://maitryholidays.com/about)
+- [Packages](https://maitryholidays.com/packages)
+- [Gallery](https://maitryholidays.com/gallery)
+- [Contact Us](https://maitryholidays.com/contact)
+
+## Popular Packages
+
+- [Kashmir Tour](https://maitryholidays.com/packages/kashmir-tour)
+- [South India Tour](https://maitryholidays.com/packages/south-india-tour)
+- [North East Tour](https://maitryholidays.com/packages/north-east-tour)
+- [Char Dham 12 Days](https://maitryholidays.com/packages/char-dham-12-days)
+- [Gangasagar Kolkata Puri Yatra](https://maitryholidays.com/packages/gangasagar-kolkata-puri-yatra)
+
+## Contact Information
+
+- Phone: +91-7041260720
+- Email: maitry.holidays13@gmail.com
+- Address: F-39, Signet Mall, Kamrej Char Rasta, Surat, Gujarat Zip code: 394185

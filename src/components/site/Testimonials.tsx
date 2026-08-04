@@ -100,7 +100,7 @@ const Testimonials = () => {
           </p>
         </Reveal>
 
-        <Reveal className="mt-10 md:mt-12 flex h-[400px] md:h-[500px] w-full max-w-7xl mx-auto gap-2 md:gap-4 relative px-2 sm:px-0 justify-center">
+        <Reveal className="mt-10 md:mt-12 flex h-[550px] md:h-[500px] w-full max-w-7xl mx-auto gap-2 md:gap-4 relative px-2 sm:px-0 justify-center">
           {getRotatedItems().map((r, i) => {
             // Find original index to maintain correct state
             const originalIndex = reviews.findIndex(item => item.id === r.id);
@@ -127,8 +127,8 @@ const Testimonials = () => {
                   }
                 }}
                 className={`group relative h-full overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-2xl md:rounded-[2rem] shadow-lg ${isActive
-                    ? "flex-grow basis-full sm:basis-[220px] md:basis-[550px] shadow-2xl scale-100 block"
-                    : "basis-[60px] md:basis-[220px] opacity-70 hover:opacity-100 scale-95 md:scale-100 hidden sm:block"
+                  ? "flex-grow basis-full sm:basis-[220px] md:basis-[550px] shadow-2xl scale-100 block"
+                  : "basis-[60px] md:basis-[220px] opacity-70 hover:opacity-100 scale-95 md:scale-100 hidden sm:block"
                   }`}
               >
                 <video
@@ -159,6 +159,7 @@ const Testimonials = () => {
                         }
                       }}
                     >
+                      <span className="sr-only">Play video</span>
                       <Play className="w-8 h-8 fill-current ml-1" />
                     </button>
                   </div>
@@ -174,6 +175,7 @@ const Testimonials = () => {
                         setActiveIndex(prev => prev === 0 ? reviews.length - 1 : prev - 1);
                       }}
                     >
+                      <span className="sr-only">Previous testimonial</span>
                       <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
                     </button>
                     <button
@@ -183,6 +185,7 @@ const Testimonials = () => {
                         setActiveIndex(prev => prev === reviews.length - 1 ? 0 : prev + 1);
                       }}
                     >
+                      <span className="sr-only">Next testimonial</span>
                       <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
                     </button>
                   </div>
